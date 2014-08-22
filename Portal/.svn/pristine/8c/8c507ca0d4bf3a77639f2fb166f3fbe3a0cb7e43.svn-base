@@ -1,0 +1,148 @@
+from django.shortcuts import render_to_response
+from django.db import connection
+from django.views.decorators.csrf import csrf_exempt
+
+from django.http import HttpResponse
+from django.template import RequestContext
+
+import json
+import socket
+import time
+
+@csrf_exempt
+
+# Create your views here.
+
+def login(request):
+
+	return render_to_response('login.html', { })
+
+
+def check(request):
+
+	cursor = connection.cursor()
+
+	sqlstate = """select name,passwd,mailAddr from erunner_user;"""
+
+	cursor.execute(sqlstate)
+
+	info = cursor.fetchall();
+
+	if request.method == "POST":
+
+
+		Username = request.POST['UserName']
+		Passwd = request.POST['Password']
+
+		for index in info:
+
+			if index[0] == Username and index[1] == Passwd:
+
+				return render_to_response('mainframe.html', { })
+		
+		
+	return render_to_response('login.html', { })
+
+
+def execute(request):
+
+    return render_to_response('execute.html', context_instance=RequestContext(request))
+
+
+def mainframe(request):
+
+    return render_to_response('mainframe.html',context_instance=RequestContext(request))
+
+
+def report(request):
+
+    return render_to_response('report.html', context_instance=RequestContext(request))
+
+
+def trend(request):
+
+    return render_to_response('trend.html', context_instance=RequestContext(request))
+
+
+def result(request):
+
+    return render_to_response('result.html', context_instance=RequestContext(request))
+
+
+def executetable(request):
+
+    return render_to_response('exetable.html', context_instance=RequestContext(request))
+
+
+"""
+def run(request):
+
+    cursor = connection.cursor()
+
+    if request.method == "POST":
+
+        InputData = json.loads(request.body)
+
+        sqlSta="""select IP,Port from erunner_id where Module='%s'"""%(InputData['TestProduct'])
+
+        InputData = simplejson.loads(request.body)
+
+        cursor.execute(sqlSta)
+
+	    info = cursor.fetchone()
+
+		sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+        Cursor = connection.cursor()
+
+        sql = """select IP,Port from erunner_id where Module='%s'"""%(InputData['TestProduct'])
+
+        Cursor.execute(sql)
+
+        info = Cursor.fetchone()
+
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+        sock.connect((info[0],info[1]))
+
+	return HttpResponse(method)
+
+"""
+
+def SearchResult(request):
+
+    PostData = simplejson.loads(request.body)
+
+    if request.method=="POST":
+
+        Cur = connection.cursor()
+
+        sql = """select Module,CaseNum,Result from erunner_result where ExecDataTime='%s'"""%(PostData['ExecTime'])
+
+        Cur.execute(sql)
+
+        TestInf = Cur.fetchall()
+
+        a = []
+
+        for item in TestInf:
+
+            d = obj2dict(item)
+
+            a.append(d)
+
+        resultData = json.loads(a)
+
+    return HttpResponse(resultData)
+
+
+def obj2dict(objectBody):
+
+    d = {}
+
+    d['TestModule'] = objectBody[0]
+    d['CaseNumber'] = objectBody[1]
+    d['TestResult'] = objectBody[2]
+
+    return d
+

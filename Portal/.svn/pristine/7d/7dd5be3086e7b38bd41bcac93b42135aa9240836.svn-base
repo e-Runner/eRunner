@@ -1,0 +1,17 @@
+from django.conf.urls import patterns, include, url
+
+from django.contrib import admin
+admin.autodiscover()
+
+urlpatterns = patterns('',
+    url(r'^$', 'erunner.views_auth.mylogin', name='login'),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^login/', 'erunner.views_auth.mylogin'),
+    url(r'^execute/','erunner.views.execute'),
+    url(r'^mainframe/','erunner.views.mainframe'),
+    url(r'^report/','erunner.views.report'),
+    url(r'^trend/','erunner.views.trend'),
+    url(r'^result/','erunner.views.result'),
+    url(r'executetable/','erunner.views.executetable'),
+
+)

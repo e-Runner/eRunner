@@ -1,0 +1,182 @@
+{% extends "generic_prod.html" %}
+
+{% block style-added %}
+    <style type="text/css">
+        p {
+            display: inline;
+            vertical-align: middle;
+        }
+
+        h2 {
+            display: inline;
+            vertical-align: middle;
+        }
+
+        h3 {
+            display: inherit;
+        }
+
+        h4 {
+            display: inline;
+            vertical-align: middle;
+            padding-right: 15px;
+        }
+
+        h5 {
+            margin: 1px;
+        }
+
+        th {
+            font-size: 22px;
+            text-align: center;
+        }
+
+        td {
+            text-align: center;
+            font-size: 16px;
+        }
+
+        #JobResult {
+            text-align: center;
+            padding-top: 10px;;
+            margin: auto;
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block script-added %}
+    <script src="../static/js/highcharts.js"></script>
+    <script src="../static/js/exporting.js"></script>
+    <script src="../static/js/report.js"></script>
+{% endblock %}
+
+{% block content %}
+<div style="padding-top: 100px;">
+    <label style="display: inline; margin-right: 10px; padding-left: 3%"><h3 > 产品名称 </h3 > </label>
+        <select id="ReportProductSelect" style="visibility: visible">
+        </select >
+    <label style="display: inline; margin-right: 10px"><h3 style="padding-left: 30px">模块名称 </h3> </label>
+        <select id="ReportModuleSelect" style="visibility: visible">
+        </select >
+    <label style="display: inline; margin-right: 10px"><h3 style="padding-left: 30px">任务名称 </h3> </label>
+        <select id="ReportJobSelect" style="visibility: visible">
+        </select>
+    <table id="JobResult" class="table table-striped">
+        <thead>
+        <tr>
+            <th> 任务名称</th>
+            <th> 通过率</th>
+            <th> 通过数</th>
+            <th> 总数</th>
+            <th> 开始时间</th>
+            <th> 运行时长(秒)</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block script-body %}
+    <script style="text/javascript">
+          function ReportProductChanged(data)
+            {
+                document.getElementById("ReportModuleSelect").options.length = 0;
+                for (i = 0; i < data['ModuleList'].length; i++) {
+                   document.getElementById("ReportModuleSelect").options.add(new Option(data['ModuleList'][i]));
+                }
+            }
+
+          function ReportModuleChanged(data)
+          {
+             document.getElementById("ReportJobSelect").options.length = 0;
+             data = $.parseJSON(data);
+             for (i = 0; i < data['JobSortName'].length; i++) {
+                 document.getElementById("ReportJobSelect").options.add(new Option(data['JobSortName'][i]));
+             }
+          }
+
+          function ReportJobChanged(data)
+          {
+              $("#JobResult tbody").html("");
+              data = $.parseJSON(data);
+              JsonLength = data['JobResult'].length;
+              for(i=0; i<JsonLength; i++)
+              {
+
+                  if(data['JobResult'][i]['Ratio']==100.00)
+                  {
+                      var JobName = "<tr><td>"+data['JobResult'][i]['JobName']+"</td>";
+                  }
+                  else
+                  {
+                      var JobName = "<tr><td><a href='../result?JobID="+data['JobResult'][i]['JobId']+"'>"+data['JobResult'][i]['JobName']+"</td>";
+                  }
+                  var JobResult = "<td>"+data['JobResult'][i]['Ratio']+"</td>";
+                  var TotalNumber = "<td>"+data['JobResult'][i]['PassNumber']+"</td>";
+                  var PassedNumber = "<td>"+data['JobResult'][i]['TotalNumber']+"</td>";
+                  var StartTime = "<td>"+data['JobResult'][i]['StartTime']+"</td>";
+                  var DurationTime = "<td>"+data['JobResult'][i]['DurationTime']+"</td></tr>";
+                  var NewRow = JobName+JobResult+TotalNumber+PassedNumber+StartTime+DurationTime;
+                  $("#JobResult").append(NewRow);
+              }
+          }
+
+      $(document).ready(function(){
+          add_product("OK", add_pro);
+          function add_pro(data)
+            {
+                document.getElementById("ReportProductSelect").options.length = 0;
+                for(i=0; i < data['Product'].length; i++)
+                {
+                    document.getElementById("ReportProductSelect").options.add(new Option(data['Product'][i]))
+                }
+                var checked_product = $("#ReportProductSelect option:selected").text();
+                updateproduct(checked_product, ReportProductChanged);
+                var checked_module = $("#ReportModuleSelect option:selected").text();
+                report_module_changed(checked_module, ReportModuleChanged);
+                var Check_Job = $("#ReportJobSelect option:selected").text();
+                if(Check_Job!="")
+                 {
+                     report_job_changed(Check_Job, ReportJobChanged);
+                 }
+                 else
+                 {
+                    $("#JobResult tbody").html("");
+                 }
+            }
+
+          $("#ReportProductSelect").change(function(){
+              var checked_product = $("#ReportProductSelect option:selected").text();
+              updateproduct(checked_product, ReportProductChanged);
+              $("#ReportModuleSelect").change();
+          });
+
+          $("#ReportModuleSelect").change(function(){
+
+             var checked_module = $("#ReportModuleSelect option:selected").text();
+             report_module_changed(checked_module, ReportModuleChanged);
+             var Check_Job = $("#ReportJobSelect option:selected").text();
+             if(Check_Job!="")
+             {
+                 report_job_changed(Check_Job, ReportJobChanged);
+             }
+             else
+             {
+                $("#JobResult tbody").html("");
+             }
+
+
+          });
+
+          $("#ReportJobSelect").change(function(){
+
+              var Check_Job = $("#ReportJobSelect option:selected").text();
+              report_job_changed(Check_Job, ReportJobChanged);
+
+          });
+      });
+    </script>
+{% endblock %}

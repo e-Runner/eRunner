@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        th,td
+        {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th
+        {
+            background-color: darkgray;
+            font-size: large;
+            font-weight: bolder;
+        }
+    </style>
+
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/flat-ui.css">
+</head>
+
+<body>
+ <table class="table table-striped" id="TableShow">
+
+      <tr>
+          <th>DeleteChoice</th>
+          <th>JobName</th>
+          <th>TestVersion</th>
+          <th>TestSuite</th>
+          <th>TestTime</th>
+          <th>Status</th>
+          <th>Action</th>
+      </tr>
+
+  </table>
+</body>
+</html>

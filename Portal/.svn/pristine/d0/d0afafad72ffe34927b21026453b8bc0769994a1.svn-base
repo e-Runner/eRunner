@@ -1,0 +1,110 @@
+#coding=utf-8
+from django.http import HttpResponse
+from django.shortcuts import render_to_response
+from django.template import RequestContext
+from forms_tools import UploadFileForm
+from models_dimension import Attachments
+from django.db.models import Q
+from django.utils import timezone
+import os
+import json
+from django.views.decorators.csrf import csrf_exempt
+@csrf_exemptk
+
+def filter_tool(items):
+    if items.count()>0:
+        items_temp = items
+        for item in items:
+            try:
+                size=item.file.size
+            except:
+                items_temp=items_temp.exclude(name=item.name)
+        items=items_temp
+    return items
+
+def tools(request):
+    errors = []
+    form = UploadFileForm()
+    items = filter_tool(Attachments.objects.filter(is_active=1).order_by('-created_time'))
+    if request.method == 'POST' and 'fid' not in request.POST:
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render_to_response('tools.html', context_instance=RequestContext(request,{'items':items,'form':form}))
+        else:
+            err ="Not valid"
+            return render_to_response('tools.html',
+                        context_instance=RequestContext(request,{'items':items,'form':form,'err':err}))
+    elif 'id' in request.GET:
+        fid = request.GET["id"]
+        try:
+            file = Attachments.objects.get(id=fid)
+            response = HttpResponse(open(file.file.path,'rb').read(), content_type='application/force-download')
+            response['Content-Length'] = os.path.getsize(file.file.path)
+            response['Content-Disposition'] = "attachment; filename=%s" % os.path.basename(file.file.path)
+            return response
+        except:
+            errors.append('没有可以下载的文件！')
+            return render_to_response('tools.html',
+                context_instance=RequestContext(request, {'items':items,'form': form,'errors': errors}))
+    elif 'q' in request.GET:
+        q = request.GET['q']
+        if not q:
+            errors.append('请先输入搜索关键字！')
+        elif len(q) > 20:
+            errors.append('搜索关键字最多20个字符！')
+        else:
+            items = filter_tool(Attachments.objects.filter(is_active=1).filter(Q(name__icontains=q)|Q(description__icontains=q)).order_by('-created_time'))
+            if not items:
+                errors.append('没有可以显示的结果！')
+    return render_to_response('tools.html',
+            context_instance=RequestContext(request, {'items':items,'form': form,'errors': errors}))
+
+def editFile(request):
+    ret = "Error"
+    if request.is_ajax():
+        try:
+            data = request.POST["name"]
+            file = Attachments.objects.get(name=data)
+            ret = json.dumps({
+                'fid':file.id,
+                'name': file.name,
+                'description': file.description,
+                'instruction':file.instruction,
+                })
+        except:
+            pass
+    return HttpResponse(ret)
+
+def updateFile(request):
+    ret = "OK"
+    if request.is_ajax():
+        fid = request.POST["fid"]
+        file = Attachments.objects.get(id=fid)
+        try:
+            file2 = Attachments.objects.get(name=request.POST["name"])
+            if (file != file2):
+                ret = "Duplicated"
+        except:
+            pass
+        finally:
+            if (ret =="OK"):
+                file.name = request.POST["name"]
+                file.description = request.POST["desc"]
+                file.instruction = request.POST["inst"]
+                file.save()
+    return HttpResponse(ret)
+
+def deleteFile(request):
+    ret = "Error"
+    if request.is_ajax():
+        try:
+            data = request.POST
+            for id in data:
+                file = Attachments.objects.get(id=data[id])
+                file.is_active=0
+                file.save()
+            ret = "OK"
+        except:
+            pass
+    return HttpResponse(ret)

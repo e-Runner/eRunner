@@ -1,0 +1,6 @@
+{% extends "base-dev.html" %}
+{% block content %}
+  <div style="padding-top: 30%; padding-left: 30%">
+      <h1>Welcome to the tools page</h1>
+  </div>
+{% endblock %}

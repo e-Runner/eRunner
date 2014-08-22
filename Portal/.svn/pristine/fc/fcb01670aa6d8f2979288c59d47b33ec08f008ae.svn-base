@@ -1,0 +1,216 @@
+/**
+ * Created by honglei.yu on 14-6-6.
+ */
+function add_product(obj, callback_ok)
+{
+    var add_json = {
+        AddProduct: obj
+    }
+
+    var json_str = JSON.stringify(add_json);
+    $.ajax({
+        type:"post",
+        url:"/AddProduct/",
+        dataType:"json",
+        data:json_str,
+        async: false,
+        success:callback_ok
+    });
+}
+function filter_job(obj,callback_ok)
+{
+    var filter_json = {
+
+        ProductName: obj
+    }
+
+    var json_str = JSON.stringify(filter_json);
+
+    $.ajax({
+        type:"post",
+        url:"/FilterJob/",
+        dataType: "json",
+        data: json_str,
+        success: callback_ok
+    });
+}
+
+function insert_job(obj,callback_ok)
+{
+    var json_str = JSON.stringify(obj);
+
+    $.ajax({
+        type: "post",
+        url: "/InsertJob/",
+        dataType: "json",
+        data: json_str,
+        async: false,
+        success: callback_ok
+    });
+}
+
+function update_job(obj, callback_ok, callback_error)
+{
+    var json_str = JSON.stringify(obj);
+
+    $.ajax({
+        type: "post",
+        url: "/UpdateJob/",
+        dateType: "json",
+        data: json_str,
+        async: false,
+        success: callback_ok,
+        error: callback_error
+    });
+
+}
+
+function updateproduct(obj, callback_ok)
+{
+    var update_json = {
+        ProductName: obj
+    }
+    var json_str = JSON.stringify(update_json);
+
+    $.ajax({
+        type: "post",
+        url:"/UpdateProduct/",
+        dataType: "json",
+        async: false,
+        data: json_str,
+        success: callback_ok
+    })
+}
+
+function updatemodule(obj, callback_ok)
+{
+    var update_json = {
+        ModuleName: obj
+    }
+    var json_str = JSON.stringify(update_json);
+
+    $.ajax({
+        type: "post",
+        url: "/UpdateModule/",
+        dataType: "json",
+        async: false,
+        data: json_str,
+        success: callback_ok
+    })
+}
+
+function updateversion(obj1, obj2, callback_ok)
+{
+    var update_json = {
+        VersionName: obj1,
+        ModuleName: obj2
+    }
+    var json_str = JSON.stringify(update_json);
+
+    $.ajax({
+        type: "post",
+        url: "/UpdateVersion/",
+        dataType: "json",
+        async: false,
+        data: json_str,
+        success: callback_ok
+    })
+}
+
+
+function delete_job(obj, callback_ok, callback_error)
+{
+    var objarray = obj.length;
+
+    for(i=0; i<objarray;i++)
+    {
+        if(obj[i].checked == true)
+        {
+            var delete_json = {
+                DeleteJobName: obj[i].id
+            }
+
+            var json_str = JSON.stringify(delete_json);
+
+            $.ajax({
+                type: "post",
+                url: "/DeleteJob/",
+                dataType: "json",
+                data: json_str,
+                success: callback_ok,
+                error: callback_error
+            });
+        }
+    }
+}
+
+function edit_job(obj, callback_ok,callback_error)
+{
+    var edit_json = {
+        EditJobName: obj
+    }
+    var json_str = JSON.stringify(edit_json);
+    $.ajax({
+        type:"post",
+        url: "/EditJob/",
+        dataType: "json",
+        data: json_str,
+        success: callback_ok,
+        error: callback_error
+    })
+}
+
+function run_job(obj, callback_ok,callback_error)
+{
+    var run_json = {
+        JobName: obj
+    }
+
+    var json_str = JSON.stringify(run_json);
+
+    $.ajax({
+        type: "post",
+        url: "/RunJob/",
+        dataType: "json",
+        data: json_str,
+        success: callback_ok,
+        error: callback_error
+    })
+}
+
+function status_changed_job(obj)
+{
+    var changed_json = {
+        JobName: obj['JobName'],
+        JobStatus: obj['JobStatus']
+    }
+
+    var json_str = JSON.stringify(changed_json);
+
+    $.ajax({
+        type: "post",
+        url: "/ChangeJobStatus/",
+        dataType: "json",
+        data: json_str
+    });
+}
+
+function check_job(obj, callback_ok, callback_error)
+{
+    var check_json = {
+
+        CheckJobName: obj
+    }
+
+    var json_str = JSON.stringify(check_json);
+
+    $.ajax({
+        type: "post",
+        url: "/CheckJobName/",
+        dataType: "json",
+        data: json_str,
+        success: callback_ok,
+        error: callback_error
+    });
+}
+

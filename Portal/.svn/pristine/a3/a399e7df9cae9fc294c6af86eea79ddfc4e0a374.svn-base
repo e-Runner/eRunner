@@ -1,0 +1,208 @@
+from django.shortcuts import render_to_response
+from django.db import connection
+from django.views.decorators.csrf import csrf_exempt
+
+from erunner.models import ProjectInformation
+
+from django.http import HttpResponse
+from django.template import RequestContext
+
+from django.utils import simplejson
+
+import json
+import socket
+import time
+
+@csrf_exempt
+
+# Create your views here.
+
+def login(request):
+
+	return render_to_response('login.html', { })
+
+
+def check(request):
+
+	cursor = connection.cursor()
+
+	sqlstate = """select name,passwd,mailAddr from erunner_user;"""
+
+	cursor.execute(sqlstate)
+
+	info = cursor.fetchall();
+
+	if request.method == "POST":
+
+
+		Username = request.POST['UserName']
+		Passwd = request.POST['Password']
+
+		for index in info:
+
+			if index[0] == Username and index[1] == Passwd:
+
+				return render_to_response('mainframe.html', { })
+		
+		
+	return render_to_response('login.html', { })
+
+
+def execute(request):
+
+    return render_to_response('execute.html', context_instance=RequestContext(request))
+
+
+def mainframe(request):
+
+    return render_to_response('mainframe.html',context_instance=RequestContext(request))
+
+
+def report(request):
+
+    return render_to_response('report.html', context_instance=RequestContext(request))
+
+
+def trend(request):
+
+    return render_to_response('trend.html', context_instance=RequestContext(request))
+
+
+def result(request):
+
+    return render_to_response('result.html', context_instance=RequestContext(request))
+
+
+def executetable(request):
+
+    return render_to_response('exetable.html', context_instance=RequestContext(request))
+
+def SearchResult(request):
+
+    PostData = simplejson.loads(request.body)
+
+    if request.method=="POST":
+
+        Cur = connection.cursor()
+
+        sql = """select Module,CaseNum,Result from erunner_result where ExecDataTime='%s'"""%(PostData['ExecTime'])
+
+        Cur.execute(sql)
+
+        TestInf = Cur.fetchall()
+
+        a = []
+
+        for item in TestInf:
+
+            d = obj2dict(item)
+
+            a.append(d)
+
+        resultData = json.loads(a)
+
+    return HttpResponse(resultData)
+
+
+def SearchProject(request):
+
+    PostData = simplejson.loads(request.body)
+
+    if request.method=="POST":
+
+        CurProject = connection.cursor()
+
+        sql = """select JobName,ProjectName,TestVersion,TestModule,TestLevel,StartTime,ProjectStatus from erunner_projectinformation where ProjectName='%s'"""%(PostData['ProjectName'])
+
+        CurProject.execute(sql)
+
+        ProjectInfor = CurProject.fetchall()
+
+        projectItem = []
+
+        for item in ProjectInfor:
+
+            project= obj2project(item)
+
+            projectItem.append(project)
+
+        projectconfigure = json.dumps(projectItem)
+
+
+    return HttpResponse(projectconfigure)
+
+
+def InsertProject(request):
+
+    PostData = simplejson.loads(request.body)
+
+    if request.method=="POST":
+
+        Project1 = ProjectInformation(JobName=PostData['NameJob'], ProjectName=PostData['NameProduct'],TestVersion= PostData['VersionProduct'],TestModule=PostData['ModuleProduct'], TestLevel=PostData['LevelProduct'],StartTime='18:00:00')
+
+        Project1.save()
+
+    Result = json.dumps({'InsertResult':'OK'})
+
+    return HttpResponse(Result)
+
+def DeleteProject(request):
+
+    PostData = simplejson.loads(request.body)
+
+    if request.method == "POST":
+
+        project2 = ProjectInformation.objects.get(JobName=PostData['DeleteJobName'])
+
+        project2.delete()
+
+    deleteresult = json.dumps({'DeleteResult':'OK'})
+
+    return HttpResponse(deleteresult)
+
+
+def CheckJobName(request):
+
+    PostData = simplejson.loads(request.body)
+
+    if request.method == "POST":
+
+        try:
+
+            project3 = ProjectInformation.objects.get(JobName=PostData['CheckJobName'])
+
+        except ProjectInformation.DoesNotExist:
+
+            CheckResult = json.dumps({'CheckResult':'YES'})
+
+        else:
+
+            CheckResult = json.dumps({'CheckResult':'NO'})
+
+    return HttpResponse(CheckResult)
+
+
+def obj2dict(objectBody):
+
+    d = {}
+
+    d['TestModule'] = objectBody[0]
+    d['CaseNumber'] = objectBody[1]
+    d['TestResult'] = objectBody[2]
+
+    return d
+
+
+def obj2project(projectdate):
+
+    project = {}
+
+    project['JobName'] = projectdate[0]
+    project['ProductName'] = projectdate[1]
+    project['TestVersion'] = projectdate[2]
+    project['TestModule'] = projectdate[3]
+    project['TestLevel'] = projectdate[4]
+    project['StartTime'] = str(projectdate[5])
+    project['ProjectStatus'] = projectdate[6]
+    return project
+

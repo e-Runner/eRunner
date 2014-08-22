@@ -1,0 +1,33 @@
+from django.contrib.auth import authenticate, login
+from django.http import HttpResponse
+from django.shortcuts import render_to_response
+from django.db import connection
+from django.views.decorators.csrf import csrf_exempt
+from django.template import Context, RequestContext
+
+@csrf_exempt
+
+def mylogin(request):
+    errors = []
+    if request.method == "POST" and 'Username' in request.POST and 'Password' in request.POST:
+        username = request.POST['Username']
+        password = request.POST['Password']
+        if not username:
+            errors.append('Please enter a username.')
+        elif len(username) < 3 or len(username) > 30:
+            errors.append('Username length is between 3 and 30 chars.')
+        elif not password:
+            errors.append('Please enter a password.')
+        elif len(password) < 3 or len(password) > 16:
+            errors.append('Password length is between 3 and 16 chars.')
+        else:
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    return render_to_response("mainframe.html", context_instance=RequestContext(request))
+                else:
+                    errors.append('The user has been disabled.')
+            else:
+                errors.append('Incorrect username or incorrect password.')
+    return render_to_response("login.html",{'errors': errors})

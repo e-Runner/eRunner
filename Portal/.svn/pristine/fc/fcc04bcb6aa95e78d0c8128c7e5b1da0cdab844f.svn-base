@@ -1,0 +1,132 @@
+/**
+ * Created by honglei.yu on 14-6-6.
+ */
+
+function filter_job(obj,callback_ok,callback_error)
+{
+    var filter_json = {
+
+        ProductName: obj
+    }
+
+    var json_str = JSON.stringify(filter_json);
+
+    $.ajax({
+        type:"post",
+        url:"/FilterJob/",
+        dataType: "json",
+        data: json_str,
+        success: callback_ok,
+        error:callback_error
+    });
+}
+
+function insert_job(obj,callback_ok, callbcak_error)
+{
+    var json_str = JSON.stringify(obj);
+
+    $.ajax({
+        type: "post",
+        url: "/InsertProject/",
+        dataType: "json",
+        data: json_str,
+        async: false,
+        success: callback_ok,
+        error: callbcak_error
+    });
+}
+
+function  updateproduct(obj, callback_ok)
+{
+    var update_json = {
+        ProductName: obj
+    }
+    var json_str = JSON.stringify(update_json);
+
+    $.ajax({
+        type: "post",
+        url: "/UpdateProjectandVersion/",
+        dataType: "json",
+        async: false,
+        data: json_str,
+        success: callback_ok
+    })
+}
+
+function updateproject(obj, callback_ok)
+{
+    var update_json = {
+        ProjectName: obj
+    }
+    var json_str = JSON.stringify(update_json);
+
+    $.ajax({
+        type: "post",
+        url: "/UpdateModuleandLevel/",
+        dataType: "json",
+        async: false,
+        data: json_str,
+        success: callback_ok
+    })
+}
+
+function delete_job(obj, callback_ok, callback_error)
+{
+    var objarray = obj.length;
+
+    for(i=0; i<objarray;i++)
+    {
+        if(obj[i].checked == true)
+        {
+            var delete_json = {
+                DeleteJobName: obj[i].id
+            }
+
+            var json_str = JSON.stringify(delete_json);
+
+            $.ajax({
+                type: "post",
+                url: "/DeleteJob/",
+                dataType: "json",
+                data: json_str,
+                success: callback_ok,
+                error: callback_error
+            });
+        }
+    }
+}
+
+function edit_job(obj, callback_ok,callback_error)
+{
+    var edit_json = {
+        EditJobName: obj
+    }
+    var json_str = JSON.stringify(edit_json);
+    $.ajax({
+        type:"post",
+        url: "/EditJob/",
+        dataType: "json",
+        data: json_str,
+        success: callback_ok,
+        error: callback_error
+    })
+}
+
+function check_job(obj, callback_ok, callback_error)
+{
+    var check_json = {
+
+        CheckJobName: obj
+    }
+
+    var json_str = JSON.stringify(check_json);
+
+    $.ajax({
+        type: "post",
+        url: "/CheckJobName/",
+        dataType: "json",
+        data: json_str,
+        success: callback_ok,
+        error: callback_error
+    });
+}

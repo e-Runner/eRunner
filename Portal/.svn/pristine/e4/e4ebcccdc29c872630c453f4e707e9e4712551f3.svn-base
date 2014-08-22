@@ -1,0 +1,81 @@
+{% extends "generic_prod.html" %}
+
+{% block style-added %}
+    <style type="text/css">
+      th,td
+        {
+            text-align: center;
+            vertical-align: middle;
+        }
+        th
+        {
+            background-color: darkgray;
+            font-size: large;
+            font-weight: bolder;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div style="padding-top: 100px;">
+    <h1 style="text-align: center">The TestResult of eRunner</h1>
+    {% if TestIndexShow %}
+        <p style="text-align: center">Total Result:<font color="green"><strong>{{ TestIndex }}</strong></font>&nbsp;&nbsp;Automated Testing Cases:<strong>{{ TestCaseNumber }}</strong>&nbsp;&nbsp;Passed Number:<font color="green"><strong>{{ PassedNumber }}</strong></font>&nbsp;&nbsp;Failed Number:<font color="red"><strong>{{ FailedNumber }}</strong></font></p>
+    {% else %}
+        <p style="text-align: center">Total Result:<font color="red"><strong>{{ TestIndex }}</strong></font>&nbsp;&nbsp;Automated Testing Cases:<strong>{{ TestCaseNumber }}</strong>&nbsp;&nbsp;Passed Number:<font color="green"><strong>{{ PassedNumber }}</strong></font>&nbsp;&nbsp;Failed Number:<font color="red"><strong>{{ FailedNumber }}</strong></font></p>
+    {% endif %}
+
+      <table class="table table-striped" id="TableShow">
+          <tr>
+              <th>测试用例</th>
+              <th>测试结果</th>
+              <th>细节查看</th>
+          </tr>
+      </table>
+    </div>
+{% endblock %}
+
+{% block script-body %}
+    <script style="text/javascript">
+       $(document).ready(function(){
+        var execute_json = {
+
+					JobIndex: "{{ JobIndex }}"
+				};
+
+		var json_str = JSON.stringify(execute_json);
+
+        $.post("/SearchResult/",json_str, function(data){
+
+            var databit = $.parseJSON(data);
+            lengthjson = databit.length;
+
+            for(i=0; i <lengthjson;i++)
+            {
+
+                if(databit[i]['CaseResult'] == "Failed")
+                {
+                    var newRow1 = "<tr id="+(i+="")+'><td style="color:red">'+databit[i]['CaseName']+"</td>";
+                    var newRow2 = '<td style="color:red">'+databit[i]['CaseResult']+"</td>";
+                    var newRow3 = '<td><a onclick="show(this)">'+databit[i]['Reserver']+"</a></td></tr>";
+                }
+                else
+                {
+                    var newRow1 = "<tr id="+(i+="")+"><td>"+databit[i]['CaseName']+"</td>";
+                    var newRow2 = "<td>"+databit[i]['CaseResult']+"</td>";
+                    var newRow3 = "<td>"+databit[i]['Reserver']+"</td></tr>";
+                }
+
+                newRow=newRow1+newRow2+newRow3;
+
+                $("#TableShow tr:last").after(newRow);
+
+            }
+        });
+       });
+       function show(object)
+       {
+         alert("The Detailed Report Will Come Soon!");
+       }
+    </script>
+{% endblock %}

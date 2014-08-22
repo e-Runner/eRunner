@@ -1,0 +1,119 @@
+__author__ = 'honglei.yu'
+
+from apscheduler.scheduler import Scheduler
+from erunner.models_fact import Jobs
+from erunner.models_dimension import RunSuite
+from erunner.models_dimension import Prod
+from erunner.models_dimension import ModVersion
+from erunner.models_dimension import Modl
+from erunner.models_dimension import SubFW
+import json
+import socket
+
+
+class jobscheduler():
+    def __init__(self):
+        self.JobON = Jobs.objects.filter(is_active=1, is_enable=1)
+        self.sched = Scheduler()
+        for i in range(0, self.JobON.count()):
+            timestrap = self.JobON[i].cron_expr.split(" ")
+            if timestrap[0] == "EveryDay":
+                dayofweek = 'mon-sun'
+            elif timestrap[0] == "Monday":
+                dayofweek = 'mon'
+            elif timestrap[0] == "Tuesday":
+                dayofweek = 'tue'
+            elif timestrap[0] == "Wednesday":
+                dayofweek = 'wed'
+            elif timestrap[0] == "Thurday":
+                dayofweek = 'thu'
+            elif timestrap[0] == "Friday":
+                dayofweek = 'fri'
+            elif timestrap[0] == "Saturday":
+                dayofweek = 'sat'
+            elif timestrap[0] == "Sunday":
+                dayofweek = 'sun'
+            jobtime = timestrap[1].split(":")
+            self.JobON[i].name = self.sched.add_cron_job(self.active_job, day_of_week=dayofweek, hour=jobtime[0], minute=jobtime[1], second='00', args=[self.JobON[i].name])
+        self.sched.start()
+
+    def add_job(self, jobname):
+        AddJobName = Jobs.objects.get(name=jobname)
+        timestrap = AddJobName.cron_expr.split(" ")
+        if timestrap[0] == "EveryDay":
+            dayofweek = 'mon-sun'
+        elif timestrap[0] == "Monday":
+            dayofweek = 'mon'
+        elif timestrap[0] == "Tuesday":
+            dayofweek = 'tue'
+        elif timestrap[0] == "Wednesday":
+            dayofweek = 'wed'
+        elif timestrap[0] == "Thurday":
+            dayofweek = 'thu'
+        elif timestrap[0] == "Friday":
+            dayofweek = 'fri'
+        elif timestrap[0] == "Saturday":
+            dayofweek = 'sat'
+        elif timestrap[0] == "Sunday":
+            dayofweek = 'sun'
+        jobtime = timestrap[1].split(":")
+        jobname = self.sched.add_cron_job(self.active_job, day_of_week=dayofweek, hour=jobtime[0], minute=jobtime[1], second='00', args=[jobname])
+
+    def delete_job(self):
+        for jobindex in self.sched.get_jobs():
+            self.sched.unschedule_job(jobindex)
+        self.JobON = Jobs.objects.filter(is_active=1, is_enable=1)
+        self.sched = Scheduler()
+        for i in range(0, self.JobON.count()):
+            timestrap = self.JobON[i].cron_expr.split(" ")
+            if timestrap[0] == "EveryDay":
+                dayofweek = 'mon-sun'
+            elif timestrap[0] == "Monday":
+                dayofweek = 'mon'
+            elif timestrap[0] == "Tuesday":
+                dayofweek = 'tue'
+            elif timestrap[0] == "Wednesday":
+                dayofweek = 'wed'
+            elif timestrap[0] == "Thurday":
+                dayofweek = 'thu'
+            elif timestrap[0] == "Friday":
+                dayofweek = 'fri'
+            elif timestrap[0] == "Saturday":
+                dayofweek = 'sat'
+            elif timestrap[0] == "Sunday":
+                dayofweek = 'sun'
+            jobtime = timestrap[1].split(":")
+            self.JobON[i].name = self.sched.add_cron_job(self.active_job, day_of_week=dayofweek, hour=jobtime[0], minute=jobtime[1], second='00', args=[self.JobON[i].name])
+        self.sched.start()
+
+    def active_job(self, jobname):
+        JobRun = Jobs.objects.get(name=jobname)
+        SuiteRun = RunSuite.objects.get(id=JobRun.test_suite_id)
+        SuiteList = SuiteRun.content
+        ListSuite = SuiteList.split('|')
+        PostSuite=[]
+        for index in ListSuite:
+            if index != "":
+                PostSuite.append(index)
+        VersionRun = ModVersion.objects.get(id=SuiteRun.mod_version_id)
+        ModuleRun = Modl.objects.get(id=VersionRun.module_id)
+        ProductRun = Prod.objects.get(id=ModuleRun.product_id)
+        FrameRun = SubFW.objects.get(id=ModuleRun.sub_fw_id)
+
+        SocketData = {
+            "JobName": JobRun.name,
+            "ProductName":ProductRun.name,
+            "TestModule": ModuleRun.name,
+            "TestVersion": VersionRun.name,
+            "TestSuite": SuiteRun.name,
+            "TestSuiteList":PostSuite,
+            "Executor":'honglei.yu'
+        }
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        try:
+            sock.connect((FrameRun.ip, int(FrameRun.port)))
+        except:
+            pass
+        else:
+            sock.send(json.dumps(SocketData))
+            RecvMessage = sock.recv(1024)

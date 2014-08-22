@@ -1,0 +1,106 @@
+__author__ = 'honglei.yu'
+
+from erunner.models_fact import ResultJob
+from django.shortcuts import render_to_response
+from django.http import HttpResponse
+
+from erunner.models_fact import ResultCase
+from erunner.models_dimension import TestCase
+from erunner.models_dimension import ResultDesc
+from erunner.models_fact import Jobs
+
+import json
+import xlrd
+
+def result(request, JobID):
+    JobIndex = request.GET.get('JobID')
+    ResultJobStat = ResultJob.objects.get(id=JobIndex)
+    JobStartTime = ResultJobStat.start_time
+    JobName = Jobs.objects.get(id=ResultJobStat.job_id)
+    if ResultJobStat.fail_num == 0:
+        TestIndexShow="OK"
+        TestIndex = "Passed"
+    else:
+        TestIndexShow=""
+        TestIndex = "Failed"
+    TotalTestNumber = ResultJobStat.fail_num+ResultJobStat.pass_num
+    ratio = "%.4f"%(float(ResultJobStat.pass_num)/TotalTestNumber)
+    ratio = "%.2f"%(100*(float(ratio)))
+    return render_to_response('result.html', {"JobRatio":ratio,"JobName":JobName.name, "JobStartTime":JobStartTime.strftime("%Y-%m-%d %H:%M:%S"),"JobIndex":JobIndex,"TestIndexShow":TestIndexShow, "TestIndex":TestIndex, "TestCaseNumber":TotalTestNumber, "PassedNumber": ResultJobStat.pass_num, "FailedNumber":ResultJobStat.fail_num})
+
+def SearchResult(request):
+    PostData = json.loads(request.body)
+    if request.method == "POST":
+        Case_Result = ResultCase.objects.filter(result_job_id=int(PostData['JobIndex']))
+        CaseResultList=[]
+        for index in Case_Result:
+            CaseResult_Index = {}
+            CaseName= TestCase.objects.get(id=index.test_case_id)
+            CaseResult_Index['CaseName'] = CaseName.name
+            ResultName = ResultDesc.objects.get(id=index.result_desc_id)
+            CaseResult_Index['CaseResult'] = ResultName.name
+            CaseResult_Index['Reserver'] = index.id
+            CaseResultList.append(CaseResult_Index)
+        resultData = json.dumps(CaseResultList)
+
+        return HttpResponse(resultData)
+
+def SearchFailedResult(request):
+    PostData = json.loads(request.body)
+    if request.method == "POST":
+        Case_Result = ResultCase.objects.filter(result_job_id=int(PostData['JobIndex']), result_desc_id=2)
+        CaseResultList=[]
+        for index in Case_Result:
+            CaseResult_Index = {}
+            CaseName= TestCase.objects.get(id=index.test_case_id)
+            CaseResult_Index['CaseName'] = CaseName.name
+            ResultName = ResultDesc.objects.get(id=index.result_desc_id)
+            CaseResult_Index['CaseResult'] = ResultName.name
+            CaseResult_Index['Reserver'] = index.id
+            CaseResultList.append(CaseResult_Index)
+
+        resultData = json.dumps(CaseResultList)
+
+    return HttpResponse(resultData)
+
+def SearchPassedResult(request):
+    PostData = json.loads(request.body)
+    if request.method == "POST":
+        Case_Result = ResultCase.objects.filter(result_job_id=int(PostData['JobIndex']), result_desc_id=1)
+        CaseResultList=[]
+        for index in Case_Result:
+            CaseResult_Index = {}
+            CaseName= TestCase.objects.get(id=index.test_case_id)
+            CaseResult_Index['CaseName'] = CaseName.name
+            ResultName = ResultDesc.objects.get(id=index.result_desc_id)
+            CaseResult_Index['CaseResult'] = ResultName.name
+            CaseResult_Index['Reserver'] = index.id
+            CaseResultList.append(CaseResult_Index)
+        resultData = json.dumps(CaseResultList)
+
+    return HttpResponse(resultData)
+
+def LoadDetailResult(request):
+    PostData = json.loads(request.body)
+    if request.method == "POST":
+        Case_Result = ResultCase.objects.get(id=int(PostData['CaseIndex']))
+        BasePath = '/home/erunner/eRunner'
+        logurl = Case_Result.log_url.split('|')
+        log_path = BasePath+'/'+logurl[0]+'/'+logurl[1]+'/'+logurl[2]+'/'
+        ResultName = log_path+'Total.xls'
+        Case_Number = logurl[3]
+        try:
+            work_book = xlrd.open_workbook(ResultName)
+            result_table = work_book.sheet_by_name('total')
+            print(result_table.row_values(0))
+        except:
+            pass
+
+        print(log_path)
+
+        print(logurl[0])
+
+        print(Case_Result.log_url)
+        resultData = json.dumps({'CasePath':result_table.row_values(0)})
+
+    return HttpResponse(resultData)

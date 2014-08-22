@@ -1,0 +1,6 @@
+from django.contrib import admin
+from models import Statistics, Id, Result
+
+admin.site.register(Statistics)
+admin.site.register(Id)
+admin.site.register(Result)

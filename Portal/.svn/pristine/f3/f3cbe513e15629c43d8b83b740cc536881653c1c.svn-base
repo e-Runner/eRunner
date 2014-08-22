@@ -1,0 +1,386 @@
+{% extends "base-dev.html" %}
+{% block content %}
+   <div class="Configure" style="height: 80%">
+        <label style="display: inline; margin-right: 10px"><h3>产品名称</h3></label>
+        <select id="productselect" style="visibility: visible">
+            <option value="0">Wind OS</option>
+            <option value="1">BAO</option>
+            <option value="2">MAP</option>
+            <option value="3">EAI</option>
+        </select>
+        <div style="display: inline" class="demo-row">
+        <div class="col-xs-3" style="float: right">
+        <button class="btn btn-large btn-primary" id="delete" style="margin-left: 10px; background-color: rgb(62, 105, 195)">删除任务</button>
+        </div>
+        <div class="col-xs-3" style="float: right;">
+        <a data-toggle="modal" href="#insert" class="btn btn-large btn-primary" id="add" style="margin-left: 10px; background-color: rgb(62, 105, 195)">添加任务</a>
+        </div>
+      </div>
+
+     <table id="result">
+         <thead>
+            <tr>
+                <th></th>
+                <th>Robustness</th>
+                <th>JobName</th>
+                <th>LastResult</th>
+                <th>StartTime</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+         </thead>
+         <tbody>
+
+         </tbody>
+     </table>
+
+    <!--
+     <iframe src="/executetable/" id="result" name="executetable">
+
+     </iframe>
+    -->
+
+    </div>
+
+    <div id="insert" class="modal hide fade" style="display: none;">
+            <div class="modal-header">
+              <a class="close" data-dismiss="modal">×</a>
+              <h3>eRunner</h3>
+            </div>
+            <div class="modal-footer" style="text-align: center">
+            <div id="center1" class="text-center">
+               <table class="table table-hover" style="margin-bottom: 0px">
+                <thead>
+                  <tr>
+                    <th>
+                       <a href="#" class="btn btn-large btn-block disabled">任务名称</a>
+                    </th>
+
+                    <th>
+                        <input id="JobName" type="text" value placeholder="Job Name" style="width: 208px" onchange="TextCheck()"/>
+                    </th>
+                  </tr>
+                </thead>
+               </table>
+
+               <table class="table table-hover" style="margin-bottom: 0px">
+                 <thead>
+                   <tr>
+                    <th>
+                       <a href="#" class="btn btn-large btn-block disabled">测试产品</a>
+                    </th>
+
+                    <th>
+                       <select id="InsertProductName">
+                        <option value="0">N/A</option>
+                        <option value="1">Wind OS</option>
+                        <option value="2">BAO</option>
+                        <option value="3">MAP</option>
+                        <option value="4">EAI</option>
+                       </select>
+                     </th>
+                </tr>
+                </thead>
+               </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+            <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试项目</a>
+                </th>
+
+                <th>
+                   <select id="InsertProjectName">
+                   </select>
+                </th>
+            </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试模块</a>
+                </th>
+                <th>
+                   <select id="InsertModuleName">
+                   </select>
+                </th>
+              </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试版本</a>
+                </th>
+
+                <th>
+                   <select id="InsertTestVersion">
+                   </select>
+                </th>
+              </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试级别</a>
+                </th>
+
+                <th>
+                   <select id="InsertTestLevel">
+                   </select>
+                </th>
+              </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">启动时间</a>
+                </th>
+
+                <th>
+                    <div >
+                        <input id="StartTime" onclick="TimeEditor(this)" size="14" type="text" value="" readonly style="background-color: rgb(129, 138, 136);width: 210px;">
+                    </div>
+                </th>
+
+              </tr>
+            </thead>
+           </table>
+
+
+           </div>
+           <button id="InsertOK" class="btn" data-dismiss="modal" style="height: 36px; width: 72px; margin-right: 40px;  background-color: rgb(62, 105, 195)">OK</button>
+           <button class="btn" data-dismiss="modal" style="height: 36px; width: 72px; margin-right: 40px;  background-color: rgb(62, 105, 195)">Cancel</button>
+          </div>
+   </div>
+
+    <div id="edit" class="modal hide fade" style="display: none;">
+            <div class="modal-header">
+              <a class="close" data-dismiss="modal">×</a>
+              <h3>eRunnerEditor</h3>
+            </div>
+            <div class="modal-footer" style="text-align: center">
+            <div id="center1" class="text-center">
+               <table class="table table-hover" style="margin-bottom: 0px">
+                <thead>
+                  <tr>
+                    <th>
+                       <a href="#" class="btn btn-large btn-block disabled">任务名称</a>
+                    </th>
+
+                    <th>
+                        <input id="Edit_JobName" type="text" value placeholder="Job Name" style="width: 208px" disabled/>
+                    </th>
+                  </tr>
+                </thead>
+               </table>
+
+               <table class="table table-hover" style="margin-bottom: 0px">
+                 <thead>
+                   <tr>
+                    <th>
+                       <a href="#" class="btn btn-large btn-block disabled">测试产品</a>
+                    </th>
+
+                    <th>
+                       <select id="EditProductName" disabled>
+                        <option value="0">Wind OS</option>
+                        <option value="1">BAO</option>
+                        <option value="2">MAP</option>
+                        <option value="3">EAI</option>
+                       </select>
+                     </th>
+                </tr>
+                </thead>
+               </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+            <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试项目</a>
+                </th>
+
+                <th>
+                   <select id="EditProjectName">
+                   </select>
+                </th>
+            </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试模块</a>
+                </th>
+                <th>
+                   <select id="EditModuleName">
+                   </select>
+                </th>
+              </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试版本</a>
+                </th>
+
+                <th>
+                   <select id="EditTestVersion">
+                   </select>
+                </th>
+              </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试级别</a>
+                </th>
+
+                <th>
+                   <select id="EditTestLevel">
+                   </select>
+                </th>
+              </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">启动时间</a>
+                </th>
+
+                <th>
+                    <div >
+                        <input id="EditStartTime" onclick="TimeEditor(this)" size="14" type="text" value="" readonly style="background-color: rgb(129, 138, 136);width: 210px;">
+                    </div>
+                </th>
+
+              </tr>
+            </thead>
+           </table>
+           </div>
+           <button id="EditOK" class="btn" data-dismiss="modal" style="height: 36px; width: 72px; margin-right: 40px;  background-color: rgb(62, 105, 195)">OK</button>
+           <button class="btn" data-dismiss="modal" style="height: 36px; width: 72px; margin-right: 40px;  background-color: rgb(62, 105, 195)">Cancel</button>
+          </div>
+   </div>
+
+     <div id="TimeEdit" class="modal hide fade" style="display: none;">
+            <div class="modal-header">
+              <a class="close" data-dismiss="modal">×</a>
+              <h3>TimeEdit</h3>
+            </div>
+            <div class="modal-footer" style="text-align: center">
+            <div id="center1" class="text-center">
+              <table class="table table-hover" style="margin-bottom: 0px">
+                <thead>
+                  <tr>
+                    <th>
+                       <a href="#" class="btn btn-large btn-block disabled">周</a>
+                    </th>
+                    <th>
+                       <select id="Week">
+                           <option>EveryDay</option>
+                           <option>Monday</option>
+                           <option>Tuesday</option>
+                           <option>Wednesday</option>
+                           <option>Thursday</option>
+                           <option>Friday</option>
+                           <option>Saturday</option>
+                           <option>Sunday</option>
+                       </select>
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+              <table class="table table-hover" style="margin-bottom: 0px">
+                <thead>
+                  <tr>
+                    <th>
+                       <a href="#" class="btn btn-large btn-block disabled">时</a>
+                    </th>
+                    <th>
+                       <select id="Hour">
+                           <option>0</option>
+                           <option>1</option>
+                           <option>2</option>
+                           <option>3</option>
+                           <option>4</option>
+                           <option>5</option>
+                           <option>6</option>
+                           <option>7</option>
+                           <option>8</option>
+                           <option>9</option>
+                           <option>10</option>
+                           <option>11</option>
+                           <option>12</option>
+                           <option>13</option>
+                           <option>14</option>
+                           <option>15</option>
+                           <option>16</option>
+                           <option>17</option>
+                           <option>18</option>
+                           <option>19</option>
+                           <option>20</option>
+                           <option>21</option>
+                           <option>22</option>
+                           <option>23</option>
+                       </select>
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+              <table class="table table-hover" style="margin-bottom: 0px">
+                <thead>
+                  <tr>
+                    <th>
+                       <a href="#" class="btn btn-large btn-block disabled">分</a>
+                    </th>
+                    <th>
+                       <select id="Minute">
+                           <option>0</option>
+                           <option>5</option>
+                           <option>10</option>
+                           <option>15</option>
+                           <option>20</option>
+                           <option>25</option>
+                           <option>30</option>
+                           <option>35</option>
+                           <option>40</option>
+                           <option>45</option>
+                           <option>50</option>
+                           <option>55</option>
+                       </select>
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+           <button id="TimeOK" class="btn" data-dismiss="modal" style="height: 36px; width: 72px; margin-right: 40px;  background-color: rgb(62, 105, 195)">OK</button>
+           <button class="btn" data-dismiss="modal" style="height: 36px; width: 72px; margin-right: 40px;  background-color: rgb(62, 105, 195)">Cancel</button>
+          </div>
+   </div>
+   </div>
+{% endblock %}

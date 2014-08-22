@@ -1,0 +1,249 @@
+{% extends "generic_prod.html" %}
+{% block style-added %}
+    <style type="text/css">
+      th,td
+        {
+            text-align: center;
+            vertical-align: middle;
+        }
+        th
+        {
+            background-color: darkgray;
+            font-size: large;
+            font-weight: bolder;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div style="padding-top: 100px;">
+    <table class="table" style="margin-bottom: 0px">
+       <tbody>
+          <tr>
+             <td style="vertical-align:middle; text-align: left" rowspan=3>
+                 <h4>任务名称:<strong>{{ JobName }}</strong>
+                 开始时间:<font color="green"><strong>{{ JobStartTime }}</strong></font>
+                 通过率:<font color="red"><strong>{{ JobRatio }}</strong></font>
+                 </h4></td>
+             <td style="text-align:center; border-top: 0px"><a onclick="AllFilter()">测试总数</a>:<strong>{{ TestCaseNumber }}</strong></td>
+          </tr>
+          <tr>
+             <td style="text-align:center; border-top: 0px"><a onclick="PassedFilter()">通过数目</a>:<font color="green"><strong>{{ PassedNumber }}</strong></font></td>
+          </tr>
+          <tr>
+             <td style="text-align:center; border-top: 0px"><a onclick="FailedFilter()">失败数目</a>:<font color="red"><strong>{{ FailedNumber }}</strong></font></td>
+          </tr>
+       </tbody>
+    </table>
+      <table class="table table-striped" id="TableShow">
+        <thead>
+          <tr>
+              <th>序号</th>
+              <th>测试用例</th>
+              <th>测试结果</th>
+              <th>细节查看</th>
+          </tr>
+         </thead>
+         <tbody>
+         </tbody>
+      </table>
+    </div>
+
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">对话框标题</h3>
+      </div>
+      <div class="modal-body">
+        <p>对话框主体内容 ...…</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+        <button class="btn btn-primary">保存修改</button>
+      </div>
+    </div>
+{% endblock %}
+
+{% block script-body %}
+    <script style="text/javascript">
+       $(document).ready(function(){
+        var execute_json = {
+
+					JobIndex: "{{ JobIndex }}"
+				};
+
+		var json_str = JSON.stringify(execute_json);
+
+        $.post("/SearchResult/",json_str, function(data){
+
+            var databit = $.parseJSON(data);
+            lengthjson = databit.length;
+            for(i=0; i <lengthjson;i++)
+            {
+                var j = i+1;
+                if(databit[i]['CaseResult'] == "Failed")
+                {
+                    var newrow4 = '<tr><td style="color:red">'+j+"</td>";
+                    var newRow1 = '<td style="color:red"><a onclick="showcode(this)" id='+databit[i]['Reserver']+">"+databit[i]['CaseName']+"</td>";
+                    var newRow2 = '<td style="color:red">'+databit[i]['CaseResult']+"</td>";
+                    var newRow3 = '<td><a onclick="show(this)" id='+databit[i]['Reserver']+">"+'URL'+"</a></td></tr>";
+                }
+                else
+                {
+                    var newrow4 = "<tr><td>"+j+"</td>";
+                    var newRow1 = '<td><a onclick="showcode(this)" id='+databit[i]['Reserver']+">"+databit[i]['CaseName']+"</td>";
+                    var newRow2 = "<td>"+databit[i]['CaseResult']+"</td>";
+                    var newRow3 = '<td><a onclick="show(this)" id='+databit[i]['Reserver']+">"+"URL"+"</a></td></tr>";
+                }
+                newRow=newrow4+newRow1+newRow2+newRow3;
+                $("#TableShow").append(newRow);
+            }
+        });
+       });
+       function show(object)
+       {
+           var CaseNumber = object.id;
+
+           var exe_json = {
+               CaseIndex: CaseNumber
+           };
+           var json_str = JSON.stringify(exe_json);
+           $.post("/LoadDetailResult/",json_str, function(data){
+               var databit = $.parseJSON(data);
+               if(databit['CasePath'] == "OK")
+               {
+                    window.open("/showlog/","_blank")
+               }
+               else
+               {
+                  alert(databit['CasePath']);
+               }
+           });
+       }
+
+       function showcode(object)
+       {
+           var CaseNumber = object.id;
+           var exe_json = {
+               CaseIndex: CaseNumber
+           };
+           alert("OK");
+           var json_str = JSON.stringify(exe_json);
+           $.post("/LoadDetailCode/",json_str, function(data){
+               var databit = $.parseJSON(data);
+               if(databit['CasePath'] == "OK")
+               {
+                    window.open("/showcode/","_blank")
+               }
+               else
+               {
+                  alert(databit['CasePath']);
+               }
+           });
+       }
+
+       function AllFilter()
+       {
+          var execute_json = {
+
+					JobIndex: "{{ JobIndex }}"
+				};
+		  var json_str = JSON.stringify(execute_json);
+          $.post("/SearchResult/",json_str, function(data){
+            $("#TableShow tbody").html("");
+            var databit = $.parseJSON(data);
+            lengthjson = databit.length;
+            for(i=0; i <lengthjson;i++)
+            {
+                var j = i+1;
+                if(databit[i]['CaseResult'] == "Failed")
+                {
+                    var newrow4 = '<tr><td style="color:red">'+j+"</td>";
+                    var newRow1 = '<td><a onclick="showcode(this)" id='+databit[i]['Reserver']+">"+databit[i]['CaseName']+"</td>";
+                    var newRow2 = '<td style="color:red">'+databit[i]['CaseResult']+"</td>";
+                    var newRow3 = '<td><a onclick="show(this)" id='+databit[i]['Reserver']+">"+'URL'+"</a></td></tr>";
+                }
+                else
+                {
+                    var newrow4 = "<tr><td>"+j+"</td>";
+                    var newRow1 = '<td><a onclick="showcode(this)" id='+databit[i]['Reserver']+">"+databit[i]['CaseName']+"</td>";
+                    var newRow2 = "<td>"+databit[i]['CaseResult']+"</td>";
+                    var newRow3 = '<td><a onclick="show(this)" id='+databit[i]['Reserver']+">"+'URL'+"</a></td></tr>";
+                }
+                newRow=newrow4+newRow1+newRow2+newRow3;
+                $("#TableShow").append(newRow);
+            }
+        });
+       }
+
+       function PassedFilter()
+       {
+           var PassedJob_json = {
+
+					JobIndex: "{{ JobIndex }}"
+				};
+
+		    var json_str = JSON.stringify(PassedJob_json);
+            $.post("/SearchPassedResult/",json_str, function(data){
+            $("#TableShow tbody").html("");
+            var databit = $.parseJSON(data);
+            lengthjson = databit.length;
+            for(i=0; i <lengthjson;i++)
+            {
+                var j = i+1;
+                if(databit[i]['CaseResult'] == "Failed")
+                {
+                    var newrow4 = '<tr><td style="color:red">'+j+"</td>";
+                    var newRow1 = '<td style="color:red">'+databit[i]['CaseName']+"</td>";
+                    var newRow2 = '<td style="color:red">'+databit[i]['CaseResult']+"</td>";
+                    var newRow3 = '<td><a onclick="show(this)" id='+databit[i]['Reserver']+">"+'URL'+"</a></td></tr>";
+                }
+                else
+                {
+                    var newrow4 = "<tr><td>"+j+"</td>";
+                    var newRow1 = '<td><a onclick="showcode(this)" id='+databit[i]['Reserver']+">"+databit[i]['CaseName']+"</td>";
+                    var newRow2 = "<td>"+databit[i]['CaseResult']+"</td>";
+                    var newRow3 = '<td><a onclick="show(this)" id='+databit[i]['Reserver']+">"+'URL'+"</a></td></tr>";
+                }
+                newRow=newrow4+newRow1+newRow2+newRow3;
+                $("#TableShow").append(newRow);
+            }
+           });
+
+       }
+       function FailedFilter()
+        {
+            var FailedJob_json = {
+
+					JobIndex: "{{ JobIndex }}"
+				};
+
+		    var json_str = JSON.stringify(FailedJob_json);
+            $.post("/SearchFailedResult/",json_str, function(data){
+            $("#TableShow tbody").html("");
+            var databit = $.parseJSON(data);
+            lengthjson = databit.length;
+            for(i=0; i <lengthjson;i++)
+            {
+                var j = i+1;
+                if(databit[i]['CaseResult'] == "Failed")
+                {
+                    var newrow4 = '<tr><td style="color:red">'+j+"</td>";
+                    var newRow1 = '<td style="color:red"><a onclick="showcode(this)" id='+databit[i]['Reserver']+">"+databit[i]['CaseName']+"</td>";
+                    var newRow2 = '<td style="color:red">'+databit[i]['CaseResult']+"</td>";
+                    var newRow3 = '<td><a onclick="show(this)" id='+databit[i]['Reserver']+">"+'URL'+"</a></td></tr>";
+                }
+                else
+                {
+                    var newrow4 = "<tr><td>"+j+"</td>";
+                    var newRow1 = "<td>"+databit[i]['CaseName']+"</td>";
+                    var newRow2 = "<td>"+databit[i]['CaseResult']+"</td>";
+                    var newRow3 = '<td><a onclick="show(this)" id='+databit[i]['Reserver']+">"+'URL'+"</a></td></tr>";
+                }
+                newRow=newrow4+newRow1+newRow2+newRow3;
+                $("#TableShow").append(newRow);
+            }
+        });
+        }
+    </script>
+{% endblock %}

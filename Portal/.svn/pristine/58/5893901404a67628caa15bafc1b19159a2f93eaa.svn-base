@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>eRunner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+ 
+    <!-- Le styles -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../static/css/docs.css" rel="stylesheet">
+    <link href="../static/css/prettify.css" rel="stylesheet">
+    <link href="../static/css/flat-ui.css" rel="stylesheet"> 
+    <link href="../static/css/sticky-footer-navbar.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://getbootstrap.com/2.3.2/assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+     <script src="../static/js/jquery.1.9.1.min.js"></script>
+     <script src="../static/js/highcharts.js"></script>
+     <script src="../static/js/exporting.js"></script>
+ 
+    <!-- Le fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../static/img/favicon.ico">
+ 
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-146052-10']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <style type="text/css">
+            #Layer1 {
+                float: left;
+                position:absolute;
+                left:6%;
+                top:10%;
+                width:40%;
+                height:40%;
+                background-color: #CCCCCC;
+            }
+            #Layer2 {
+                float: left;
+                position:absolute;
+                right:6%;
+                top:10%;
+                width:40%;
+                height:40%;
+                z-index:2;
+                background-color: #CCCCCC;
+            }
+            #Layer3 {
+                float: left;
+                position:absolute;
+                left:6%;
+                top:52%;
+                width:40%;
+                height:40%;
+                z-index:3;
+                background-color: #CCCCCC;
+            }
+
+
+            #Layer4 {
+                float: left;
+                position:absolute;
+                right:6%;
+                top:52%;
+                width:40%;
+                height:40%;
+                z-index:4;
+                background-color: #CCCCCC;
+            }
+
+            #bottom {
+                position: fixed;
+                display: block;
+                margin: 0px 0px 0px 0px;
+                bottom: 0;
+                clear: both;
+                width: 100%;
+                color: #fff;
+                height: 20px;
+                right: 0;
+                background-color: #77787b;
+                text-align: center;
+                line-height: 26px;
+                font-size: 12px;
+                font-family: "Microsoft YaHei";
+                min-width: 1280px;
+            }
+
+            #divMainMenu{
+                position: fixed;
+                top: 0px;
+                width: 100%;
+                height: 10%;
+            }
+
+        </style>
+  </head>
+ 
+  <body class="container">
+    <div id="divMainMenu">
+        <img src="../static/img/envision.png">
+        <p>软件产品自动化测试框架和平台</p>
+        <p>{{ user.username }}</p>
+    </div>
+    <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-inverse navbar-static-top container">
+      <div class="navbar-inner" style="position:absolute; height: 60px; top: 10%">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+	  <a class="brand" href = "/login/"><h5>退出</h5></a>
+          <a class="brand"><h5>{{ user.username }}</h5></a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active">
+                <a href="/mainframe/"><h5>趋势展示</h5></a>
+              </li>
+              <li class="">
+                <a href="/execute/"><h5>配置调度</h5></a>
+              </li>
+              <li class="">
+                <a href="/report/"><h5>报告查看</h5></a>
+              </li>
+              <li class="">
+                <a href="/report/"><h5>分析优化</h5></a>
+              </li>
+              <li class="">
+                <a href="/trend/"><h5>工具下载</h5></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+        <div id="Layer1">
+           <div id="container4" style="min-width:100%;height:100%">
+
+           </div>
+        </div>
+
+        <div id="Layer2">
+            <div id="container1" style="min-width:100%;height:100%">
+
+           </div>
+        </div>
+
+        <div id="Layer3">
+            <div id="container2" style="min-width:100%;height:100%">
+
+           </div>
+        </div>
+
+        <div id="Layer4">
+            <div id="container3" style="min-width:100%;height:100%">
+
+           </div>
+        </div>
+
+        <div id="bottom">
+            <p>Copyright© 2012-2014 Envision Energy Limited. All Rights Reserved</p>
+        </div>
+
+
+<script type="text/javascript">
+    $(function () {
+    $('#container4').highcharts({
+        chart: {
+        },
+        title: {
+            text: '测试通过率',
+            x: -20, //center
+            style:{
+                fontSize:'25px',
+                color: 'black'
+            }
+        },
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        yAxis: {
+            title: {
+                text: '通过率',
+                rotate: -90,
+                style:{
+                fontSize:'16px',
+                color: 'black'
+            }
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: ''
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        credits:{
+            enabled: false
+        },
+        series: [{
+            name: 'Wind OS',
+            data: [0.8, 0.9, 0.85, 0.95, 0.98, 0.93, 0.96, 0.89, 0.92, 0.94, 0.97, 0.93]
+        }, {
+            name: 'BAO',
+            data: [0.86, 0.97, 0.83, 0.85, 0.88, 0.96, 0.92, 0.99, 0.82, 0.84, 0.87, 0.99]
+        }, {
+            name: 'MAP',
+            data: [0.98, 0.89, 0.81, 0.85, 0.93, 0.96, 0.98, 0.99, 0.96, 0.99, 0.92, 0.95]
+        }, {
+            name: 'EAI',
+            data: [0.88, 0.99, 0.95, 0.85, 0.88, 0.98, 0.86, 0.99, 0.82, 0.84, 0.91, 0.97]
+        }]
+    });
+});
+    </script>
+<script>
+       $(function () {
+
+    var colors = Highcharts.getOptions().colors,
+        categories = ['Wind OS', 'BAO', 'MAP', 'EAI'],
+        name = 'envision',
+        data = [{
+                y: 510,
+                color: colors[0],
+                drilldown: {
+                    name: 'Wind OS',
+                    categories: ['SCADA_APP', 'FE', 'HDB', 'WebClient'],
+                    data: [130, 200,100, 80],
+                    color: colors[0]
+                }
+            }, {
+                y: 402,
+                color: colors[4],
+                drilldown: {
+                    name: 'BAO',
+                    categories: ['Web', 'ETL'],
+                    data: [109, 293],
+                    color: colors[4]
+                }
+            }, {
+                y: 304,
+                color: colors[2],
+                drilldown: {
+                    name: 'MAP',
+                    categories: ['IOS', 'Android'],
+                    data: [20,284],
+                    color: colors[2]
+                }
+            }, {
+                y: 109,
+                color: colors[3],
+                drilldown: {
+                    name: 'EAI',
+                    categories: ['Web', 'ETL'],
+                    data: [29, 80],
+                    color: colors[3]
+                }
+            }];
+
+    function setChart(name, categories, data, color) {
+	chart.xAxis[0].setCategories(categories, false);
+	chart.series[0].remove(false);
+	chart.addSeries({
+		name: name,
+		data: data,
+		color: color || 'white'
+	}, false);
+	chart.redraw();
+    }
+
+    var chart = $('#container2').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '自动化用例数',
+            style:{
+                fontSize:'25px',
+                color: 'black'
+            }
+        },
+        credits:{
+            enabled: false
+        },
+        exporting:{
+            enabled: true
+        },
+        xAxis: {
+            categories: categories
+        },
+        yAxis: {
+            title: {
+                text: 'Total Number',
+                style:{
+                fontSize:'16px',
+                color: 'black'
+                    }
+            }
+        },
+        plotOptions: {
+            column: {
+                cursor: 'pointer',
+                point: {
+                    events: {
+                        click: function() {
+                            var drilldown = this.drilldown;
+                            if (drilldown) { // drill down
+                                setChart(drilldown.name, drilldown.categories, drilldown.data, drilldown.color);
+                            } else { // restore
+                                setChart(name, categories, data);
+                            }
+                        }
+                    }
+                },
+                dataLabels: {
+                    enabled: true,
+                    color: colors[0],
+                    style: {
+                        fontWeight: 'bold'
+                    },
+                    formatter: function() {
+                        return this.y;
+                    }
+                }
+            }
+        },
+        tooltip: {
+            formatter: function() {
+                var point = this.point,
+                    s = this.x +':<b>'+ this.y +'</b><br/>';
+                if (point.drilldown) {
+                    s += 'Click to detailed information of '+ point.category;
+                } else {
+                    s += 'Click to return to envision';
+                }
+                return s;
+            }
+        },
+        series: [{
+            name: name,
+            data: data,
+            color: 'white'
+        }],
+
+        exporting: {
+            enabled: true
+        }
+    })
+    .highcharts(); // return chart
+});
+</script>
+
+    <script>
+        $(function () {
+
+    var colors = Highcharts.getOptions().colors,
+        categories = ['Wind OS', 'BAO', 'MAP', 'EAI'],
+        name = 'envision',
+        data = [{
+                y: 110,
+                color: colors[0],
+                drilldown: {
+                    name: 'Wind OS',
+                    categories: ['SCADA_APP', 'FE', 'HDB', 'WebClient'],
+                    data: [20, 30, 40, 20],
+                    color: colors[0]
+                }
+            }, {
+                y: 59,
+                color: colors[4],
+                drilldown: {
+                    name: 'BAO',
+                    categories: ['Web', 'ETL'],
+                    data: [26, 33],
+                    color: colors[4]
+                }
+            }, {
+                y: 68,
+                color: colors[2],
+                drilldown: {
+                    name: 'MAP',
+                    categories: ['IOS', 'Android'],
+                    data: [39,29],
+                    color: colors[2]
+                }
+            }, {
+                y: 77,
+                color: colors[3],
+                drilldown: {
+                    name: 'EAI',
+                    categories: ['Web', 'ETL'],
+                    data: [47, 30],
+                    color: colors[3]
+                }
+            }];
+
+    function setChart(name, categories, data, color) {
+	chart.xAxis[0].setCategories(categories, false);
+	chart.series[0].remove(false);
+	chart.addSeries({
+		name: name,
+		data: data,
+		color: color || 'white'
+	}, false);
+	chart.redraw();
+    }
+
+    var chart = $('#container1').highcharts({
+        chart: {
+            type: 'column'
+        },
+
+        title: {
+            text: '执行时间',
+            style:{
+                fontSize:'25px',
+                color: 'black'
+            }
+        },
+        xAxis: {
+            categories: categories
+        },
+        yAxis: {
+            title: {
+                text: 'Total Time(Min)',
+                style: {
+                fontSize: '16px',
+                color: 'black'
+                }
+            }
+        },
+        credits:{
+            enabled: false
+        },
+        exporting:{
+            enabled: true
+        },
+        plotOptions: {
+            column: {
+                cursor: 'pointer',
+                point: {
+                    events: {
+                        click: function() {
+                            var drilldown = this.drilldown;
+                            if (drilldown) { // drill down
+                                setChart(drilldown.name, drilldown.categories, drilldown.data, drilldown.color);
+                            } else { // restore
+                                setChart(name, categories, data);
+                            }
+                        }
+                    }
+                },
+                dataLabels: {
+                    enabled: true,
+                    color: colors[0],
+                    style: {
+                        fontWeight: 'bold'
+                    },
+                    formatter: function() {
+                        return this.y;
+                    }
+                }
+            }
+        },
+        tooltip: {
+            formatter: function() {
+                var point = this.point,
+                    s = this.x +':<b>'+ this.y +'minute</b><br/>';
+                if (point.drilldown) {
+                    s += 'Click to detailed information of '+ point.category;
+                } else {
+                    s += 'Click to return to envision';
+                }
+                return s;
+            }
+        },
+        series: [{
+            name: name,
+            data: data,
+            color: 'white'
+        }],
+        exporting: {
+            enabled: true
+        }
+    })
+    .highcharts(); // return chart
+});
+    </script>
+    <script>
+        $(function () {
+    $('#container3').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+
+        title: {
+            text: '自动化测试用例比例',
+            style:{
+                fontSize:'25px',
+                color: 'black'
+            }
+        },
+        credits:{
+            enabled: false
+        },
+        tooltip: {
+    	    pointFormat: 'Rate: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    color: '#000000',
+                    connectorColor: '#000000',
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'envision',
+            data: [
+                ['Wind OS', 57.8],
+                {
+                    name: 'BAO',
+                    y: 26.8,
+                    sliced: true,
+                    selected: true
+                },
+                ['MAP',    8.5],
+                ['EAI',     6.9]
+            ]
+        }]
+    });
+});
+    </script>
+
+ 
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-transition.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-alert.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-modal.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-dropdown.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-tab.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-tooltip.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-popover.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-button.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-collapse.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-carousel.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-typeahead.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-affix.js"></script>
+ 
+    <script src="http://getbootstrap.com/2.3.2/assets/js/holder/holder.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/google-code-prettify/prettify.js"></script>
+ 
+    <script src="http://getbootstrap.com/2.3.2/assets/js/application.js"></script>
+ 
+ 
+    <!-- Analytics
+    ================================================== -->
+     
+
+  </body>
+</html>
+
+

@@ -1,0 +1,67 @@
+from django.db import models
+
+
+class User(models.Model):
+    name = models.CharField(max_length=30)
+    passwd = models.CharField(max_length=20)
+    mailAddr = models.CharField(max_length=50)
+
+    def __unicode__(self):
+        return self.name
+
+
+class Id(models.Model):
+    Module = models.CharField(max_length=30)
+    IP = models.CharField(max_length=20)
+    Port = models.IntegerField(blank=True, null=True)
+
+    def __unicode__(self):
+        return self.Module
+
+
+class ProjectInformation(models.Model):
+
+    JobName = models.CharField(max_length=30)
+    ProjectName = models.CharField(max_length=20)
+    TestVersion = models.CharField(max_length=30)
+    TestModule = models.CharField(max_length=30)
+    TestLevel = models.CharField(max_length=30)
+    StartTime = models.TimeField()
+    ProjectStatus = models.NullBooleanField(null=False, blank=False)
+
+    def __unicode__(self):
+        return self.JobName
+
+class Result(models.Model):
+    Module = models.CharField(max_length=30)
+    Version = models.CharField(max_length=20)
+    CaseNum = models.CharField(max_length=20)
+
+    Result = models.CharField(max_length=20)
+
+    ExecDataTime = models.DateTimeField(null=True, blank=True)
+
+    ExecIndex = models.NullBooleanField(null=True, blank=True)
+
+    def __unicode__(self):
+
+        return self.Version
+
+
+class Statistics(models.Model):
+
+    Module = models.CharField(max_length=30)
+
+    Version = models.CharField(max_length=30)
+
+    ExecStartTime = models.DateTimeField(null=True, blank=True)
+
+    ExecEndTime = models.DateTimeField(null=True, blank=True)
+
+    TotalNum = models.IntegerField(null=True, blank=True)
+
+    Environment = models.CharField(max_length=30)
+
+    def __unicode__(self):
+
+        return self.Version

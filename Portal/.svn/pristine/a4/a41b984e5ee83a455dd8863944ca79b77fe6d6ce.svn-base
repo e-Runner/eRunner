@@ -1,0 +1,10 @@
+{% extends "generic_prod.html" %}
+{% block content %}
+    <div style="padding-top: 100px;text-align: center;">
+        <h1>分析优化页面</h1>
+        <h2>Coming soon ...</h2>
+        {% for c in "012345" %}
+            <h2>{{ c }}</h2>
+        {% endfor %}
+    </div>
+{% endblock %}

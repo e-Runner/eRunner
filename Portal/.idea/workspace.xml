@@ -1,0 +1,990 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" readonly="true" id="4f81f0d9-4ab0-4a6a-8c80-3155b05e724e" name="Default" comment="" />
+    <ignored path="Portal.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Portal$settings.coverage" NAME="settings Coverage Results" MODIFIED="1401162727943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/envision" />
+    <SUITE FILE_PATH="coverage/Portal$scheduler.coverage" NAME="scheduler Coverage Results" MODIFIED="1402563212254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="Portal" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="format_log.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/erunner/format_log.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="243" column="9" selection-start="6441" selection-end="6441" vertical-scroll-proportion="0.0" vertical-offset="5472" max-vertical-offset="12984">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forms_tools.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/erunner/forms_tools.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="15" selection-start="125" selection-end="141" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="312">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/envision/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="51" column="64" selection-start="2904" selection-end="2918" vertical-scroll-proportion="0.0" vertical-offset="676" max-vertical-offset="1344">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/envision/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="95" column="15" selection-start="2440" selection-end="2440" vertical-scroll-proportion="0.0" vertical-offset="1612" max-vertical-offset="2976">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views_process.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/erunner/views_process.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="31" selection-start="1283" selection-end="1283" vertical-scroll-proportion="0.0" vertical-offset="2777" max-vertical-offset="3408">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views_result.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/erunner/views_result.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="163" column="0" selection-start="6951" selection-end="6951" vertical-scroll-proportion="0.0" vertical-offset="3473" max-vertical-offset="4680">
+              <folding>
+                <element signature="e#27#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="report.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/report.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="123" column="15" selection-start="4262" selection-end="4262" vertical-scroll-proportion="-16.258064" vertical-offset="2448" max-vertical-offset="4464">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="result.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/result.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="16" selection-start="1634" selection-end="1634" vertical-scroll-proportion="0.56" vertical-offset="768" max-vertical-offset="6072">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Formater.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/erunner/SourceCodeFormater/Formater.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="1" selection-start="422" selection-end="422" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="2040">
+              <folding>
+                <element signature="e#54#88#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views_code.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/erunner/views_code.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="0" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+              <folding>
+                <element signature="e#40#87#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/templates/fuck.html" />
+        <option value="$PROJECT_DIR$/static/css/bootstrap.css" />
+        <option value="$PROJECT_DIR$/static/js/prettify.min.js" />
+        <option value="$PROJECT_DIR$/templates/exetable.html" />
+        <option value="$USER_HOME$/Desktop/scheduler.py" />
+        <option value="$PROJECT_DIR$/erunner/__init__.py" />
+        <option value="F:/eRunner/py2exe.py" />
+        <option value="F:/eRunner/setup.py" />
+        <option value="F:/eRunner/pythonservice.py" />
+        <option value="$PROJECT_DIR$/erunner/tests.py" />
+        <option value="$PROJECT_DIR$/templates/analysis.html" />
+        <option value="$PROJECT_DIR$/templates/fileload.html" />
+        <option value="$PROJECT_DIR$/static/css/flat-ui.css" />
+        <option value="$PROJECT_DIR$/static/css/bootstrap.min.css" />
+        <option value="$PROJECT_DIR$/erunner/interface.py" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/erunner/dataformat.py" />
+        <option value="$PROJECT_DIR$/static/js/test.js" />
+        <option value="$PROJECT_DIR$/erunner/views_auth.py" />
+        <option value="$PROJECT_DIR$/templates/generic_prod.html" />
+        <option value="$PROJECT_DIR$/erunner/admin.py" />
+        <option value="$PROJECT_DIR$/static/js/execute.js" />
+        <option value="$PROJECT_DIR$/envision/settings.py" />
+        <option value="$PROJECT_DIR$/templates/mainframe.html" />
+        <option value="$PROJECT_DIR$/envision/wsgi.py" />
+        <option value="$PROJECT_DIR$/erunner/views.py" />
+        <option value="$PROJECT_DIR$/erunner/models.py" />
+        <option value="$PROJECT_DIR$/erunner/views_tools.py" />
+        <option value="$PROJECT_DIR$/erunner/models_fact.py" />
+        <option value="$PROJECT_DIR$/erunner/views_report.py" />
+        <option value="$PROJECT_DIR$/erunner/views_configure.py" />
+        <option value="$PROJECT_DIR$/erunner/views_execute.py" />
+        <option value="$PROJECT_DIR$/static/js/report.js" />
+        <option value="$PROJECT_DIR$/templates/execute.html" />
+        <option value="$PROJECT_DIR$/static/js/configure.js" />
+        <option value="$PROJECT_DIR$/erunner/models_dimension.py" />
+        <option value="$PROJECT_DIR$/templates/configure.html" />
+        <option value="$PROJECT_DIR$/erunner/views_format.py" />
+        <option value="$PROJECT_DIR$/templates/log.html" />
+        <option value="$PROJECT_DIR$/erunner/format_log.py" />
+        <option value="$PROJECT_DIR$/templates/code.html" />
+        <option value="$PROJECT_DIR$/erunner/views_mainframe.py" />
+        <option value="$PROJECT_DIR$/templates/login.html" />
+        <option value="$PROJECT_DIR$/erunner/jobs.py" />
+        <option value="$PROJECT_DIR$/erunner/views_process.py" />
+        <option value="$PROJECT_DIR$/templates/report.html" />
+        <option value="$PROJECT_DIR$/erunner/views_code.py" />
+        <option value="$PROJECT_DIR$/envision/urls.py" />
+        <option value="$PROJECT_DIR$/erunner/view_show.py" />
+        <option value="$PROJECT_DIR$/erunner/views_result.py" />
+        <option value="$PROJECT_DIR$/templates/result.html" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1296" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>General</id>
+          </State>
+          <State>
+            <id>Python</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Annotator</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="erunner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="envision" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="FullScreen" value="false" />
+    <property name="options.lastSelected" value="settings.github" />
+    <property name="options.splitter.main.proportions" value="0.29833335" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings />
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\svn\Portal\static\js" />
+      <recent name="D:\svn\Portal\static\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\svn\Portal\erunner" />
+      <recent name="D:\svn\Portal" />
+      <recent name="D:\svn\Portal\templates" />
+      <recent name="D:\svn\Portal\static\js" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Django server.Portal">
+    <configuration default="false" name="settings" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/envision" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Portal" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/envision/settings.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="scheduler" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Desktop" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Portal" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Desktop/scheduler.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Portal" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Portal" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Portal" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Portal" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Python.PyramidServer" factoryName="Pyramid server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Portal" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="CONFIGURATION_FILE" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Portal" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Portal" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Portal" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Portal" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Portal" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Portal" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonCover" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonCover" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Django server.Portal" />
+      <item index="1" class="java.lang.String" itemvalue="Python.settings" />
+      <item index="2" class="java.lang.String" itemvalue="Python.scheduler" />
+    </list>
+    <recent_temporary>
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.scheduler" />
+        <item index="1" class="java.lang.String" itemvalue="Python.settings" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="true" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <configuration useDefault="false">C:\Users\honglei.yu\AppData\Roaming\Subversion</configuration>
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4f81f0d9-4ab0-4a6a-8c80-3155b05e724e" name="Default" comment="" />
+      <created>1399340151811</created>
+      <updated>1399340151811</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1296" height="1000" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29330498" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26354942" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.246875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4059511" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47396386" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="SVN Properties" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35919234" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33156216" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32965517" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39976957" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="26" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/envision/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="389" selection-end="389" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="432" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/generic_prod.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="64" selection-start="2805" selection-end="2816" vertical-scroll-proportion="-11.612904" vertical-offset="1800" max-vertical-offset="3480" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="413" />
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/django/db/models/fields/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1394" column="16" selection-start="51703" selection-end="51709" vertical-scroll-proportion="0.0" vertical-offset="32636" max-vertical-offset="34056" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/custom_radio.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/execute.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="24" selection-start="1050" selection-end="1059" vertical-scroll-proportion="0.0" vertical-offset="1091" max-vertical-offset="5352" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/jquery-ui.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="16" selection-start="1263" selection-end="1263" vertical-scroll-proportion="0.0" vertical-offset="2808" max-vertical-offset="360264" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/500.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="627" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="14" selection-start="155" selection-end="155" vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="288" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/views_system.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="21" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="264" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/configure.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="26" selection-start="2353" selection-end="2364" vertical-scroll-proportion="0.0" vertical-offset="2445" max-vertical-offset="3504" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/exetable.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="8544" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/views_report.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="477" selection-end="477" vertical-scroll-proportion="0.0" vertical-offset="1350" max-vertical-offset="1776" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/models_stat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="32" selection-start="2273" selection-end="2273" vertical-scroll-proportion="0.0" vertical-offset="596" max-vertical-offset="1488" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/models_fact.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="0" selection-start="1904" selection-end="1904" vertical-scroll-proportion="0.0" vertical-offset="740" max-vertical-offset="1536" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/generic_dev.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="10" selection-start="2694" selection-end="2694" vertical-scroll-proportion="-8.548388" vertical-offset="2063" max-vertical-offset="12360" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/add.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/configure.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="167" column="43" selection-start="6615" selection-end="6615" vertical-scroll-proportion="0.0" vertical-offset="6792" max-vertical-offset="7920" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/views_tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="102" column="21" selection-start="3687" selection-end="3687" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2568" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/report.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="24" selection-start="1737" selection-end="1737" vertical-scroll-proportion="0.0" vertical-offset="1632" max-vertical-offset="2904" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/system.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/execute.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="331" selection-end="331" vertical-scroll-proportion="-10.064516" vertical-offset="0" max-vertical-offset="18696" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="26" selection-start="2830" selection-end="2830" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2232" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/views_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="184" selection-end="296" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="288" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="18" selection-start="273" selection-end="273" vertical-scroll-proportion="-0.7741935" vertical-offset="192" max-vertical-offset="912" />
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/django/views/decorators/csrf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="723" selection-end="723" vertical-scroll-proportion="0.0" vertical-offset="113" max-vertical-offset="1512" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/views_execute.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="556" selection-end="556" vertical-scroll-proportion="0.0" vertical-offset="504" max-vertical-offset="5136" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/models_dimension.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="183" column="10" selection-start="6197" selection-end="6197" vertical-scroll-proportion="0.0" vertical-offset="3984" max-vertical-offset="4728" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="696">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/views_configure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="37" selection-start="2825" selection-end="2825" vertical-scroll-proportion="0.0" vertical-offset="1209" max-vertical-offset="1872">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/views_auth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="33" selection-start="553" selection-end="553" vertical-scroll-proportion="0.0" vertical-offset="308" max-vertical-offset="984">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/views_mainframe.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="384">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mainframe.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="36" selection-start="2049" selection-end="2049" vertical-scroll-proportion="0.0" vertical-offset="7488" max-vertical-offset="12264">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="42" selection-start="2299" selection-end="2299" vertical-scroll-proportion="-6.967742" vertical-offset="1416" max-vertical-offset="2424">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/log.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="7" selection-start="81" selection-end="81" vertical-scroll-proportion="-6.193548" vertical-offset="0" max-vertical-offset="336">
+          <folding>
+            <marker date="1408500735280" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1408500735280" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1408500735280" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/code.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="7" selection-start="81" selection-end="81" vertical-scroll-proportion="-6.193548" vertical-offset="0" max-vertical-offset="336">
+          <folding>
+            <marker date="1408506392285" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1408506392285" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1408506392285" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/jobs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="45" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3000">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keeper.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="11" selection-start="526" selection-end="526" vertical-scroll-proportion="-13.44" vertical-offset="0" max-vertical-offset="528">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/view_show.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="304" selection-end="304" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+          <folding>
+            <element signature="e#40#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/views_code.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+          <folding>
+            <element signature="e#40#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/views_process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="31" selection-start="1283" selection-end="1283" vertical-scroll-proportion="0.0" vertical-offset="1296" max-vertical-offset="3408">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/forms_tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="15" selection-start="125" selection-end="141" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="312">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/format_log.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="243" column="9" selection-start="6441" selection-end="6441" vertical-scroll-proportion="0.0" vertical-offset="5472" max-vertical-offset="12984">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/envision/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="64" selection-start="2904" selection-end="2918" vertical-scroll-proportion="0.0" vertical-offset="676" max-vertical-offset="1344">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/envision/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="15" selection-start="2440" selection-end="2440" vertical-scroll-proportion="0.0" vertical-offset="1612" max-vertical-offset="2976">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/SourceCodeFormater/Formater.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="1" selection-start="422" selection-end="422" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="2040">
+          <folding>
+            <element signature="e#54#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/erunner/views_result.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="163" column="0" selection-start="6951" selection-end="6951" vertical-scroll-proportion="0.0" vertical-offset="3473" max-vertical-offset="4680">
+          <folding>
+            <element signature="e#27#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="123" column="15" selection-start="4262" selection-end="4262" vertical-scroll-proportion="-16.258064" vertical-offset="2448" max-vertical-offset="4464">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/result.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="16" selection-start="1634" selection-end="1634" vertical-scroll-proportion="0.56" vertical-offset="768" max-vertical-offset="6072">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

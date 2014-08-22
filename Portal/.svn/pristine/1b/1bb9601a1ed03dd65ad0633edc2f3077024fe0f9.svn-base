@@ -1,0 +1,326 @@
+{% extends "generic_prod.html" %}
+{% block style-added %}
+    <style type="text/css">
+        h3 {
+            display: inherit;
+        }
+        th {
+            font-size: 22px;
+            text-align: center;
+        }
+
+        td {
+            text-align: center;
+            font-size: 16px;
+            height: 20px;
+        }
+
+    </style>
+{% endblock %}
+
+{% block script-added %}
+    <script src="../static/js/configure.js"></script>
+{% endblock %}
+
+
+{% block content %}
+    <div style="padding-top: 100px">
+         <div style="margin-left: 22%">
+             <label style="display: inline; margin-right: 10px"><h3>产品 </h3></label>
+                    <select id="ProductSelect" style="visibility: visible">
+                    </select >
+             <label style="display: inline; margin-right: 10px"><h3 style="padding-left: 12%">模块 </h3> </label>
+                    <select id="ModuleSelect" style="visibility: visible">
+                    </select >
+         </div>
+         <div style="margin-left: 22%">
+         <label style="display: inline; margin-right: 10px"><h3>版本 </h3> </label>
+                    <select id="VersionSelect" style="visibility: visible">
+                    </select>
+         <label style="display: inline; margin-right: 10px; padding-left: 12%"><h3>套件 </h3></label>
+            <select id="SuiteSelect" style="visibility: visible">
+            </select>
+         <a onclick="AddRunSuite()">
+             <img src="../static/img/add.png" style="margin-bottom: 10px">
+         </a>
+         </div>
+         <table id="SuiteListExit" class="table table-striped" style="width: 66%; margin-left: 16%">
+            <thead>
+                <tr>
+                    <th> 选项</th>
+                    <th> 子文件</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    <div id="insert" class="modal hide fade" style="display: none;" onshow="AddTestSuite()">
+            <div class="modal-header">
+              <a class="close" data-dismiss="modal">×</a>
+              <table class="table table-hover" style="margin-bottom: 0px">
+                <thead>
+                  <tr>
+                    <th>
+                       <a href="#" class="btn btn-large btn-block disabled" style="width: 160px">Job Name</a>
+                    </th>
+
+                    <th>
+                        <input id="TestSuiteName" type="text" value placeholder="Job Name" style="width: 208px" onchange="TextCheck()"/>
+                    </th>
+                  </tr>
+                </thead>
+               </table>
+            </div>
+            <div class="modal-footer" style="text-align: center">
+            <div id="center1" class="text-center">
+               <table id="AddSuiteList" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th> 选项</th>
+                            <th> 子文件</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+           </div>
+           <button id="InsertOK" class="btn" data-dismiss="modal" onclick="AddRunSuiteFunction()" style="height: 36px; width: 72px; margin-right: 40px;  background-color: rgb(62, 105, 195)">OK</button>
+           <button class="btn" data-dismiss="modal" style="height: 36px; width: 72px; margin-right: 40px;  background-color: rgb(62, 105, 195)">Cancel</button>
+          </div>
+   </div>
+    </div>
+{% endblock %}
+
+{% block script-body %}
+    <script style="text/javascript">
+
+    $(document).ready(function(){
+        add_product("OK", add_pro);
+        function add_pro(data)
+            {
+                document.getElementById("ProductSelect").options.length = 0;
+                for(i=0; i < data['Product'].length; i++)
+                {
+                    document.getElementById("ProductSelect").options.add(new Option(data['Product'][i]))
+                }
+                var checked_product = $("#ProductSelect option:selected").text();
+                updateproduct(checked_product, ProductChanged);
+                var checked_module = $("#ModuleSelect option:selected").text();
+                updatemodule(checked_module, ModuleChanged);
+                var checked_version = $("#VersionSelect option:selected").text();
+                updateversion(checked_version,checked_module, VersionChanged);
+            }
+            $("#ProductSelect").change(function(){
+              var checked_product = $("#ProductSelect option:selected").text();
+              updateproduct(checked_product, ProductChanged);
+              $("#ModuleSelect").change();
+            });
+
+            $("#ModuleSelect").change(function(){
+              var checked_module = $("#ModuleSelect option:selected").text();
+              updatemodule(checked_module, ModuleChanged);
+              $("#VersionSelect").change();
+            });
+
+            $("#VersionSelect").change(function(){
+              var checked_module = $("#ModuleSelect option:selected").text();
+              var checked_version = $("#VersionSelect option:selected").text();
+              updateversion(checked_version,checked_module, VersionChanged);
+            });
+
+            $("#SuiteSelect").change(function(){
+              var checked_suite = $("#SuiteSelect option:selected").text();
+              updatesuite(checked_suite, SuiteChanged);
+            });
+    });
+
+    function ProductChanged(data)
+    {
+      $("#SuiteListExit tbody").html("");
+      document.getElementById("ModuleSelect").options.length = 0;
+      for (i = 0; i < data['ModuleList'].length; i++)
+      {
+        document.getElementById("ModuleSelect").options.add(new Option(data['ModuleList'][i]));
+      }
+    }
+
+    function SuiteChanged(data)
+    {
+        data = data['SuiteList'];
+        $("#SuiteListExit tbody").html("");
+        lengthjson = data.length;
+        for (i = 0; i < lengthjson; i++)
+        {
+            var Check_Box = "<tr><td>" + '<input type="checkbox" name="box"';
+            Check_Box += "id='" + data[i] + "'></td>";
+            var Suite_Name = '<td>' + data[i] + "</td>";
+            var NewRow = Check_Box + Suite_Name;
+            $("#SuiteListExit").append(NewRow);
+        }
+        if(lengthjson < 15)
+        {
+            for(j = 0; j < 12-lengthjson; j++)
+            {
+               var Check_Box = "<tr><td>" +""+"</td>";
+                var Suite_Name = '<td>' + ""+ "</td>";
+                var NewRow = Check_Box + Suite_Name;
+                $("#SuiteListExit").append(NewRow);
+            }
+
+        }
+        var button1 = '<td>'+'<button class="btn btn-primary" onclick="DeleteSuiteFunction()" style="background-color: #2980B9; width: 80px; height: 40px">删除</button>'+'</td>'
+        var button2 = '<td>'+'<button class="btn btn-primary" onclick="ModifySuiteFunction()" style="background-color: #2980B9; width: 80px; height: 40px">修改</button>'+'</td>'
+        var addbutton = button1+button2
+        $("#SuiteListExit tbody").append(addbutton);
+    }
+
+    function ModuleChanged(data)
+    {
+      $("#SuiteListExit tbody").html("");
+      document.getElementById("VersionSelect").options.length = 0;
+      for (i = 0; i < data['VersionList'].length; i++)
+      {
+        document.getElementById("VersionSelect").options.add(new Option(data['VersionList'][i]));
+      }
+    }
+
+    function VersionChanged(data) {
+
+        $("#SuiteListExit tbody").html("");
+        document.getElementById("SuiteSelect").options.length = 0;
+        for (i = 0; i < data['RunSuiteList'].length; i++)
+        {
+          document.getElementById("SuiteSelect").options.add(new Option(data['RunSuiteList'][i]));
+        }
+        var checked_suite = $("#SuiteSelect option:selected").text();
+        if(checked_suite != "")
+        {
+          updatesuite(checked_suite, SuiteChanged);
+        }
+        else
+        {
+           $("#SuiteListExit tbody").html("");
+           for(j = 0; j < 12; j++)
+            {
+                var Check_Box = "<tr><td>" +""+"</td>";
+                var Suite_Name = '<td>' + ""+ "</td>";
+                var NewRow = Check_Box + Suite_Name;
+                $("#SuiteListExit tbody").append(NewRow);
+            }
+            var button1 = '<td>'+'<button class="btn btn-primary" onclick="AddSuiteFunction()" style="background-color: #2980B9; width: 80px; height: 40px">确定</button>'+'</td>'
+            var button2 = '<td>'+'<button class="btn btn-primary" id="Cancel" style="background-color: #2980B9; width: 80px; height: 40px">取消</button>'+'</td>'
+            var addbutton = button1+button2
+            $("#SuiteListExit tbody").append(addbutton)
+        }
+    }
+    function TextCheck()
+    {
+        var RunSuiteName = document.getElementById("TestSuiteName").value;
+        alert(RunSuiteName);
+        check_suite_name(RunSuiteName, check_ok);
+    }
+
+    function DeleteSuiteFunction()
+    {
+       var SuiteName = $("#SuiteSelect option:selected").text();
+       alert(SuiteName);
+    }
+
+    function AddSuiteFunction()
+    {
+
+       var str = document.getElementsByName("box");
+       var objectlength = str.length;
+       var VersionName = $("#VersionSelect option:selected").text();
+       var ModuleName = $("#ModuleSelect option:selected").text();
+       var RunSuiteName = document.getElementById("TestSuiteName").value;
+       var SuiteList = "";
+       for(i=0; i < objectlength; i++)
+       {
+           if(str[i].checked == true)
+           {
+               SuiteList += str[i].id+"|";
+           }
+       }
+       if(SuiteList != "" && RunSuiteName !="")
+       {
+           addrunsuite(RunSuiteName, VersionName, ModuleName, SuiteList, AddRunSuite);
+       }
+    }
+
+    function check_ok(data) {
+        if (data['CheckResult'] == "NO") {
+            alert("Your Input Job Name is Unavailable!");
+            $("#TestSuiteName").val("");
+        }
+    }
+
+    function AddRunSuite()
+    {
+        var VersionName = $("#VersionSelect option:selected").text();
+        if(VersionName == "")
+        {
+            alert("Please Select the Version");
+        }
+        else
+        {
+            $("#insert").modal("show")
+        }
+    }
+    function AddTestSuite()
+    {
+        var checked_module = $("#ModuleSelect option:selected").text();
+        var checked_version = $("#VersionSelect option:selected").text();
+        addtestsuite(checked_version,checked_module, ShowSuiteList);
+    }
+
+    function ShowSuiteList(data)
+    {
+        $("#AddSuiteList tbody").html("");
+        for (i = 0; i < data['SuiteList'].length; i++)
+        {
+            var Check_Box = "<tr><td>" + '<input type="checkbox" name="box"';
+            Check_Box += "id='" + data['SuiteList'][i] + "'></td>";
+            var Suite_Name = '<td>' + data['SuiteList'][i] + "</td>";
+            var NewRow = Check_Box + Suite_Name;
+            $("#AddSuiteList tbody").append(NewRow);
+        }
+    }
+
+    function AddRunSuiteFunction()
+    {
+
+       var str = document.getElementsByName("box");
+       var objectlength = str.length;
+       var VersionName = $("#VersionSelect option:selected").text();
+       var ModuleName = $("#ModuleSelect option:selected").text();
+       var RunSuiteName = document.getElementById("TestSuiteName").value;
+       var SuiteList = "";
+       for(i=0; i < objectlength; i++)
+       {
+           if(str[i].checked == true)
+           {
+               SuiteList += str[i].id+"|";
+           }
+       }
+
+       addrunsuite(RunSuiteName, VersionName, ModuleName, SuiteList, AddRunSuiteResult);
+    }
+    function AddRunSuiteResult(data)
+    {
+        if(data['AddResult'] == "OK")
+        {
+           alert("Add OK");
+           var checked_module = $("#ModuleSelect option:selected").text();
+           var checked_version = $("#VersionSelect option:selected").text();
+           updateversion(checked_version,checked_module, VersionChanged);
+        }
+        else
+        {
+            alert("Add Error!");
+        }
+    }
+
+    </script>
+
+{% endblock %}

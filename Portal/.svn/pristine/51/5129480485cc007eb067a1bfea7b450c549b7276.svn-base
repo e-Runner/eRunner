@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {%  block meta %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {% endblock %}
+    <title>{% block title %}eRunner{% endblock %}</title>
+    {% block headline %}
+    <link rel="shortcut icon" href="../static/img/favicon.ico">
+    {% endblock %}
+</head>
+<body>
+    <img src="../static/img/envision.png" alt="远景能源自动化测试平台--eRunner" /><br />
+    {% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,47 @@
+__author__ = 'honglei.yu'
+
+def obj2dict(objectBody):
+
+    d = {}
+    d['TestModule'] = objectBody[0]
+    d['CaseNumber'] = objectBody[1]
+    d['TestResult'] = objectBody[2]
+    return d
+
+def obj2jobReport(jobdata):
+
+    job = {}
+    job['JobName'] = jobdata.JobName
+    job['ResultJob'] = jobdata.JobResult
+    job['TotalNumber'] = jobdata.TotalNumber
+    job['PassedNumber'] = jobdata.PassedNumber
+    job['StartTime'] = jobdata.StartTime.strftime("%Y-%m-%d %H:%M:%S")
+    job['DurationTime'] = jobdata.DurationTime
+    return job
+
+def obj2project(projectdate):
+
+    project = {}
+
+    project['JobName'] = projectdate[0]
+    project['ProductName'] = projectdate[1]
+    project['TestVersion'] = projectdate[2]
+    project['TestModule'] = projectdate[3]
+    project['TestLevel'] = projectdate[4]
+    project['StartTime'] = str(projectdate[5])
+    project['ProjectStatus'] = projectdate[6]
+
+    return project
+
+def obj2job(jobdate):
+
+    JobMessage = {}
+
+    JobMessage['JobName'] = jobdate.JobName
+    JobMessage['JobHealth'] = jobdate.JobHealth
+    JobMessage['LastResult'] = jobdate.LastResult
+    JobMessage['StartTime'] = jobdate.StartTime
+    JobMessage['JobStatus'] = jobdate.JobStatus
+
+    return JobMessage
+

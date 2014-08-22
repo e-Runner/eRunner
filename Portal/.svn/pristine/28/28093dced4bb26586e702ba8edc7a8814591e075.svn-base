@@ -1,0 +1,507 @@
+{% extends "generic_prod.html" %}
+{% block script-added %}
+    <script src="../static/js/highcharts.js"></script>
+    <script src="../static/js/exporting.js"></script>
+{% endblock %}
+
+{% block style-added %}
+    <style type="text/css">
+        p {
+            display: inline;
+            vertical-align: middle;
+        }
+
+        h2 {
+            display: inline;
+            vertical-align: middle;
+        }
+
+        h3 {
+            display: inherit;
+        }
+
+        h4 {
+            display: inline;
+            vertical-align: middle;
+            padding-right: 15px;
+        }
+
+        h5 {
+            margin: 1px;
+        }
+
+        th {
+            font-size: 22px;
+            text-align: center;
+        }
+
+        td {
+            text-align: center;
+            font-size: 16px;
+        }
+
+        #Layer1 {
+            float: left;
+            position: relative;
+            left: 3%;
+            top: 14%;
+            width: 45%;
+            height: 40%;
+        }
+
+        #Layer2 {
+            float: left;
+            position: relative;;
+            left: 7%;
+            top: 14%;
+            width: 45%;
+            height: 40%;
+            z-index: 2;
+        }
+
+        #Layer3 {
+            float: left;
+            position: relative;
+            left: 3%;
+            top: 56%;
+            width: 45%;
+            height: 40%;
+            z-index: 3;
+        }
+
+        #Layer4 {
+            float: left;
+            position: relative;
+            left: 7%;
+            top: 56%;
+            width: 45%;
+            height: 40%;
+            z-index: 4;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div style="padding-top: 100px;">
+    <div id="Layer1">
+        <div id="container4" style="min-width:100%;height:100%"></div>
+    </div>
+    <div id="Layer2">
+        <div id="container1" style="min-width:100%;height:100%"></div>
+    </div>
+    <div id="Layer3">
+        <div id="container2" style="min-width:100%;height:100%"></div>
+    </div>
+    <div id="Layer4">
+        <div id="container3" style="min-width:100%;height:100%"></div>
+    </div>
+</div>
+<div style="clear: both;"></div>
+{% endblock %}
+
+{% block script-body %}
+    <script type="text/javascript">
+        $(function () {
+            $('#container4').highcharts({
+                chart: {
+                    type: 'line'
+                },
+                title: {
+                    text: 'Passed Ratio',
+                    x: -20, //center
+                    style: {
+                        fontSize: '25px',
+                        color: 'black'
+                    }
+                },
+                xAxis: {
+                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                },
+                yAxis: {
+                    title: {
+                        text: 'Ratio'
+                    },
+                    labels: {
+                            rotation: -45,
+                            align: 'right',
+                            style: {
+                                fontSize: '9px',
+                                fontFamily: 'Verdana, sans-serif'
+                            }
+                        },
+                },
+                tooltip: {
+                    valueSuffix: ''
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                credits: {
+                    enabled: false
+                },
+                series: [
+                    {
+                        name: 'Wind OS',
+                        data: [0.8, 0.9, 0.85, 0.95, 0.98, 0.93, 0.96, 0.89, 0.92, 0.94, 0.97, 0.93]
+                    },
+                    {
+                        name: 'BAO',
+                        data: [0.86, 0.97, 0.83, 0.85, 0.88, 0.96, 0.92, 0.99, 0.82, 0.84, 0.87, 0.99]
+                    },
+                    {
+                        name: 'MAP',
+                        data: [0.98, 0.89, 0.81, 0.85, 0.93, 0.96, 0.98, 0.99, 0.96, 0.99, 0.92, 0.95]
+                    },
+                    {
+                        name: 'EAI',
+                        data: [0.88, 0.99, 0.95, 0.85, 0.88, 0.98, 0.86, 0.99, 0.82, 0.84, 0.91, 0.97]
+                    }
+                ]
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+
+            var colors = Highcharts.getOptions().colors,
+                    categories = ['Wind OS', 'BAO', 'MAP', 'EAI'],
+                    name = 'Product Suite',
+                    data = [
+                        {
+                            y: 510,
+                            color: colors[0],
+                            drilldown: {
+                                name: 'Wind OS',
+                                categories: ['SCADA_APP', 'FE', 'HDB', 'WebClient'],
+                                data: [130, 200, 100, 80],
+                                color: colors[0]
+                            }
+                        },
+                        {
+                            y: 402,
+                            color: colors[4],
+                            drilldown: {
+                                name: 'BAO',
+                                categories: ['Web', 'ETL'],
+                                data: [109, 293],
+                                color: colors[4]
+                            }
+                        },
+                        {
+                            y: 304,
+                            color: colors[2],
+                            drilldown: {
+                                name: 'MAP',
+                                categories: ['IOS', 'Android'],
+                                data: [20, 284],
+                                color: colors[2]
+                            }
+                        },
+                        {
+                            y: 109,
+                            color: colors[3],
+                            drilldown: {
+                                name: 'EAI',
+                                categories: ['Web', 'ETL'],
+                                data: [29, 80],
+                                color: colors[3]
+                            }
+                        }
+                    ];
+
+            function setChart(name, categories, data, color) {
+                chart.xAxis[0].setCategories(categories, false);
+                chart.series[0].remove(false);
+                chart.addSeries({
+                    name: name,
+                    data: data,
+                    color: color || 'white'
+                }, false);
+                chart.redraw();
+            }
+
+            var chart = $('#container2').highcharts({
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Automation Cases',
+                    style: {
+                        fontSize: '25px',
+                        color: 'black'
+                    }
+                },
+                credits: {
+                    enabled: false
+                },
+                exporting: {
+                    enabled: true
+                },
+                xAxis: {
+                    categories: categories
+                },
+                yAxis: {
+                    title: {
+                        text: 'Total Number',
+                        style: {
+                            fontSize: '16px',
+                            color: 'black'
+                        }
+                    }
+                },
+                plotOptions: {
+                    column: {
+                        cursor: 'pointer',
+                        point: {
+                            events: {
+                                click: function () {
+                                    var drilldown = this.drilldown;
+                                    if (drilldown) { // drill down
+                                        setChart(drilldown.name, drilldown.categories, drilldown.data, drilldown.color);
+                                    } else { // restore
+                                        setChart(name, categories, data);
+                                    }
+                                }
+                            }
+                        },
+                        dataLabels: {
+                            enabled: true,
+                            color: colors[0],
+                            style: {
+                                fontWeight: 'bold'
+                            },
+                            formatter: function () {
+                                return this.y;
+                            }
+                        }
+                    }
+                },
+                tooltip: {
+                    formatter: function () {
+                        var point = this.point,
+                                s = this.x + ':<b>' + this.y + '</b><br/>';
+                        if (point.drilldown) {
+                            s += 'Click to detailed information of ' + point.category;
+                        } else {
+                            s += 'Click to return to envision';
+                        }
+                        return s;
+                    }
+                },
+                series: [
+                    {
+                        name: name,
+                        data: data,
+                        color: 'white'
+                    }
+                ],
+
+                exporting: {
+                    enabled: true
+                }
+            })
+                    .highcharts(); // return chart
+        });
+    </script>
+
+    <script>
+        $(function () {
+
+            var colors = Highcharts.getOptions().colors,
+                    categories = ['Wind OS', 'BAO', 'MAP', 'EAI'],
+                    name = 'Product Suite',
+                    data = [
+                        {
+                            y: 110,
+                            color: colors[0],
+                            drilldown: {
+                                name: 'Wind OS',
+                                categories: ['SCADA_APP', 'FE', 'HDB', 'WebClient'],
+                                data: [20, 30, 40, 20],
+                                color: colors[0]
+                            }
+                        },
+                        {
+                            y: 59,
+                            color: colors[4],
+                            drilldown: {
+                                name: 'BAO',
+                                categories: ['Web', 'ETL'],
+                                data: [26, 33],
+                                color: colors[4]
+                            }
+                        },
+                        {
+                            y: 68,
+                            color: colors[2],
+                            drilldown: {
+                                name: 'MAP',
+                                categories: ['IOS', 'Android'],
+                                data: [39, 29],
+                                color: colors[2]
+                            }
+                        },
+                        {
+                            y: 77,
+                            color: colors[3],
+                            drilldown: {
+                                name: 'EAI',
+                                categories: ['Web', 'ETL'],
+                                data: [47, 30],
+                                color: colors[3]
+                            }
+                        }
+                    ];
+
+            function setChart(name, categories, data, color) {
+                chart.xAxis[0].setCategories(categories, false);
+                chart.series[0].remove(false);
+                chart.addSeries({
+                    name: name,
+                    data: data,
+                    color: color || 'white'
+                }, false);
+                chart.redraw();
+            }
+
+            var chart = $('#container1').highcharts({
+                chart: {
+                    type: 'column'
+                },
+
+                title: {
+                    text: 'Execution Time',
+                    style: {
+                        fontSize: '25px',
+                        color: 'black'
+                    }
+                },
+                xAxis: {
+                    categories: categories
+                },
+                yAxis: {
+                    title: {
+                        text: 'Total Time(Min)',
+                        style: {
+                            fontSize: '16px',
+                            color: 'black'
+                        }
+                    }
+                },
+                credits: {
+                    enabled: false
+                },
+                exporting: {
+                    enabled: true
+                },
+                plotOptions: {
+                    column: {
+                        cursor: 'pointer',
+                        point: {
+                            events: {
+                                click: function () {
+                                    var drilldown = this.drilldown;
+                                    if (drilldown) { // drill down
+                                        setChart(drilldown.name, drilldown.categories, drilldown.data, drilldown.color);
+                                    } else { // restore
+                                        setChart(name, categories, data);
+                                    }
+                                }
+                            }
+                        },
+                        dataLabels: {
+                            enabled: true,
+                            color: colors[0],
+                            style: {
+                                fontWeight: 'bold'
+                            },
+                            formatter: function () {
+                                return this.y;
+                            }
+                        }
+                    }
+                },
+                tooltip: {
+                    formatter: function () {
+                        var point = this.point,
+                                s = this.x + ':<b>' + this.y + 'minute</b><br/>';
+                        if (point.drilldown) {
+                            s += 'Click to detailed information of ' + point.category;
+                        } else {
+                            s += 'Click to return to envision';
+                        }
+                        return s;
+                    }
+                },
+                series: [
+                    {
+                        name: name,
+                        data: data,
+                        color: 'white'
+                    }
+                ],
+                exporting: {
+                    enabled: true
+                }
+            })
+                    .highcharts(); // return chart
+        });
+    </script>
+    <script>
+        $(function () {
+            $('#container3').highcharts({
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+
+                title: {
+                    text: 'Module Percentage',
+                    style: {
+                        fontSize: '25px',
+                        color: 'black'
+                    }
+                },
+                credits: {
+                    enabled: false
+                },
+                tooltip: {
+                    pointFormat: 'Rate: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        }
+                    }
+                },
+                series: [
+                    {
+                        type: 'pie',
+                        name: 'envision',
+                        data: [
+                            ['Wind OS', 57.8],
+                            {
+                                name: 'BAO',
+                                y: 26.8,
+                                sliced: true,
+                                selected: true
+                            },
+                            ['MAP', 8.5],
+                            ['EAI', 6.9]
+                        ]
+                    }
+                ]
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>eRunner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+ 
+    <!-- Le styles -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../static/css/docs.css" rel="stylesheet">
+    <link href="../static/css/prettify.css" rel="stylesheet">
+    <link href="../static/css/flat-ui.css" rel="stylesheet">
+    <link href="../static/css/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="../static/css/jquery-ui.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="../static/css/button.css" rel="stylesheet">
+    <link href="../static/css/datetimepicker.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://getbootstrap.com/2.3.2/assets/js/html5shiv.js"></script>
+    <![endif]-->
+ 
+    <!-- Le fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../static/img/favicon.ico">
+ 
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-146052-10']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <style type="text/css">
+         #bottom {
+                position: fixed;
+                display: block;
+                margin: 0px 0px 0px 0px;
+                bottom: 0;
+                clear: both;
+                width: 100%;
+                color: #fff;
+                height: 20px;
+                right: 0;
+                background-color: #77787b;
+                text-align: center;
+                line-height: 26px;
+                font-size: 12px;
+                font-family: "Microsoft YaHei";
+                min-width: 1280px;
+            }
+
+            #divMainMenu{
+                position:absolute;
+                top: 0px;
+                width: 100%;
+                height: 6%;
+            }
+            p{
+                display: inline;
+                vertical-align: middle;
+            }
+
+            h2{
+                display: inline;
+                vertical-align: middle;
+            }
+            h4{
+                display: inline;
+                vertical-align: middle;
+                padding-right: 15px;
+            }
+            h5{
+                margin: 1px;
+            }
+            .MenuRight{
+                padding-right: 0px;
+                display: inline;
+            }
+
+            .Configure{
+                position: absolute;
+                top: 15%;
+                width: 96%;
+                padding-left: 2%;
+            }
+            h3{
+                display: inline;
+            }
+
+            td{
+                text-align: center;
+                font-size: 16px;
+            }
+
+            th{
+                font-size: 16px;
+            }
+
+           #result{
+                text-align: center;
+                margin: auto;
+                width: 100%;
+                height: 80%;
+                }
+
+            button{
+                background-color: rgb(62, 105, 195);
+            }
+    </style>
+  </head>
+ 
+<body class="container">
+    <div id="divMainMenu">
+        <img src="../static/img/envision.png"></img>
+        <p><h2>软件产品自动化测试框架和平台</h2></p>
+        <div class="MenuRight" style="margin-left: 400px">
+            <p><h4>{{ user.username }}</h4></p>
+            <a href="/login/"><h4>退出</h4></a>
+        </div>
+    </div>
+
+    <div class="navbar navbar-inverse navbar-fixed-top container" style="top: 7%">
+      <div class="navbar-inner" style="position:absolute; height: 46px; top: 7%; background-color: rgb(69, 144, 219)">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="/mainframe/"><h5>趋势展示</h5></a>
+              </li>
+              <li class="active">
+                <a href="/execute/"><h5>配置调度</h5></a>
+              </li>
+              <li class="">
+                <a href="/report/"><h5>报告查看</h5></a>
+              </li>
+              <li class="">
+                <a href="/report/"><h5>分析优化</h5></a>
+              </li>
+              <li class="">
+                <a href="/trend/"><h5>工具下载</h5></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div>
+    <div class="Configure" style="height: 80%">
+        <label style="display: inline; margin-right: 10px"><h3>产品名称</h3></label>
+        <select id="productselect" style="visibility: visible">
+            <option value="0">SCADA_APP</option>
+            <option value="1">HDB</option>
+            <option value="2">FE</option>
+            <option value="3">WebClient</option>
+            <option value="4">BAO</option>
+            <option value="5">MAP</option>
+        </select>
+        <div style="display: inline" class="demo-row">
+        <div class="col-xs-3" style="float: right">
+        <button class="btn btn-large btn-primary" id="delete" style="margin-left: 10px; background-color: rgb(62, 105, 195)">删除任务</button>
+        </div>
+        <div class="col-xs-3" style="float: right;">
+        <a data-toggle="modal" href="#example" class="btn btn-large btn-primary" id="add" style="margin-left: 10px; background-color: rgb(62, 105, 195)">添加任务</a>
+        </div>
+      </div>
+
+     <iframe src="/executetable/" id="result" name="executetable">
+
+     </iframe>
+
+    </div>
+
+    <div id="example" class="modal hide fade" style="display: none;">
+            <div class="modal-header">
+              <a class="close" data-dismiss="modal">×</a>
+              <h3>eRunner Configuration</h3>
+            </div>
+            <div class="modal-footer" style="text-align: center">
+            <div id="center1" class="text-center">
+
+               <table class="table table-hover" style="margin-bottom: 0px">
+                <thead>
+                  <tr>
+                    <th>
+                       <a href="#" class="btn btn-large btn-block disabled">任务名称</a>
+                    </th>
+
+                    <th>
+                        <input id="JobName" type="text" value placeholder="Job Name" style="width: 208px" onchange="TextCheck()"/>
+                    </th>
+                  </tr>
+                </thead>
+               </table>
+
+               <table class="table table-hover" style="margin-bottom: 0px">
+                 <thead>
+                   <tr>
+                    <th>
+                       <a href="#" class="btn btn-large btn-block disabled">测试产品</a>
+                    </th>
+
+                    <th>
+                       <select id="TestProduct">
+                        <option value="0">SCADA_APP</option>
+                        <option value="1">HDB</option>
+                        <option value="2">FE</option>
+                        <option value="3">WebClient</option>
+                        <option value="4">BAO</option>
+                        <option value="5">MAP</option>
+                       </select>
+                     </th>
+                </tr>
+                </thead>
+               </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+            <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试版本</a>
+                </th>
+
+                <th>
+                   <select id="TestVersion">
+                    <option value="0">2.4.1</option>
+                    <option value="1">2.4</option>
+                    <option value="2">2.3.2</option>
+                    <option value="3">2.3.1</option>
+                    <option value="4">2.3</option>
+                    <option value="5">2.2</option>
+                   </select>
+                </th>
+            </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试模块</a>
+                </th>
+
+                <th>
+                   <select id="TestModule">
+                        <option value="0">ALL</option>
+                        <option value="1">Report_Process_Svr</option>
+                        <option value="2">Calculate_Svr</option>
+                        <option value="3">CalPoint_Svr</option>
+                   </select>
+                </th>
+              </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试级别</a>
+                </th>
+
+                <th>
+                   <select id="TestLevel">
+                    <option value="All">All</option>
+                    <option value="Major">Major</option>
+                    <option value="Average">Average</option>
+                    <option value="Minor">Minor</option>
+                   </select>
+                </th>
+              </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">启动时间</a>
+                </th>
+
+                <th>
+                    <div class="input-append date form_datetime">
+                        <input id="StartTime" size="14" type="text" value="" readonly style="background-color: rgb(129, 138, 136)">
+                        <span class="add-on"><i class="icon-th"></i></span>
+                    </div>
+                </th>
+
+              </tr>
+            </thead>
+           </table>
+
+
+           </div>
+           <button id="ModelOK" class="btn" data-dismiss="modal" style="height: 36px; width: 72px; margin-right: 40px;  background-color: rgb(62, 105, 195)">OK</button>
+           <button class="btn" data-dismiss="modal" style="height: 36px; width: 72px; margin-right: 40px;  background-color: rgb(62, 105, 195)">Cancel</button>
+          </div>
+   </div>
+    </div>
+
+    <!-- Footer
+    ================================================== -->
+   <div id="bottom">
+            <p>Copyright©2014 Envision Energy Limited. All Rights Reserved</p>
+   </div>
+ 
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/jquery.dropkick-1.0.0.js"></script>
+    <script src="../static/js/custom_radio.js"></script>
+    <script src="../static/js/holder.js"></script>
+    <script src="../static/js/jquery-ui.js"></script>
+    <script src="../static/js/application.js"></script>
+    <script src="../static/js/Chart.js"></script>
+    <script src="../static/js/jquery.tagsinput.js"></script>
+    <script src="../static/js/jquery.placeholder.min.js"></script>
+    <script src="../static/js/bootstrap-datetimepicker.min.js"></script>
+
+
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-transition.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-alert.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-modal.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-dropdown.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-tab.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-tooltip.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-popover.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-button.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-collapse.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-carousel.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-typeahead.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-affix.js"></script>
+
+    <script src="http://getbootstrap.com/2.3.2/assets/js/holder/holder.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/google-code-prettify/prettify.js"></script>
+
+    <script src="http://getbootstrap.com/2.3.2/assets/js/application.js"></script>
+
+    <script src="../static/js/execute.js"></script>
+ 
+ 
+    <!-- Analytics
+    ================================================== -->
+
+    <script type="text/javascript">
+        $(".form_datetime").datetimepicker({
+            format: "yyyy MM dd - hh:ii",
+            autoclose: true,
+            todayBtn: true,
+            pickerPosition: "bottom-left"
+        });
+
+        function TextCheck()
+        {
+            var CheckName = document.getElementById("JobName").value;
+
+            check_job(CheckName, check_ok);
+        }
+
+        function check_ok(data)
+        {
+
+            if(data['CheckResult'] == "NO")
+            {
+                alert("Your Input Job Name is Unavailable!");
+            }
+        }
+
+    </script>
+
+    <script type="text/javascript">
+	
+	$(document).ready(function(){
+
+        var SelectValue = localStorage.getItem("SelectIndex");
+
+        $("#productselect").val(SelectValue);
+
+        $("#productselect").change(function(){
+
+            var checkindex = $("#productselect option:selected").val();
+
+            localStorage.setItem("SelectIndex", checkindex);
+
+            var value=$("#productselect option:selected").text();
+
+            localStorage.setItem("ProjectName", value);
+
+            document.getElementById('result').contentWindow.location.reload(true);
+
+        });
+
+        $("#delete").click(function(){
+
+            var frameWindow = document.getElementById('result').contentWindow;
+
+            var str = frameWindow.document.getElementsByName("box");
+
+            delete_job(str, delete_ok, delete_error);
+
+        });
+
+        function delete_ok(data)
+        {
+            document.getElementById('result').contentWindow.location.reload(true);
+        }
+
+        function delete_error()
+        {
+            alert("Delete Error!");
+        }
+
+
+        $("#ModelOK").click(function(){
+
+            var Job_Name = document.getElementById("JobName").value;
+            var Product_Name = $("#TestProduct option:selected").text();
+            var Product_Version = $("#TestVersion option:selected").text();
+            var Product_Module = $("#TestModule option:selected").text();
+            var Product_Level = $("#TestLevel option:selected").text();
+            var Start_Time = document.getElementById("StartTime").value;
+
+            var Configure_json = {
+                NameJob: Job_Name,
+                NameProduct: Product_Name,
+                VersionProduct: Product_Version,
+                ModuleProduct: Product_Module,
+                LevelProduct: Product_Level,
+                TimeStart: Start_Time
+            };
+
+            insert_job(Configure_json, insert_ok);
+
+        });
+
+        function insert_ok()
+        {
+            var checkindex1 = $("#TestProduct option:selected").val();
+
+            localStorage.setItem("SelectIndex", checkindex1);
+
+            $("#productselect").val(checkindex1);
+
+            var value=$("#TestProduct option:selected").text();
+
+            localStorage.setItem("ProjectName", value);
+
+            document.getElementById('result').contentWindow.location.reload(true);
+        }
+
+
+
+       <!--
+
+		$("#executeButton").click(function(){
+				
+			var execute_json = {
+					TestProduct: $("#dk_product").text(),
+					TestVersion: $("#dk_version").text(),
+					TestModule: $("#dk_module").text(),
+					TestLevel: $("#dk_level").text(),
+				};
+
+			var json_str = JSON.stringify(execute_json);
+
+			$.post("/run/",json_str,function(data){
+
+				var databit = $.parseJSON(data);
+				alert(databit.Runner);
+				});		
+
+			});
+        -->
+		});
+    </script>
+  </body>
+</html>
+
+

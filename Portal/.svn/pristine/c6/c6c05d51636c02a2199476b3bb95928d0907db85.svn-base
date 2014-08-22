@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>eRunner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+ 
+    <!-- Le styles -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../static/css/docs.css" rel="stylesheet">
+    <link href="../static/css/prettify.css" rel="stylesheet">
+    <link href="../static/css/flat-ui.css" rel="stylesheet">
+    <link href="../static/css/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="../static/css/jquery-ui.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="../static/css/button.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://getbootstrap.com/2.3.2/assets/js/html5shiv.js"></script>
+    <![endif]-->
+ 
+    <!-- Le fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../static/img/favicon.ico">
+ 
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-146052-10']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <style type="text/css">
+         #bottom {
+                position: fixed;
+                display: block;
+                margin: 0px 0px 0px 0px;
+                bottom: 0;
+                clear: both;
+                width: 100%;
+                color: #fff;
+                height: 20px;
+                right: 0;
+                background-color: #77787b;
+                text-align: center;
+                line-height: 26px;
+                font-size: 12px;
+                font-family: "Microsoft YaHei";
+                min-width: 1280px;
+            }
+
+            #divMainMenu{
+                position:absolute;
+                top: 0px;
+                width: 100%;
+                height: 6%;
+            }
+            p{
+                display: inline;
+                vertical-align: middle;
+            }
+
+            h2{
+                display: inline;
+                vertical-align: middle;
+            }
+            h4{
+                display: inline;
+                vertical-align: middle;
+                padding-right: 15px;
+            }
+            h5{
+                margin: 1px;
+            }
+            .MenuRight{
+                padding-right: 0px;
+                display: inline;
+            }
+
+            .Configure{
+
+                position: absolute;
+                padding-top: 20%;
+                width: 80%;
+
+
+            }
+    </style>
+  </head>
+ 
+  <body class="container" style="height: 100px">
+    <div id="divMainMenu">
+        <img src="../static/img/envision.png"></img>
+        <p><h2>软件产品自动化测试框架和平台</h2></p>
+        <div class="MenuRight" style="margin-left: 400px">
+            <p><h4>{{ user.username }}</h4></p>
+            <a href="/login/"><h4>退出</h4></a>
+        </div>
+    </div>
+<!--
+    <div class="navbar navbar-inverse navbar-fixed-top container">
+      <div class="navbar-inner" style="position:absolute; height: 46px; top: 7%; background-color: rgb(69, 144, 219)">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="/mainframe/"><h5>趋势展示</h5></a>
+              </li>
+              <li class="active">
+                <a href="/execute/"><h5>配置执行</h5></a>
+              </li>
+              <li class="">
+                <a href="/report/"><h5>报告查看</h5></a>
+              </li>
+              <li class="">
+                <a href="/trend/"><h5>系统管理</h5></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div>
+    </body>
+   <br>
+   <br>
+   <br>
+  <!--
+   <div class="divbox">
+   <h1 align="center">eRunner配置执行</h1>
+   <br>
+   <br>
+   <div id="center1" class="text-center"> 
+   <table class="table table-hover" cellpadding="10">
+	<thead>
+             <tr>
+		<th>
+		   <a href="#" class="btn btn-large btn-block disabled">测试产品</a>
+		</th>
+		
+		<th>
+       	   	<div class="dk_container span3 dk_shown dk_theme_default" id="dk_container_product" tabindex="1">
+	     <a class="dk_toggle">
+		<span class="dk_label" id="dk_product">SCADA_APP</span>
+		<span class="select-icon"></span>
+	     </a>
+	     <div class="dk_options">
+		<ul class="dk_options_inner">
+			<li class="dk_option_current"><a data-dk-dropdown-value="0">SCADA_APP</a></li>
+			<li class=""><a data-dk-dropdown-value="1">HDB</a></li>
+			<li class=""><a data-dk-dropdown-value="2">FE</a></li>
+			<li class=""><a data-dk-dropdown-value="3">WebClient</a></li>
+			<li class=""><a data-dk-dropdown-value="4">BAO</a></li>
+			<li class=""><a data-dk-dropdown-value="5">MAP</a></li>
+		</ul>
+	    </div>
+	   <select value="SCADA_APP" class="span3 dropkick" tabindex="1" name="product" style="display: none;">
+		<option value="0">SCADA_APP</option>
+		<option value="1">HDB</option>
+		<option value="2">FE</option>
+		<option value="3">WebClient</option>
+		<option value="4">BAO</option>
+		<option value="5">MAP</option>
+	   </select>
+	  </div>
+                </th>
+	    </tr>
+	</thead>
+   </table>	
+
+  
+   <table class="table table-hover">
+	<thead>
+             <tr>
+		<th>
+		   <a href="#" class="btn btn-large btn-block disabled">测试版本</a>
+		</th>
+		
+		<th>
+	
+       	   <div class="dk_container span3 dk_shown dk_theme_default" id="dk_container_version" tabindex="1">
+	     <a class="dk_toggle">
+		<span class="dk_label" id="dk_version">2.4.1</span>
+		<span class="select-icon"></span>
+	     </a>
+	     <div class="dk_options">
+		<ul class="dk_options_inner">
+			<li class="dk_option_current"><a data-dk-dropdown-value="0">2.4.1</a></li>
+			<li class=""><a data-dk-dropdown-value="1">2.4</a></li>
+			<li class=""><a data-dk-dropdown-value="2">2.3.2</a></li>
+			<li class=""><a data-dk-dropdown-value="3">2.3.1</a></li>
+			<li class=""><a data-dk-dropdown-value="4">2.3</a></li>
+			<li class=""><a data-dk-dropdown-value="5">2.2</a></li>
+		</ul>
+	    </div>
+	   <select value="SCADA_APP" class="span3 dropkick" tabindex="1" name="version" style="display: none;">
+		<option value="0">2.4.1</option>
+		<option value="1">2.4</option>
+		<option value="2">2.3.2</option>
+		<option value="3">2.3.1</option>
+		<option value="4">2.3</option>
+		<option value="5">2.2</option>
+	   </select>
+	  </div>
+                </th>
+	     </tr>
+	</thead>
+   </table>
+
+   <table class="table table-hover">
+	<thead>
+             <tr>
+		<th>
+		   <a href="#" class="btn btn-large btn-block disabled">测试模块</a>
+		</th>
+		
+		<th>
+	
+       	   <div class="dk_container span3 dk_shown dk_theme_default" id="dk_container_module" tabindex="1">
+	     <a class="dk_toggle">
+		<span class="dk_label" id="dk_module">ALL</span>
+		<span class="select-icon"></span>
+	     </a>
+	     <div class="dk_options">
+		<ul class="dk_options_inner">
+			<li class="dk_option_current"><a data-dk-dropdown-value="0">ALL</a></li>
+			<li class=""><a data-dk-dropdown-value="1">Report_Process_Svr</a></li>
+			<li class=""><a data-dk-dropdown-value="2">Calculate_Svr</a></li>
+			<li class=""><a data-dk-dropdown-value="3">CalPoint_Svr</a></li>
+		</ul>
+	    </div>
+	   <select value="SCADA_APP" class="span3 dropkick" tabindex="1" name="module" style="display: none;">
+		<option value="0">ALL</option>
+		<option value="1">Report_Process_Svr</option>
+		<option value="2">Calculate_Svr</option>
+		<option value="3">CalPoint_Svr</option>
+	   </select>
+	  </div>
+                </th>
+	     </tr>
+	</thead>
+   </table>
+
+   <table class="table table-hover"> 
+	<thead>
+	    <tr>
+		<th>
+		   <a href="#" class="btn btn-large btn-block disabled">测试级别</a>
+		</th>
+
+		<th>
+			
+       	   <div class="dk_container span3 dk_shown dk_theme_default" id="dk_container_level" tabindex="1">
+	     <a class="dk_toggle">
+		<span class="dk_label" id="dk_level">All</span>
+		<span class="select-icon"></span>
+	     </a>
+	     <div class="dk_options">
+		<ul class="dk_options_inner">
+			<li class="dk_option_current"><a data-dk-dropdown-value="0">All</a></li>
+			<li class=""><a data-dk-dropdown-value="1">Major</a></li>
+			<li class=""><a data-dk-dropdown-value="2">Average</a></li>
+			<li class=""><a data-dk-dropdown-value="3">Minor</a></li>
+		</ul>
+	    </div>
+	   <select value="SCADA_APP" class="span3 dropkick" tabindex="1" name="level" style="display: none;">
+		<option value="All">All</option>
+		<option value="Major">Major</option>
+		<option value="Average">Average</option>
+		<option value="Minor">Minor</option>
+	   </select>
+	  </div>
+		</th>
+	    </tr>
+	</thead>
+   </table>
+   </div>
+   </div>
+	
+	
+   <br>
+   <br>
+   <br> 
+
+   <div id="center1" class="row demo-row">
+	
+	<span class="button-wrap"><a href="#" class="button button-pill button-primary" id="executeButton">执行</a></span>
+	
+   </div>
+    -->
+    <!-- Footer
+    ================================================== -->
+   <div id="bottom">
+            <p>Copyright©2014 Envision Energy Limited. All Rights Reserved</p>
+   </div>
+ 
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/jquery.dropkick-1.0.0.js"></script>
+    <script src="../static/js/custom_radio.js"></script>
+    <script src="../static/js/holder.js"></script>
+    <script src="../static/js/jquery-ui.js"></script>
+    <script src="../static/js/application.js"></script>
+    <script src="../static/js/Chart.js"></script>
+    <script src="../static/js/jquery.tagsinput.js"></script>
+    <script src="../static/js/jquery.placeholder.min.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-transition.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-alert.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-modal.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-dropdown.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-tab.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-tooltip.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-popover.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-button.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-collapse.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-carousel.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-typeahead.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-affix.js"></script>
+ 
+    <script src="http://getbootstrap.com/2.3.2/assets/js/holder/holder.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/google-code-prettify/prettify.js"></script>
+ 
+    <script src="http://getbootstrap.com/2.3.2/assets/js/application.js"></script>
+ 
+ 
+    <!-- Analytics
+    ================================================== -->
+    <script>
+
+	$(".dropkick").dropkick();
+		
+    </script> 
+
+
+    <script type="text/javascript">
+	
+	$(document).ready(function(){
+		$("#executeButton").click(function(){
+				
+			var execute_json = {
+					TestProduct: $("#dk_product").text(),
+					TestVersion: $("#dk_version").text(),
+					TestModule: $("#dk_module").text(),
+					TestLevel: $("#dk_level").text(),
+				};
+
+			var json_str = JSON.stringify(execute_json);
+
+			$.post("/run/",json_str,function(data){
+
+                window.location("")
+				var databit = $.parseJSON(data);
+				alert(databit.Runner);
+				});		
+
+			});
+		});
+    </script>
+  </body>
+</html>
+
+

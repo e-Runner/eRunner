@@ -1,0 +1,45 @@
+from django.conf.urls import patterns, include, url
+
+from django.contrib import admin
+
+admin.autodiscover()
+
+urlpatterns = patterns('',
+    url(r'^$', 'erunner.views_auth.login_view', name='login'),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^login/', 'erunner.views_auth.login_view'),
+    url(r'^logout/', 'erunner.views_auth.logout_view'),
+    url(r'^execute/','erunner.views.execute'),
+    url(r'^mainframe/','erunner.views.mainframe'),
+    url(r'^report/','erunner.views.report'),
+    url(r'^result/(?P<JobName>)','erunner.views.result'),
+    url(r'^analysis/', 'erunner.views.analysis'),
+    url(r'^tools/', 'erunner.views_tools.tools'),
+    url(r'^system/', 'erunner.views_system.sysMgt'),
+    url(r'^configure/', 'erunner.views_configure.configure'),
+	url(r'^upload/', 'erunner.views_tools.upload_file'),
+    url(r'executetable/','erunner.views.executetable'),
+    url(r'SearchProject/', 'erunner.views.SearchProject'),
+
+    url(r'EditJob/', 'erunner.views.EditJob'),
+    url(r'UpdateProduct/', 'erunner.views.UpdateProduct'),
+    url(r'UpdateModule/', 'erunner.views.UpdateModule'),
+    url(r'UpdateVersion', 'erunner.views.UpdateVersion'),
+    url(r'InsertJob/', 'erunner.views.InsertJob'),
+    url(r'CheckJobName/', 'erunner.views.CheckJobName'),
+    url(r'FilterJob/', 'erunner.views.FilterJob'),
+    url(r'ChangeJobStatus/', 'erunner.views.ChangedJobStatus'),
+    url(r'DeleteJob/', 'erunner.views.DeleteJob'),
+    url(r'UpdateJob/', 'erunner.views.UpdateJob'),
+    url(r'RunJob/', 'erunner.views.RunJob'),
+    url(r'PostTestResult/', 'erunner.views.PostTestResult'),
+
+    url(r'ReportProductChanged/', 'erunner.views.ReportProductChanged'),
+    url(r'ReportModuleChanged/', 'erunner.views.ReportModuleChanged'),
+    url(r'ReportJobChanged/', 'erunner.views.ReportJobChanged'),
+    url(r'JobtoModuleandProduct/', 'erunner.views.JobtoModuleandProduct'),
+    url(r'SearchResult/', 'erunner.views.SearchResult'),
+    url(r'InterfaceTest/', 'erunner.interface.InterfaceTest'),
+    url(r'AddProduct/', 'erunner.views.AddProduct'),
+
+)

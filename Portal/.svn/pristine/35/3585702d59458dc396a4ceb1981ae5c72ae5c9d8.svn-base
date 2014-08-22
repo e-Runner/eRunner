@@ -1,0 +1,66 @@
+from django.shortcuts import render_to_response
+from django.db import connection
+from django.views.decorators.csrf import csrf_exempt
+from django.utils import simplejson
+from django.http import HttpResponse
+from django.template import RequestContext
+
+import json
+import socket
+import time
+
+@csrf_exempt
+
+# Create your views here.
+
+def execute(request):
+
+    return render_to_response('execute.html', context_instance=RequestContext(request))
+
+def mainframe(request):
+
+    return render_to_response('mainframe.html',context_instance=RequestContext(request))
+
+def report(request):
+
+    return render_to_response('report.html', context_instance=RequestContext(request))
+
+def trend(request):
+
+    return render_to_response('trend.html', context_instance=RequestContext(request))
+
+def result(request):
+
+    return render_to_response('result.html', context_instance=RequestContext(request))
+
+def run(request):
+
+
+    if request.method == "POST":
+
+
+        InputData = simplejson.loads(request.body)
+
+        Cursor = connection.cursor()
+
+        sql = """select IP,Port from erunner_id where Module='%s'"""%(InputData['TestProduct'])
+
+        Cursor.execute(sql)
+
+        info = Cursor.fetchone()
+
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+        sock.connect((info[0],info[1]))
+
+        time.sleep(2)
+
+        sock.send(json.dumps(InputData))
+
+        sock.close()
+
+        method = json.dumps({'Runner':info[0]})
+
+    return HttpResponse(method)
+    #return render_to_response('execute.html', { })
+

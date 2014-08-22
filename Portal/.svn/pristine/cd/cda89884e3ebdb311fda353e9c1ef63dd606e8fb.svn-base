@@ -1,0 +1,9 @@
+{% extends "generic_prod.html" %}
+{% block content %}
+    <div style="padding-top: 120px;text-align: center">
+        <h1>Welcome to Analysis Page</h1>
+        {% for c in "0123456789abcdef" %}
+            <h2>{{ c }}</h2>
+        {% endfor %}
+    </div>
+{% endblock %}

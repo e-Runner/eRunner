@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        th,td
+        {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th
+        {
+            background-color: darkgray;
+            font-size: large;
+            font-weight: bolder;
+        }
+    </style>
+
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../static/css/prettify.css" rel="stylesheet">
+    <link href="../static/css/flat-ui.css" rel="stylesheet">
+
+    <script src="../static/js/jquery.min.js"></script>
+
+
+    <script>
+
+        $(document).ready(function(){
+
+        $("#1123").click(function(){
+            alert("OK");
+        })
+
+        var localProjectName = localStorage.getItem("ProjectName");
+
+        var execute_json = {
+					ProjectName: localProjectName,
+				};
+
+		var json_str = JSON.stringify(execute_json);
+
+        $.post("/SearchProject/",json_str, function(data){
+
+
+            var databit = $.parseJSON(data);
+
+            lengthjson = databit.length;
+
+            for(i=0; i <lengthjson;i++)
+            {
+                var Check_Box = "<tr><td>"+'<input type="checkbox" name="box"';
+
+                Check_Box += "id=" + databit[i]['JobName']+"></td>";
+
+                var Job_Name = '<td><a data-toggle="modal" href="#modalselect" id=';
+
+                Job_Name += databit[i]['JobName']+">" +databit[i]['JobName']+"</td>";
+
+                var Project_Name = "<td>"+databit[i]['ProductName']+"</td>";
+
+                var Test_Version = "<td>"+databit[i]['TestVersion']+"</td>";
+
+                var Test_Module = "<td>"+databit[i]['TestModule']+"</td>";
+
+                var Test_Level = "<td>"+databit[i]['TestLevel']+"</td>";
+
+                var Start_Time = "<td>"+databit[i]['StartTime']+"</td>";
+
+                if(databit[i]['JobStatus'])
+                {
+                    var Job_Status = "<td>"+ '<div class="toggle" style="vertical-align: middle; margin-top: 10px">';
+
+                    Job_Status += '<label class="toggle-radio"';
+
+                    Job_Status += ' for="toggleOption'+ (i*2+1)+'"';
+
+                    Job_Status += '>ON</label>';
+
+                    Job_Status += '<input type="radio" name="toggleOptions"';
+
+                    Job_Status += ' id="toggleOption'+ (i*2+1)+'"';
+
+                    Job_Status += ' value="option1" checked="checked">';
+
+                    Job_Status += '<label class="toggle-radio"';
+
+                    Job_Status += ' for="toggleOption'+ (i*2+2)+'"';
+
+                    Job_Status += '>OFF</label>';
+
+                    Job_Status += '<input type="radio" name="toggleOptions"';
+
+                    Job_Status += ' id="toggleOption'+ (i*2+2)+'"';
+
+                    Job_Status += ' value="option2">';
+
+                    Job_Status += "</div>"+"</td>";
+                }
+                else
+                {
+                    var Job_Status = "<td>"+ '<div class="toggle toggle-off" style="vertical-align: middle; margin-top: 10px">';
+
+                    Job_Status += '<label class="toggle-radio"';
+
+                    Job_Status += ' for="toggleOption'+ (i*2+1)+'"';
+
+                    Job_Status += '>ON</label>';
+
+                    Job_Status += '<input type="radio" name="toggleOptions"';
+
+                    Job_Status += ' id="toggleOption'+ (i*2+1)+'"';
+
+                    Job_Status += ' value="option1">';
+
+                    Job_Status += '<label class="toggle-radio"';
+
+                    Job_Status += ' for="toggleOption'+ (i*2+2)+'"';
+
+                    Job_Status += '>OFF</label>';
+
+                    Job_Status += '<input type="radio" name="toggleOptions"';
+
+                    Job_Status += ' id="toggleOption'+ (i*2+2)+'"';
+
+                    Job_Status += ' value="option2" checked="checked">';
+
+                    Job_Status += "</div>"+"</td>";
+
+                }
+
+                var Job_Action = "<td>"+'<button class="btn btn-primary" style="height: 30px;width:80px;background-color: rgb(62, 105, 195)">Run</button>'+"</td>";
+
+                var NewRow = Check_Box+Job_Name+Project_Name+Test_Version+Test_Module+Test_Level+Start_Time+Job_Status+Job_Action;
+
+                $("#TableShow tr:last").after(NewRow);
+            }
+        });
+
+       });
+    </script>
+</head>
+
+<body>
+
+ <table class="table table-striped" id="TableShow">
+      <tr>
+          <th>DeleteChoice</th>
+          <th>JobName</th>
+          <th>ProductName</th>
+          <th>TestVersion</th>
+          <th>TestModule</th>
+          <th>TestLevel</th>
+          <th>StartTime</th>
+          <th>JobStatus</th>
+          <th>JobAction</th>
+      </tr>
+  </table>
+
+   <div id="modalselect" class="modal hide fade" style="display: none;">
+            <div class="modal-header">
+              <a class="close" data-dismiss="modal">×</a>
+              <h3>eRunner Configuration</h3>
+            </div>
+            <div class="modal-footer" style="text-align: center">
+            <div id="center1" class="text-center">
+
+               <table class="table table-hover" style="margin-bottom: 0px">
+                <thead>
+                  <tr>
+                    <th>
+                       <a href="#" class="btn btn-large btn-block disabled">任务名称</a>
+                    </th>
+
+                    <th>
+                        <input id="JobName" type="text" value placeholder="Job Name" style="width: 208px" onchange="TextCheck()"/>
+                    </th>
+                  </tr>
+                </thead>
+               </table>
+
+               <table class="table table-hover" style="margin-bottom: 0px">
+                 <thead>
+                   <tr>
+                    <th>
+                       <a href="#" class="btn btn-large btn-block disabled">测试产品</a>
+                    </th>
+
+                    <th>
+                       <select id="TestProduct">
+                        <option value="0">Wind OS</option>
+                        <option value="1">BAO</option>
+                        <option value="2">MAP</option>
+                        <option value="3">EAI</option>
+                       </select>
+                     </th>
+                </tr>
+                </thead>
+               </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+            <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试版本</a>
+                </th>
+
+                <th>
+                   <select id="TestVersion">
+                    <option value="0">2.4.1</option>
+                    <option value="1">2.4</option>
+                    <option value="2">2.3.2</option>
+                    <option value="3">2.3.1</option>
+                    <option value="4">2.3</option>
+                    <option value="5">2.2</option>
+                   </select>
+                </th>
+            </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试模块</a>
+                </th>
+
+                <th>
+                   <select id="TestModule">
+                        <option value="0">ALL</option>
+                        <option value="1">Report_Process_Svr</option>
+                        <option value="2">Calculate_Svr</option>
+                        <option value="3">CalPoint_Svr</option>
+                   </select>
+                </th>
+              </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试级别</a>
+                </th>
+
+                <th>
+                   <select id="TestLevel">
+                    <option value="All">All</option>
+                    <option value="Major">Major</option>
+                    <option value="Average">Average</option>
+                    <option value="Minor">Minor</option>
+                   </select>
+                </th>
+              </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">启动时间</a>
+                </th>
+
+                <th>
+                    <div class="input-append date form_datetime">
+                        <input id="StartTime" size="14" type="text" value="" readonly style="background-color: rgb(129, 138, 136)">
+                        <span class="add-on"><i class="icon-th"></i></span>
+                    </div>
+                </th>
+
+              </tr>
+            </thead>
+           </table>
+
+
+           </div>
+           <button id="ModelOK" class="btn" data-dismiss="modal" style="height: 36px; width: 72px; margin-right: 40px;  background-color: rgb(62, 105, 195)">OK</button>
+           <button class="btn" data-dismiss="modal" style="height: 36px; width: 72px; margin-right: 40px;  background-color: rgb(62, 105, 195)">Cancel</button>
+          </div>
+   </div>
+    </div>
+ <!--
+<table class="table table-striped">
+        <thead>
+          <tr style="background-color: dodgerblue">
+            <th>Del-Choice</th>
+            <th>JobName</th>
+            <th>TestProject</th>
+            <th>TestVersion</th>
+            <th>TestSuite</th>
+            <th>TestTime</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="checkbox" style="margin-top: -3px"></td>
+            <td>Wind OS_1</td>
+            <td>SCADA_APP</td>
+            <td>2.4.2</td>
+            <td>
+                <div class="toggle" style="vertical-align: middle; margin-top: 10px">
+                     <label class="toggle-radio" for="toggleOption5">ON</label>
+                     <input type="radio" name="toggleOptions" id="toggleOption5" value="option1" checked="checked">
+                     <label class="toggle-radio" for="toggleOption6">OFF</label>
+                     <input type="radio" name="toggleOptions" id="toggleOption6" value="option2">
+                </div>
+            </td>
+            <td>
+                <div class="toggle" style="vertical-align: middle; margin-top: 10px">
+                     <label class="toggle-radio" for="toggleOption7">ON</label>
+                     <input type="radio" name="toggleOptions" id="toggleOption7" value="option1" checked="checked">
+                     <label class="toggle-radio" for="toggleOption8">OFF</label>
+                     <input type="radio" name="toggleOptions" id="toggleOption8" value="option2">
+                </div>
+            </td>
+            <td>
+                <!--
+                -->
+
+                <!--
+                <button class="btn btn-primary" style="height: 30px;width:80px;background-color: rgb(62, 105, 195)">InActive</button>
+
+                -->
+            <!--
+
+                <div class="toggle" style="vertical-align: middle; margin-top: 10px">
+                     <label class="toggle-radio" for="toggleOption1">ON</label>
+                     <input type="radio" name="toggleOptions" id="toggleOption1" value="option1" checked="checked">
+                     <label class="toggle-radio" for="toggleOption2">OFF</label>
+                     <input type="radio" name="toggleOptions" id="toggleOption2" value="option2">
+                </div>
+            </td>
+            <td>
+                <div class="toggle" style="vertical-align: middle; margin-top: 10px">
+                     <label class="toggle-radio" for="toggleOption3">ON</label>
+                     <input type="radio" name="toggleOptions" id="toggleOption3" value="option1" checked="checked">
+                     <label class="toggle-radio" for="toggleOption4">OFF</label>
+                     <input type="radio" name="toggleOptions" id="toggleOption4" value="option2">
+                </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+            -->
+</body>
+</html>

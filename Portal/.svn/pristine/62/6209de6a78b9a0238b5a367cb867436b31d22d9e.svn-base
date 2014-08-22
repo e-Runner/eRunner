@@ -1,0 +1,139 @@
+__author__ = 'honglei.yu'
+
+from apscheduler.scheduler import Scheduler
+
+from erunner.models import JobScheduler
+
+from erunner.models import Id
+
+from erunner.models import Job
+
+from django.utils import simplejson
+
+import socket
+
+
+from erunner.models import Product
+
+class jobscheduler():
+
+    def __init__(self):
+
+        self.JobON = Job.objects.filter(JobStatus="YES")
+        self.JobSched = JobScheduler.objects.all()
+        self.JobSched.delete()
+        self.sched = Scheduler()
+        for i in range(0, self.JobON.count()):
+            timestrap = self.JobON[i].StartTime.split(" ")
+            print(timestrap[0])
+            if timestrap[0] == "EveryDay":
+                dayofweek = 'mon-sun'
+            elif timestrap[0] == "Monday":
+                dayofweek = 'mon'
+            elif timestrap[0] == "Tuesday":
+                dayofweek = 'tue'
+            elif timestrap[0] == "Wednesday":
+                dayofweek = 'wed'
+            elif timestrap[0] == "Thurday":
+                dayofweek = 'thu'
+            elif timestrap[0] == "Friday":
+                dayofweek = 'fri'
+            elif timestrap[0] == "Saturday":
+                dayofweek = 'sat'
+            elif timestrap[0] == "Sunday":
+                dayofweek = 'sun'
+            print(timestrap[1])
+            jobtime = timestrap[1].split(":")
+            self.sched.add_cron_job(self.active_job, day_of_week=dayofweek, hour=jobtime[0], minute=jobtime[1], second='00', args=[self.JobON[i].JobName])
+            InsertJobSched = JobScheduler(JobNumber=i, JobName=self.JobON[i].JobName, JobTime=self.JobON[i].StartTime)
+            InsertJobSched.save()
+        self.sched.start()
+
+    def add_job(self, jobname):
+        JobNumber = JobScheduler.objects.all()
+        JOB = self.sched.get_jobs()
+        for j in range(0, JobNumber.count()):
+            self.sched.unschedule_job(JOB[j])
+        JobNumber.delete()
+
+        addJobOn = Job.objects.filter(JobStatus="YES")
+        for k in range(0, addJobOn.count()):
+            timestrap = addJobOn[k].StartTime.split(" ")
+            if timestrap[0] == "EveryDay":
+                dayofweek = 'mon-sun'
+            elif timestrap[0] == "Monday":
+                dayofweek = 'mon'
+            elif timestrap[0] == "Tuesday":
+                dayofweek = 'tue'
+            elif timestrap[0] == "Wednesday":
+                dayofweek = 'wed'
+            elif timestrap[0] == "Thurday":
+                dayofweek = 'thu'
+            elif timestrap[0] == "Friday":
+                dayofweek = 'fri'
+            elif timestrap[0] == "Saturday":
+                dayofweek = 'sat'
+            elif timestrap[0] == "Sunday":
+                dayofweek = 'sun'
+            jobtime = timestrap[1].split(":")
+
+            self.sched.add_cron_job(self.active_job, day_of_week=dayofweek, hour=jobtime[0], minute="*/1", second='00', args=[addJobOn[k].JobName])
+            AddJobSched = JobScheduler(JobNumber=k, JobName=addJobOn[k].JobName, JobTime=addJobOn[k].StartTime)
+            AddJobSched.save()
+
+    def delete_job(self, jobname):
+        JobNumber = JobScheduler.objects.all()
+        JOB = self.sched.get_jobs()
+        for j in range(0, JobNumber.count()):
+            self.sched.unschedule_job(JOB[j])
+        JobNumber.delete()
+        addJobOn = Job.objects.filter(JobStatus="YES")
+
+        for k in range(0, addJobOn.count()):
+            timestrap = addJobOn[k].StartTime.split(" ")
+            if timestrap[0] == "EveryDay":
+                dayofweek = 'mon-sun'
+            elif timestrap[0] == "Monday":
+                dayofweek = 'mon'
+            elif timestrap[0] == "Tuesday":
+                dayofweek = 'tue'
+            elif timestrap[0] == "Wednesday":
+                dayofweek = 'wed'
+            elif timestrap[0] == "Thurday":
+                dayofweek = 'thu'
+            elif timestrap[0] == "Friday":
+                dayofweek = 'fri'
+            elif timestrap[0] == "Saturday":
+                dayofweek = 'sat'
+            elif timestrap[0] == "Sunday":
+                dayofweek = 'sun'
+            jobtime = timestrap[1].split(":")
+            self.sched.add_cron_job(self.active_job, day_of_week=dayofweek, hour=jobtime[0], minute=jobtime[1], second='00', args=[addJobOn[k].JobName])
+            AddJobSched = JobScheduler(JobNumber=k, JobName=addJobOn[k].JobName, JobTime=addJobOn[k].StartTime)
+            AddJobSched.save()
+
+    def active_job(self, jobname):
+
+        RunJob = Product.objects.get(JobName=jobname)
+
+        ModuleName = RunJob.ProjectName
+
+        SocketMessage = Id.objects.get(Module=ModuleName)
+
+        SocketData = {
+            "TestProject": RunJob.ProjectName,
+            "TestModule": RunJob.ModuleName,
+            "TestVersion": RunJob.TestVersion,
+            "TestLevel": RunJob.TestLevel
+        }
+
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+        try:
+            sock.connect((SocketMessage.IP, SocketMessage.Port))
+        except:
+            print("The connection is wrong!")
+        else:
+            sock.send(simplejson.dumps(SocketData))
+            RecvMessage = sock.recv(1024)
+            print(RecvMessage)

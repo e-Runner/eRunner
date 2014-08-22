@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>eRunner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+ 
+    <!-- Le styles -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../static/css/docs.css" rel="stylesheet">
+    <link href="../static/css/prettify.css" rel="stylesheet">
+    <link href="../static/css/flat-ui.css" rel="stylesheet"> 
+    <link href="../static/css/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="../static/css/styles.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://getbootstrap.com/2.3.2/assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+     <script src="../static/js/jquery.min.js"></script>
+     <script src="../static/js/highcharts.js"></script>
+     <script src="../static/js/exporting.js"></script>
+     <link rel="shortcut icon" href="../static/img/favicon.ico">
+ 
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-146052-10']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <style type="text/css">
+
+            #bottom {
+                position: fixed;
+                display: block;
+                margin: 0px 0px 0px 0px;
+                bottom: 0;
+                clear: both;
+                width: 100%;
+                color: #fff;
+                height: 20px;
+                right: 0;
+                background-color: #77787b;
+                text-align: center;
+                line-height: 26px;
+                font-size: 12px;
+                font-family: "Microsoft YaHei";
+                min-width: 1280px;
+            }
+
+            #divMainMenu{
+                position:fixed;
+                top: 0px;
+                width: 100%;
+                height: 6%;
+            }
+            p{
+                display: inline;
+                vertical-align: middle;
+            }
+
+            h2{
+                display: inline;
+                vertical-align: middle;
+            }
+            h4{
+                display: inline;
+                vertical-align: middle;
+                padding-right: 15px;
+            }
+            h5{
+                margin: 1px;
+            }
+            .MenuRight{
+                padding-right: 0px;
+                display: inline;
+            }
+
+        </style>
+  </head>
+ 
+  <body class="container" style="height: 100px">
+    <div id="divMainMenu">
+        <img src="../static/img/envision.png"></img>
+        <p><h2>软件产品自动化测试框架和平台</h2></p>
+        <div class="MenuRight" style="margin-left: 400px">
+            <p><h4>{{ user.username }}</h4></p>
+            <a href="/login/"><h4>退出</h4></a>
+        </div>
+    </div>
+    <div class="navbar navbar-inverse navbar-static-top container">
+      <div class="navbar-inner" style="position:absolute; height: 46px; top: 7%; background-color: rgb(69, 144, 219)">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="/mainframe/"><h5>趋势展示</h5></a>
+              </li>
+              <li class="">
+                <a href="/execute/"><h5>配置调度</h5></a>
+              </li>
+              <li class="">
+                <a href="/report/"><h5>报告查看</h5></a>
+              </li>
+              <li class="active">
+                <a href="/analysis/"><h5>分析优化</h5></a>
+              </li>
+              <li class="">
+                <a href="/fileload/"><h5>工具下载</h5></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div id="bottom">
+      <p>Copyright©2014 Envision Energy Limited. All Rights Reserved</p>
+  </div>
+
+  <div style="padding-top: 30%; padding-left: 30%">
+      <h1>Welcome to the Analysis Page</h1>
+  </div>
+  </body>
+</html>
+
+

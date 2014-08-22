@@ -1,0 +1,64 @@
+import re
+from django.core import validators
+from django.db import models
+from django.utils import timezone
+from models_dimension import SubModl, TestSuite, TestCase, ResultDesc
+from django.contrib.auth.models import User
+
+
+class RelationCase2Suite(models.Model):
+    test_case = models.ForeignKey(SubModl)
+    test_suite = models.ForeignKey(TestSuite)
+
+    def __unicode__(self):
+        return "%s %s" % (self.test_case.name, self.test_suite.name)
+
+
+class Jobs(models.Model):
+    name = models.CharField(max_length=30, unique=True,
+        help_text='Required. 30 characters or fewer',
+        validators=[
+            validators.RegexValidator(re.compile('^[\w.@+-]+$'), 'Enter a valid job name.', 'invalid')
+        ])
+    test_suite = models.ForeignKey(TestSuite)
+    cron_expr = models.CharField(max_length=30, blank=True)
+    is_active = models.BooleanField(default=True)
+    is_enable = models.BooleanField(default=False)
+    author = models.ForeignKey(User, related_name='+')
+    modifier = models.ForeignKey(User, related_name='+')
+    created_time = models.DateTimeField(default=timezone.now)
+    modified_time = models.DateTimeField(default=timezone.now)
+    post_job = models.ForeignKey('self', blank=True, null=True)
+
+    def __unicode__(self):
+        return self.name
+
+
+class ResultJob(models.Model):
+    job = models.ForeignKey(Jobs)
+    result_desc = models.ForeignKey(ResultDesc)
+    start_time = models.DateTimeField(default=timezone.now)
+    end_time = models.DateTimeField(default=timezone.now)
+    executor = models.ForeignKey(User, related_name='+')
+    pass_num = models.IntegerField()
+    fail_num = models.IntegerField()
+    block_num = models.IntegerField()
+    omit_num = models.IntegerField()
+
+    def __unicode__(self):
+        return "job: %s, result: %s, start: %s, end: %s" % (
+            self.job.name, self.result_desc.name, self.start_time, self.end_time)
+
+
+class ResultCase(models.Model):
+    test_case = models.ForeignKey(TestCase)
+    result_job = models.ForeignKey(ResultJob)
+    result_desc = models.ForeignKey(ResultDesc)
+    start_time = models.DateTimeField(default=timezone.now)
+    end_time = models.DateTimeField(default=timezone.now)
+    log_url = models.URLField(blank=True)
+    bug_id = models.CharField(max_length=20, blank=True)
+
+    def __unicode__(self):
+        return "Test Case: %s, job: %s, result: %s, start: %s, end: %s" % (
+            self.test_case.name, self.result_job.job.name, self.result_desc.name, self.start_time, self.end_time)

@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title|default:"Envision eRunner Portal" }}{% endblock %}
+
+{% block script %}
+    <script>
+        $(document).ready(function () {
+            var path = location.pathname.split("/");
+            $("li#" + path[1]).addClass("active");
+        });
+    </script>
+    {% block script-added %}{% endblock %}
+{% endblock %}
+
+{% block style %}
+    <style type="text/css">
+    html,
+    body {
+        height: 100%;
+    }
+
+    #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto -30px;
+    }
+
+    .footer,
+    .navbar-inverse .navbar-inner {
+        background-color: #00a2e4;
+        background-image: -moz-linear-gradient(top, #00a2e4, #0033ff);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#00a2e4), to(#0033ff));
+        background-image: -webkit-linear-gradient(top, #00a2e4, #0033ff);
+        background-image: -o-linear-gradient(top, #00a2e4, #0033ff);
+        background-image: linear-gradient(to bottom, #00a2e4, #0033ff);
+        border-color: #0033ff;
+        height: 40px;
+        overflow: hidden;
+    }
+    .push,
+    .footer {
+        height: 30px;
+    }
+    .footer {
+        line-height: 30px;
+        font-weight: bold;
+        color: #ffffff;
+        text-align: center;
+    }
+    .navbar-inverse .divider-vertical {
+        border-right-color: #00a2e4;
+        border-left-color: #0033ff;
+    }
+    .navbar-inverse .nav .active > a,
+    .navbar-inverse .nav .active > a:hover,
+    .navbar-inverse .nav .active > a:focus {
+        background-color: #04c;
+    }
+    .navbar-inverse .nav > li > a {
+        color: #ddd;
+    }
+    @media (max-width: 767px) {
+        .footer {
+            margin-left: -20px;
+            margin-right: -20px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+    </style>
+    {% block style-added %}{% endblock %}
+{% endblock %}
+
+{% block head %}
+<div id="wrap">
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner" style="height: 60px;">
+            <div>
+                <a class="brand" href="#">
+                    <img class="imgLogo" style="position:absolute; height: 60px; top: 0px;"
+                         src="../static/img/logo.png" alt="Home"/>
+                    <a class="brand" style="position:relative; left: 180px; top: 10px; color: #0033ff;font-size:2em" href="#">
+                        <strong>软件产品自动化测试总体框架和平台</strong>
+                    </a>
+                </a>
+
+                <p class="navbar-text pull-right" style="padding-top: 10px;">
+                    {% if user.username %}
+                        <a id="UserName" href="#" class="navbar-link ">{{ user.username }}</a>
+                        <a href="/logout/" class="navbar-link ">&nbsp;&nbsp;Logout</a>
+                    {% else %}
+                        <a href="/login/" class="navbar-link span2">Please Login</a>
+                    {% endif %}
+                    <span class="divider-vertical"></span><span style="position:relative;top: 2px;color: #0033ff;font-size:1.5em">
+                        <strong>SWRD | eRunner</strong>&nbsp;&nbsp;
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block nav %}
+    <div class="navbar navbar-fixed-top navbar-inverse" style="top: 60px; height: 40px;">
+        <div class="navbar-inner">
+            <ul class="nav">
+                <li class="divider-vertical"></li>
+                <li id="mainframe"><a href="/mainframe/"><strong>KPI图表</strong></a></li>
+                <li class="divider-vertical"></li>
+                <li id="configure"><a href="/configure/"><strong>配置中心</strong></a></li>
+                <li class="divider-vertical"></li>
+                <li id="execute"><a href="/execute/"><strong>调度中心</strong></a></li>
+                <li class="divider-vertical"></li>
+                <li id="report"><a href="/report/"><strong>报告中心</strong></a></li>
+                <li class="divider-vertical"></li>
+                <li id="analysis"><a href="/analysis/"><strong>分析优化</strong></a></li>
+                <li class="divider-vertical"></li>
+                <li id="tools"><a href="/tools/"><strong>工具下载</strong></a></li>
+                <li class="divider-vertical"></li>
+                <li id="system"><a href="/system/"><strong>系统管理</strong></a></li>
+                <li class="divider-vertical"></li>
+            </ul>
+        </div>
+    </div>
+    {% block nav-added %}{% endblock %}
+{% endblock %}
+
+{% block content %}
+    Replace with your content here.
+{% endblock %}
+
+{% block foot %}
+    <div class="push"></div>
+</div>
+    {% block foot-added %}{% endblock %}
+    <div class="footer">
+        远景能源 版权所有 © 2014
+    </div>
+{% endblock %}

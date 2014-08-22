@@ -1,0 +1,1218 @@
+[21/Apr/2014 06:19:44] "GET /login/ HTTP/1.1" 200 2183
+[21/Apr/2014 06:19:44] "GET /static/js/jquery-1.11.0.js HTTP/1.1" 404 1665
+[21/Apr/2014 06:19:44] "GET /static/css/flat-ui.css HTTP/1.1" 200 68155
+[21/Apr/2014 06:20:46] "GET /login/ HTTP/1.1" 200 2176
+[21/Apr/2014 06:20:46] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/wsgiref/handlers.py", line 86, in run
+    self.finish_response()
+  File "/usr/local/lib/python2.7/wsgiref/handlers.py", line 127, in finish_response
+    self.write(data)
+  File "/usr/local/lib/python2.7/wsgiref/handlers.py", line 215, in write
+    self._write(data)
+  File "/usr/local/lib/python2.7/socket.py", line 322, in write
+    self.flush()
+  File "/usr/local/lib/python2.7/socket.py", line 301, in flush
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])
+error: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/SocketServer.py", line 582, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/local/lib/python2.7/SocketServer.py", line 323, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/local/lib/python2.7/site-packages/django/core/servers/basehttp.py", line 126, in __init__
+    super(WSGIRequestHandler, self).__init__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/SocketServer.py", line 641, in __init__
+    self.finish()
+  File "/usr/local/lib/python2.7/SocketServer.py", line 694, in finish
+    self.wfile.flush()
+  File "/usr/local/lib/python2.7/socket.py", line 301, in flush
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])
+error: [Errno 32] Broken pipe
+[21/Apr/2014 06:21:19] "GET /login/ HTTP/1.1" 200 2176
+[21/Apr/2014 06:59:10] "GET /login/ HTTP/1.1" 200 2176
+[21/Apr/2014 06:59:10] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 06:59:11] "GET /static/img/favicon.ico HTTP/1.1" 200 1406
+[21/Apr/2014 07:03:43] "GET /login/ HTTP/1.1" 200 2230
+[21/Apr/2014 07:03:43] "GET /static/img/envision.png HTTP/1.1" 200 7903
+[21/Apr/2014 07:03:43] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 07:07:05] "GET /login/ HTTP/1.1" 200 2259
+[21/Apr/2014 07:07:05] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 07:07:05] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 07:09:48] "GET /login/ HTTP/1.1" 200 2259
+[21/Apr/2014 07:09:48] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 07:09:48] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 07:09:59] "GET /login/ HTTP/1.1" 200 2253
+[21/Apr/2014 07:09:59] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 07:09:59] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 07:14:15] "GET /login/ HTTP/1.1" 200 2271
+[21/Apr/2014 07:14:15] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 07:14:15] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 07:15:42] "GET /login/ HTTP/1.1" 200 2271
+[21/Apr/2014 07:15:42] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 07:15:42] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 07:21:39] "GET /login/ HTTP/1.1" 200 2271
+[21/Apr/2014 07:21:39] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 07:21:39] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 07:23:14] "GET /login/ HTTP/1.1" 200 2286
+[21/Apr/2014 07:23:14] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 07:23:14] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 07:27:14] "GET /login/ HTTP/1.1" 200 2262
+[21/Apr/2014 07:27:14] "GET /static/css/signin.css HTTP/1.1" 200 793
+[21/Apr/2014 07:27:14] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 07:27:14] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 07:28:17] "GET /login/ HTTP/1.1" 200 2262
+[21/Apr/2014 07:28:18] "GET /static/css/signin.css HTTP/1.1" 200 793
+[21/Apr/2014 07:28:18] "GET / HTTP/1.1" 404 2007
+[21/Apr/2014 07:28:18] "GET /static/css/flat-ui.css HTTP/1.1" 200 68155
+[21/Apr/2014 07:28:19] "GET /static/img/envision.png HTTP/1.1" 200 7903
+[21/Apr/2014 07:31:25] "GET /login/ HTTP/1.1" 200 2265
+[21/Apr/2014 07:31:25] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 07:31:25] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 07:31:25] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 07:32:46] "GET /login/ HTTP/1.1" 200 2271
+[21/Apr/2014 07:32:46] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 07:32:46] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 07:32:46] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 07:33:47] "GET /login/ HTTP/1.1" 200 2272
+[21/Apr/2014 07:33:47] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 07:33:47] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 07:33:47] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 07:37:02] "GET /login/ HTTP/1.1" 200 2284
+[21/Apr/2014 07:37:02] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 07:37:02] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 07:37:02] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 07:37:16] "POST /chart/ HTTP/1.1" 404 2026
+[21/Apr/2014 07:39:23] "GET /login/ HTTP/1.1" 200 2299
+[21/Apr/2014 07:39:23] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 07:39:23] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 07:39:23] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 07:42:55] "GET /login/ HTTP/1.1" 200 2383
+[21/Apr/2014 07:42:55] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 07:42:55] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 07:42:55] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 07:48:10] "GET /login/ HTTP/1.1" 200 2462
+[21/Apr/2014 07:48:10] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 07:48:10] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 07:48:10] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 07:48:10] "GET /static/css/buttons.css HTTP/1.1" 200 59145
+[21/Apr/2014 07:48:12] "POST /chart/ HTTP/1.1" 404 2026
+[21/Apr/2014 07:52:28] "GET /login/ HTTP/1.1" 200 2482
+[21/Apr/2014 07:52:28] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 07:52:28] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 07:52:28] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[21/Apr/2014 07:52:28] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 07:57:59] "GET /login/ HTTP/1.1" 200 2496
+[21/Apr/2014 07:57:59] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 07:57:59] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 07:57:59] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[21/Apr/2014 07:57:59] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 08:00:40] "GET /login/ HTTP/1.1" 200 2496
+[21/Apr/2014 08:00:40] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 08:00:40] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 08:00:40] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 08:00:40] "GET /static/css/buttons.css HTTP/1.1" 200 59161
+[21/Apr/2014 08:01:50] "GET /login/ HTTP/1.1" 200 2514
+[21/Apr/2014 08:01:50] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 08:01:50] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 08:01:50] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 08:01:50] "GET /static/css/buttons.css HTTP/1.1" 200 59161
+[21/Apr/2014 08:02:32] "GET /login/ HTTP/1.1" 200 2514
+[21/Apr/2014 08:02:32] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 08:02:32] "GET /static/css/signin.css HTTP/1.1" 200 793
+[21/Apr/2014 08:02:32] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2142
+[21/Apr/2014 08:02:32] "GET /static/css/buttons.css HTTP/1.1" 200 59161
+[21/Apr/2014 08:02:33] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 08:02:33] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 08:02:33] "GET /static/img/envision.png HTTP/1.1" 200 7903
+[21/Apr/2014 08:02:33] "GET /static/img/favicon.ico HTTP/1.1" 200 1406
+[21/Apr/2014 08:02:59] "GET /login/ HTTP/1.1" 200 2514
+[21/Apr/2014 08:02:59] "GET /static/img/envision.png HTTP/1.1" 200 7903
+[21/Apr/2014 08:02:59] "GET /static/css/signin.css HTTP/1.1" 200 793
+[21/Apr/2014 08:02:59] "GET /static/css/buttons.css HTTP/1.1" 200 59161
+[21/Apr/2014 08:02:59] "GET /static/css/flat-ui.css HTTP/1.1" 200 68155
+[21/Apr/2014 08:03:03] "GET /static/img/favicon.ico HTTP/1.1" 200 1406
+[21/Apr/2014 08:05:26] "GET /login/ HTTP/1.1" 200 2496
+[21/Apr/2014 08:05:26] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 08:05:26] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 08:05:26] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[21/Apr/2014 08:05:26] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 08:05:59] "GET /login/ HTTP/1.1" 200 2496
+[21/Apr/2014 08:05:59] "GET /static/img/envision.png HTTP/1.1" 200 7903
+[21/Apr/2014 08:05:59] "GET /static/css/signin.css HTTP/1.1" 200 793
+[21/Apr/2014 08:05:59] "GET /static/css/buttons.css HTTP/1.1" 200 59161
+[21/Apr/2014 08:05:59] "GET /static/css/flat-ui.css HTTP/1.1" 200 68155
+[21/Apr/2014 08:06:02] "GET /static/img/favicon.ico HTTP/1.1" 200 1406
+[21/Apr/2014 08:11:50] "GET /login/ HTTP/1.1" 200 2494
+[21/Apr/2014 08:11:50] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 08:11:50] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 08:11:50] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[21/Apr/2014 08:11:50] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 08:12:54] "GET /login/ HTTP/1.1" 200 2509
+[21/Apr/2014 08:12:54] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 08:12:54] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 08:12:54] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[21/Apr/2014 08:12:54] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 08:13:29] "GET /login/ HTTP/1.1" 200 2515
+[21/Apr/2014 08:13:29] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 08:13:29] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 08:13:29] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[21/Apr/2014 08:13:29] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 08:14:06] "GET /login/ HTTP/1.1" 200 2530
+[21/Apr/2014 08:14:06] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 08:14:06] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 08:14:06] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[21/Apr/2014 08:14:06] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 08:16:32] "GET /login/ HTTP/1.1" 200 2528
+[21/Apr/2014 08:16:32] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 08:16:32] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 08:16:32] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[21/Apr/2014 08:16:32] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 08:17:27] "GET /login/ HTTP/1.1" 200 2500
+[21/Apr/2014 08:17:27] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 08:17:27] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 08:17:27] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[21/Apr/2014 08:17:27] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 08:17:45] "GET /login/ HTTP/1.1" 200 2493
+[21/Apr/2014 08:17:45] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 08:17:45] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[21/Apr/2014 08:17:45] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 08:17:45] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+Validating models...
+
+0 errors found
+April 21, 2014 - 06:58:58
+Django version 1.6.2, using settings 'envision.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Validating models...
+
+0 errors found
+April 21, 2014 - 08:19:36
+Django version 1.6.2, using settings 'envision.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Validating models...
+
+0 errors found
+April 21, 2014 - 08:37:43
+Django version 1.6.2, using settings 'envision.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+/root/envision/erunner/views.py:5: DeprecationWarning: django.utils.simplejson is deprecated; use json instead.
+  from django.utils import simplejson
+
+[21/Apr/2014 08:59:15] "POST /check/ HTTP/1.1" 403 2282
+Validating models...
+
+0 errors found
+April 21, 2014 - 08:40:54
+Django version 1.6.2, using settings 'envision.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+/root/envision/erunner/views.py:5: DeprecationWarning: django.utils.simplejson is deprecated; use json instead.
+  from django.utils import simplejson
+
+[21/Apr/2014 09:00:32] "POST /check/ HTTP/1.1" 500 85481
+[21/Apr/2014 09:01:40] "POST /check/ HTTP/1.1" 403 2282
+Validating models...
+
+0 errors found
+April 21, 2014 - 09:00:26
+Django version 1.6.2, using settings 'envision.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+/root/envision/erunner/views.py:5: DeprecationWarning: django.utils.simplejson is deprecated; use json instead.
+  from django.utils import simplejson
+
+[21/Apr/2014 09:02:43] "POST /check/ HTTP/1.1" 500 66180
+Validating models...
+
+0 errors found
+April 21, 2014 - 09:02:37
+Django version 1.6.2, using settings 'envision.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+/root/envision/erunner/views.py:5: DeprecationWarning: django.utils.simplejson is deprecated; use json instead.
+  from django.utils import simplejson
+
+[21/Apr/2014 09:03:24] "POST /check/ HTTP/1.1" 500 66173
+Validating models...
+
+0 errors found
+April 21, 2014 - 09:03:21
+Django version 1.6.2, using settings 'envision.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+/root/envision/erunner/views.py:5: DeprecationWarning: django.utils.simplejson is deprecated; use json instead.
+  from django.utils import simplejson
+
+[21/Apr/2014 09:05:04] "POST /check/ HTTP/1.1" 500 60170
+Validating models...
+
+0 errors found
+April 21, 2014 - 09:04:54
+Django version 1.6.2, using settings 'envision.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+/root/envision/erunner/views.py:5: DeprecationWarning: django.utils.simplejson is deprecated; use json instead.
+  from django.utils import simplejson
+
+[21/Apr/2014 09:09:28] "POST /check/ HTTP/1.1" 500 60200
+Validating models...
+
+0 errors found
+April 21, 2014 - 09:08:00
+Django version 1.6.2, using settings 'envision.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+/root/envision/erunner/views.py:5: DeprecationWarning: django.utils.simplejson is deprecated; use json instead.
+  from django.utils import simplejson
+
+[21/Apr/2014 09:14:05] "GET /login/ HTTP/1.1" 200 2493
+[21/Apr/2014 09:14:05] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 09:14:05] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 09:14:05] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[21/Apr/2014 09:14:11] "POST /check/ HTTP/1.1" 500 70672
+[21/Apr/2014 09:17:45] "GET /login/ HTTP/1.1" 200 2493
+[21/Apr/2014 09:17:45] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 09:17:45] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 09:17:45] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[21/Apr/2014 09:17:45] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2249
+[21/Apr/2014 09:17:46] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 09:17:46] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 09:17:46] "GET /static/img/envision.png HTTP/1.1" 304 0
+Validating models...
+
+0 errors found
+April 21, 2014 - 09:13:46
+Django version 1.6.2, using settings 'envision.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+/root/envision/erunner/views.py:5: DeprecationWarning: django.utils.simplejson is deprecated; use json instead.
+  from django.utils import simplejson
+
+[21/Apr/2014 09:28:37] "GET /login/ HTTP/1.1" 200 2493
+[21/Apr/2014 09:28:37] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[21/Apr/2014 09:28:37] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 09:28:37] "GET /login/ HTTP/1.1" 200 2493
+[21/Apr/2014 09:28:42] "POST /check/ HTTP/1.1" 200 2493
+[21/Apr/2014 09:28:45] "POST /check/ HTTP/1.1" 200 1052
+[21/Apr/2014 09:28:53] "POST /check/ HTTP/1.1" 200 2493
+[21/Apr/2014 09:29:00] "POST /check/ HTTP/1.1" 200 1052
+[21/Apr/2014 09:29:06] "POST /check/ HTTP/1.1" 200 2493
+[21/Apr/2014 09:29:12] "POST /check/ HTTP/1.1" 200 1052
+[21/Apr/2014 09:31:06] "POST /check/ HTTP/1.1" 200 1052
+[21/Apr/2014 09:37:51] "POST /check/ HTTP/1.1" 200 2493
+[21/Apr/2014 09:37:51] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 09:37:51] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[21/Apr/2014 09:37:54] "POST /check/ HTTP/1.1" 200 1052
+Validating models...
+
+0 errors found
+April 21, 2014 - 09:26:15
+Django version 1.6.2, using settings 'envision.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+/root/envision/erunner/views.py:5: DeprecationWarning: django.utils.simplejson is deprecated; use json instead.
+  from django.utils import simplejson
+
+[21/Apr/2014 09:39:02] "POST /check/ HTTP/1.1" 500 51857
+Validating models...
+
+0 errors found
+April 21, 2014 - 09:38:56
+Django version 1.6.2, using settings 'envision.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+/root/envision/erunner/views.py:5: DeprecationWarning: django.utils.simplejson is deprecated; use json instead.
+  from django.utils import simplejson
+
+[21/Apr/2014 09:39:47] "POST /check/ HTTP/1.1" 200 2493
+[21/Apr/2014 09:39:47] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 09:39:47] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 09:39:47] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[21/Apr/2014 09:39:47] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 09:40:02] "POST /check/ HTTP/1.1" 200 2493
+[21/Apr/2014 09:40:11] "POST /check/ HTTP/1.1" 200 1052
+Validating models...
+
+0 errors found
+April 21, 2014 - 09:39:43
+Django version 1.6.2, using settings 'envision.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+/root/envision/erunner/views.py:5: DeprecationWarning: django.utils.simplejson is deprecated; use json instead.
+  from django.utils import simplejson
+
+[21/Apr/2014 10:43:01] "POST /check/ HTTP/1.1" 200 2493
+[21/Apr/2014 10:43:01] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 10:43:01] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 10:43:01] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 10:43:01] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[21/Apr/2014 10:43:07] "POST /check/ HTTP/1.1" 200 2468
+[21/Apr/2014 10:45:12] "POST /check/ HTTP/1.1" 200 2469
+[21/Apr/2014 10:45:12] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 10:45:35] "GET /check/ HTTP/1.1" 200 2493
+[21/Apr/2014 10:45:35] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[21/Apr/2014 10:45:35] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 10:45:35] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 10:45:35] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2249
+[21/Apr/2014 10:45:35] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 10:45:35] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 10:45:35] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 10:45:44] "POST /check/ HTTP/1.1" 200 2469
+[21/Apr/2014 10:45:45] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 10:45:45] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 10:45:59] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2249
+[21/Apr/2014 10:45:59] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 10:45:59] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 12:04:21] "GET /login/ HTTP/1.1" 200 2493
+[21/Apr/2014 12:04:21] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 12:04:21] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 12:04:21] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[21/Apr/2014 12:04:23] "GET /login/ HTTP/1.1" 200 2493
+[21/Apr/2014 12:04:25] "POST /check/ HTTP/1.1" 200 2469
+[21/Apr/2014 12:05:40] "GET /login HTTP/1.1" 301 0
+[21/Apr/2014 12:05:40] "GET /login/ HTTP/1.1" 200 2493
+[21/Apr/2014 12:05:41] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2249
+[21/Apr/2014 12:05:41] "GET /static/css/signin.css HTTP/1.1" 200 793
+[21/Apr/2014 12:05:41] "GET /static/css/buttons.css HTTP/1.1" 200 59161
+[21/Apr/2014 12:05:41] "GET /static/css/flat-ui.css HTTP/1.1" 200 68155
+[21/Apr/2014 12:05:41] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 12:05:41] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 12:05:42] "GET /static/img/envision.png HTTP/1.1" 200 7903
+[21/Apr/2014 12:05:43] "GET /static/img/favicon.ico HTTP/1.1" 200 1406
+[21/Apr/2014 12:05:58] "POST /check/ HTTP/1.1" 200 2469
+[21/Apr/2014 12:05:58] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 12:05:58] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 12:06:06] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2249
+[21/Apr/2014 12:06:06] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 12:06:06] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 12:06:18] "GET /login/ HTTP/1.1" 200 2493
+[21/Apr/2014 12:06:18] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 12:06:18] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[21/Apr/2014 12:06:18] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[21/Apr/2014 12:06:26] "POST /check/ HTTP/1.1" 200 2469
+[21/Apr/2014 12:13:20] "GET /login HTTP/1.1" 301 0
+[21/Apr/2014 12:13:20] "GET /login/ HTTP/1.1" 200 2493
+[21/Apr/2014 12:13:20] "GET /static/css/signin.css HTTP/1.1" 304 0
+[21/Apr/2014 12:13:20] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[21/Apr/2014 12:13:20] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2249
+[21/Apr/2014 12:13:21] "GET /static/css/flat-ui.css HTTP/1.1" 200 68155
+[21/Apr/2014 12:13:21] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 12:13:21] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 12:13:21] "GET /static/img/envision.png HTTP/1.1" 304 0
+[21/Apr/2014 12:13:35] "POST /check/ HTTP/1.1" 200 2493
+[21/Apr/2014 12:13:35] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2249
+[21/Apr/2014 12:13:35] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 12:13:35] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 12:13:53] "POST /check/ HTTP/1.1" 200 2469
+[21/Apr/2014 12:13:53] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 12:13:53] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 12:13:59] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2249
+[21/Apr/2014 12:13:59] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[21/Apr/2014 12:13:59] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 01:25:55] "GET /login/ HTTP/1.1" 200 2493
+[22/Apr/2014 01:25:55] "GET /static/css/signin.css HTTP/1.1" 304 0
+[22/Apr/2014 01:25:55] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[22/Apr/2014 01:25:55] "GET /static/css/flat-ui.css HTTP/1.1" 200 68155
+[22/Apr/2014 01:25:58] "POST /check/ HTTP/1.1" 200 2469
+[22/Apr/2014 01:31:47] "GET /login/ HTTP/1.1" 200 2493
+[22/Apr/2014 01:31:51] "POST /check/ HTTP/1.1" 200 2469
+[22/Apr/2014 01:48:28] "POST /check/ HTTP/1.1" 200 2432
+[22/Apr/2014 01:48:28] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 103367
+[22/Apr/2014 01:48:50] "GET /check/ HTTP/1.1" 200 2493
+[22/Apr/2014 01:48:50] "GET /static/css/signin.css HTTP/1.1" 304 0
+[22/Apr/2014 01:48:50] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[22/Apr/2014 01:48:50] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2249
+[22/Apr/2014 01:48:50] "GET /static/css/flat-ui.css HTTP/1.1" 200 68155
+[22/Apr/2014 01:48:50] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 01:48:50] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 01:48:50] "GET /static/img/envision.png HTTP/1.1" 304 0
+[22/Apr/2014 01:49:00] "POST /check/ HTTP/1.1" 200 2432
+[22/Apr/2014 01:49:00] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 103367
+[22/Apr/2014 01:49:01] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 01:49:01] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 01:52:38] "POST /check/ HTTP/1.1" 200 2432
+[22/Apr/2014 01:52:38] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 103367
+[22/Apr/2014 01:52:38] "GET /static/css/flat-ui.css HTTP/1.1" 200 68155
+[22/Apr/2014 01:52:38] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 01:52:38] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 01:56:01] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 103367
+[22/Apr/2014 01:56:01] "GET /static/css/flat-ui.css HTTP/1.1" 200 68155
+[22/Apr/2014 01:56:01] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 01:56:01] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:13:10] "GET /login HTTP/1.1" 301 0
+[22/Apr/2014 02:13:10] "GET /login/ HTTP/1.1" 200 2493
+[22/Apr/2014 02:13:10] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 02:13:10] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2249
+[22/Apr/2014 02:13:10] "GET /static/css/signin.css HTTP/1.1" 200 793
+[22/Apr/2014 02:13:10] "GET /static/css/buttons.css HTTP/1.1" 200 59161
+[22/Apr/2014 02:13:10] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:13:10] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:13:10] "GET /static/img/envision.png HTTP/1.1" 200 7903
+[22/Apr/2014 02:13:11] "GET /static/img/favicon.ico HTTP/1.1" 200 1406
+[22/Apr/2014 02:13:19] "POST /check/ HTTP/1.1" 200 2555
+[22/Apr/2014 02:13:20] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:13:20] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:13:47] "GET /check/ HTTP/1.1" 200 2493
+[22/Apr/2014 02:13:51] "POST /check/ HTTP/1.1" 200 2555
+[22/Apr/2014 02:18:18] "POST /check/ HTTP/1.1" 200 2815
+[22/Apr/2014 02:18:18] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[22/Apr/2014 02:18:18] "GET /static/css/flat-ui.css HTTP/1.1" 200 68155
+[22/Apr/2014 02:18:30] "GET /check/ HTTP/1.1" 200 2493
+[22/Apr/2014 02:18:30] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2249
+[22/Apr/2014 02:18:30] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:18:30] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:18:39] "POST /check/ HTTP/1.1" 200 2815
+[22/Apr/2014 02:18:39] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[22/Apr/2014 02:18:39] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:18:39] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:19:40] "POST /check/ HTTP/1.1" 200 2806
+[22/Apr/2014 02:19:40] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[22/Apr/2014 02:19:40] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 02:19:40] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:19:40] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:20:14] "POST /check/ HTTP/1.1" 200 2777
+[22/Apr/2014 02:20:14] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[22/Apr/2014 02:20:14] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 02:20:14] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:20:14] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:43:01] "POST /check/ HTTP/1.1" 200 2354
+[22/Apr/2014 02:43:01] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 02:43:59] "POST /check/ HTTP/1.1" 200 2360
+[22/Apr/2014 02:44:25] "GET /login HTTP/1.1" 301 0
+[22/Apr/2014 02:44:25] "GET /login/ HTTP/1.1" 200 2493
+[22/Apr/2014 02:44:26] "GET /static/css/signin.css HTTP/1.1" 304 0
+[22/Apr/2014 02:44:26] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 02:44:26] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[22/Apr/2014 02:44:26] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2249
+[22/Apr/2014 02:44:26] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:44:26] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:44:26] "GET /static/img/envision.png HTTP/1.1" 304 0
+[22/Apr/2014 02:44:34] "POST /check/ HTTP/1.1" 200 2360
+[22/Apr/2014 02:44:44] "GET /check/customize.html HTTP/1.1" 200 2493
+[22/Apr/2014 02:44:44] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2249
+[22/Apr/2014 02:44:44] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:44:44] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:44:55] "POST /check/ HTTP/1.1" 200 2360
+[22/Apr/2014 02:45:00] "GET /check/components.html HTTP/1.1" 200 2493
+[22/Apr/2014 02:45:00] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2249
+[22/Apr/2014 02:45:00] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:45:00] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:46:28] "POST /check/ HTTP/1.1" 200 11716
+[22/Apr/2014 02:46:28] "GET /check/assets/css/bootstrap.css HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/css/bootstrap-responsive.css HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/css/docs.css HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/js/google-code-prettify/prettify.css HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/js/html5shiv.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/js/jquery.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/js/bootstrap-transition.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/js/bootstrap-alert.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/js/bootstrap-tab.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/js/bootstrap-dropdown.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/js/bootstrap-tooltip.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/js/bootstrap-popover.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/js/bootstrap-carousel.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/js/bootstrap-collapse.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/js/bootstrap-typeahead.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/js/holder/holder.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/js/application.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/js/bootstrap-modal.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/js/bootstrap-scrollspy.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/js/bootstrap-affix.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/js/google-code-prettify/prettify.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/js/bootstrap-button.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/img/bs-docs-twitter-github.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/img/bs-docs-responsive-illustrations.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/img/example-sites/soundready.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/img/example-sites/kippt.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/img/bs-docs-bootstrap-features.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/img/example-sites/gathercontent.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:46:28] "GET /check/assets/img/example-sites/jshint.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:25] "GET /check/ HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:25] "GET /static/css/signin.css HTTP/1.1" 304 0
+[22/Apr/2014 02:49:25] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 02:49:25] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[22/Apr/2014 02:49:25] "GET /static/img/envision.png HTTP/1.1" 304 0
+[22/Apr/2014 02:49:29] "POST /check/ HTTP/1.1" 200 11716
+[22/Apr/2014 02:49:29] "GET /check/assets/css/bootstrap.css HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:29] "GET /check/assets/css/bootstrap-responsive.css HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:29] "GET /check/assets/css/docs.css HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:29] "GET /check/assets/js/google-code-prettify/prettify.css HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:29] "GET /check/assets/js/jquery.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:29] "GET /check/assets/img/bs-docs-twitter-github.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:29] "GET /check/assets/js/bootstrap-transition.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:29] "GET /check/assets/js/bootstrap-alert.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:29] "GET /check/assets/js/bootstrap-modal.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:29] "GET /check/assets/js/bootstrap-dropdown.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:29] "GET /check/assets/js/bootstrap-scrollspy.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:29] "GET /check/assets/js/bootstrap-tab.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:29] "GET /check/assets/js/bootstrap-tooltip.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:29] "GET /check/assets/js/bootstrap-popover.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:29] "GET /check/assets/js/bootstrap-button.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:30] "GET /check/assets/js/bootstrap-collapse.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:30] "GET /check/assets/js/bootstrap-carousel.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:30] "GET /check/assets/js/bootstrap-typeahead.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:30] "GET /check/assets/js/bootstrap-affix.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:30] "GET /check/assets/js/holder/holder.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:30] "GET /check/assets/js/google-code-prettify/prettify.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:30] "GET /check/assets/js/application.js HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:30] "GET /check/assets/img/bs-docs-responsive-illustrations.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:30] "GET /check/assets/img/bs-docs-bootstrap-features.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:30] "GET /check/assets/img/example-sites/soundready.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:30] "GET /check/assets/img/example-sites/kippt.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:30] "GET /check/assets/img/example-sites/gathercontent.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:30] "GET /check/assets/img/example-sites/jshint.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:49:51] "GET /check/assets/ico/favicon.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:56:22] "POST /check/ HTTP/1.1" 200 12556
+[22/Apr/2014 02:56:22] "GET /check/assets/img/bs-docs-twitter-github.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:56:22] "GET /check/assets/img/bs-docs-responsive-illustrations.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:56:22] "GET /check/assets/img/bs-docs-bootstrap-features.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:56:22] "GET /check/assets/img/example-sites/soundready.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:56:22] "GET /check/assets/img/example-sites/kippt.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:56:22] "GET /check/assets/img/example-sites/gathercontent.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:56:22] "GET /check/assets/img/example-sites/jshint.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:56:24] "GET /check/assets/img/bs-docs-twitter-github.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:56:24] "GET /check/assets/img/bs-docs-responsive-illustrations.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:56:24] "GET /check/assets/img/bs-docs-bootstrap-features.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:56:24] "GET /check/assets/img/example-sites/kippt.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:56:24] "GET /check/assets/img/example-sites/soundready.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:56:24] "GET /check/assets/img/example-sites/gathercontent.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:56:24] "GET /check/assets/img/example-sites/jshint.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:56:55] "GET /login HTTP/1.1" 301 0
+[22/Apr/2014 02:56:56] "GET /login/ HTTP/1.1" 200 2493
+[22/Apr/2014 02:56:56] "GET /static/css/signin.css HTTP/1.1" 304 0
+[22/Apr/2014 02:56:56] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 02:56:56] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2249
+[22/Apr/2014 02:56:56] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[22/Apr/2014 02:56:56] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:56:56] "GET /static/img/envision.png HTTP/1.1" 304 0
+[22/Apr/2014 02:56:56] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:57:05] "POST /check/ HTTP/1.1" 200 12556
+[22/Apr/2014 02:57:09] "GET /check/assets/img/example-sites/gathercontent.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:57:09] "GET /check/assets/img/bs-docs-twitter-github.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:57:09] "GET /check/assets/img/bs-docs-bootstrap-features.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:57:09] "GET /check/assets/img/example-sites/soundready.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:57:09] "GET /check/assets/img/example-sites/jshint.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:57:09] "GET /check/assets/img/bs-docs-responsive-illustrations.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:57:09] "GET /check/assets/img/example-sites/kippt.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:58:38] "POST /check/ HTTP/1.1" 200 12617
+[22/Apr/2014 02:58:38] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 02:58:39] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:58:39] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:58:40] "GET /check/assets/img/example-sites/kippt.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:58:40] "GET /check/assets/img/bs-docs-responsive-illustrations.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:58:40] "GET /check/assets/img/example-sites/gathercontent.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:58:40] "GET /check/assets/img/bs-docs-twitter-github.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:58:40] "GET /check/assets/img/bs-docs-bootstrap-features.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:58:40] "GET /check/assets/img/example-sites/jshint.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:58:40] "GET /check/assets/img/example-sites/soundready.png HTTP/1.1" 200 2493
+[22/Apr/2014 02:58:47] "GET /check/index.html HTTP/1.1" 200 2493
+[22/Apr/2014 02:58:47] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2249
+[22/Apr/2014 02:58:47] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:58:47] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:58:50] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:58:50] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:59:11] "GET /check/getting-started.html HTTP/1.1" 200 2493
+[22/Apr/2014 02:59:11] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2249
+[22/Apr/2014 02:59:11] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:59:11] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:59:12] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 02:59:12] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:01:24] "POST /check/ HTTP/1.1" 200 7064
+[22/Apr/2014 03:01:24] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 03:01:25] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:01:25] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:01:57] "GET /check/scaffolding.html HTTP/1.1" 200 2493
+[22/Apr/2014 03:01:58] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2249
+[22/Apr/2014 03:01:58] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:01:58] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:01:59] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:01:59] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:02:53] "POST /check/ HTTP/1.1" 200 7044
+[22/Apr/2014 03:02:53] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 03:02:53] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:02:53] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:03:27] "POST /check/ HTTP/1.1" 200 7054
+[22/Apr/2014 03:03:27] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 03:03:29] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:03:29] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:04:28] "POST /check/ HTTP/1.1" 200 7044
+[22/Apr/2014 03:04:28] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 03:04:29] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:04:29] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:07:00] "POST /check/ HTTP/1.1" 200 6174
+[22/Apr/2014 03:07:00] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 03:07:04] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:07:04] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:09:18] "POST /check/ HTTP/1.1" 200 6211
+[22/Apr/2014 03:09:18] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 03:09:21] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:09:21] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:10:22] "POST /check/ HTTP/1.1" 200 6202
+[22/Apr/2014 03:10:22] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 03:10:23] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:10:23] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:12:13] "POST /check/ HTTP/1.1" 200 6220
+[22/Apr/2014 03:12:13] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 03:12:13] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:12:13] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:12:43] "POST /check/ HTTP/1.1" 200 6220
+[22/Apr/2014 03:12:43] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 03:15:57] "POST /check/ HTTP/1.1" 200 5945
+[22/Apr/2014 03:15:58] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 03:18:40] "POST /check/ HTTP/1.1" 200 5529
+[22/Apr/2014 03:18:40] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 03:19:22] "POST /check/ HTTP/1.1" 200 5491
+[22/Apr/2014 03:19:22] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 03:20:28] "GET /check/base-css.html HTTP/1.1" 200 2493
+[22/Apr/2014 03:24:09] "POST /check/ HTTP/1.1" 200 5465
+[22/Apr/2014 03:24:09] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 03:25:49] "POST /check/ HTTP/1.1" 200 5465
+[22/Apr/2014 03:25:49] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 03:25:50] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:25:50] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:26:07] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2249
+[22/Apr/2014 03:26:08] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:26:08] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 03:27:39] "POST /check/ HTTP/1.1" 200 5464
+[22/Apr/2014 03:27:39] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 03:28:00] "GET /static/img/favicon.png HTTP/1.1" 404 1653
+[22/Apr/2014 03:29:40] "POST /check/ HTTP/1.1" 200 5485
+[22/Apr/2014 03:29:40] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 03:29:46] "GET /login.html HTTP/1.1" 404 2144
+[22/Apr/2014 03:30:26] "GET /login.html HTTP/1.1" 404 2144
+[22/Apr/2014 03:31:15] "GET /login.html HTTP/1.1" 404 2144
+[22/Apr/2014 03:31:20] "GET /check/ HTTP/1.1" 200 2493
+[22/Apr/2014 03:31:28] "GET /login/ HTTP/1.1" 200 2493
+[22/Apr/2014 03:31:29] "GET /login/ HTTP/1.1" 200 2493
+[22/Apr/2014 03:32:13] "POST /check/ HTTP/1.1" 200 5481
+[22/Apr/2014 03:32:41] "POST /check/ HTTP/1.1" 200 5481
+[22/Apr/2014 03:35:41] "POST /check/ HTTP/1.1" 200 5486
+[22/Apr/2014 03:35:41] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 03:36:18] "POST /check/ HTTP/1.1" 200 5486
+[22/Apr/2014 03:36:18] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 03:36:21] "GET /check/login.html HTTP/1.1" 200 2493
+[22/Apr/2014 03:37:49] "GET /login/ HTTP/1.1" 200 2493
+[22/Apr/2014 03:37:50] "GET /login/ HTTP/1.1" 200 2493
+[22/Apr/2014 03:37:52] "POST /check/ HTTP/1.1" 200 5484
+[22/Apr/2014 03:40:16] "POST /check/ HTTP/1.1" 200 5484
+[22/Apr/2014 03:40:17] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 03:41:44] "POST /check/ HTTP/1.1" 200 5453
+[22/Apr/2014 03:41:44] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 03:41:57] "POST /check/ HTTP/1.1" 200 5453
+[22/Apr/2014 03:42:45] "POST /check/ HTTP/1.1" 200 5463
+[22/Apr/2014 03:42:45] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 05:18:47] "POST /check/ HTTP/1.1" 200 5463
+[22/Apr/2014 05:18:47] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 05:18:51] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 05:18:51] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 05:19:13] "GET /static/img/favicon.png HTTP/1.1" 404 1653
+[22/Apr/2014 05:20:19] "GET /login/ HTTP/1.1" 200 2493
+[22/Apr/2014 05:20:19] "GET /static/css/signin.css HTTP/1.1" 304 0
+[22/Apr/2014 05:20:19] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 05:20:19] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[22/Apr/2014 05:20:22] "POST /check/ HTTP/1.1" 200 5463
+[22/Apr/2014 05:21:10] "POST /check/ HTTP/1.1" 200 5478
+[22/Apr/2014 05:21:10] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 05:32:20] "POST /check/ HTTP/1.1" 200 5478
+[22/Apr/2014 05:32:20] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 05:32:24] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 05:32:24] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 05:32:46] "GET /static/img/favicon.png HTTP/1.1" 404 1653
+[22/Apr/2014 05:34:42] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 05:34:42] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 05:35:03] "GET /static/img/favicon.png HTTP/1.1" 404 1653
+[22/Apr/2014 05:38:38] "POST /check/ HTTP/1.1" 200 5478
+[22/Apr/2014 05:38:38] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 05:38:39] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 05:38:39] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 05:39:01] "GET /static/img/favicon.png HTTP/1.1" 404 1653
+[22/Apr/2014 05:42:58] "GET /login HTTP/1.1" 301 0
+[22/Apr/2014 05:42:58] "GET /login/ HTTP/1.1" 200 2493
+[22/Apr/2014 05:42:58] "GET /static/css/signin.css HTTP/1.1" 304 0
+[22/Apr/2014 05:42:58] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[22/Apr/2014 05:42:58] "GET /docs-assets/js/ie8-responsive-file-warning.js HTTP/1.1" 404 2249
+[22/Apr/2014 05:42:58] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 05:42:58] "GET /static/img/envision.png HTTP/1.1" 304 0
+[22/Apr/2014 05:42:58] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 05:43:07] "POST /check/ HTTP/1.1" 200 5350
+[22/Apr/2014 05:43:07] "GET /static/css/prettify.css HTTP/1.1" 200 817
+[22/Apr/2014 05:43:07] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22111
+[22/Apr/2014 05:43:07] "GET /static/css/docs.css HTTP/1.1" 200 24463
+[22/Apr/2014 05:43:07] "GET /static/css/bootstrap.css HTTP/1.1" 200 127352
+[22/Apr/2014 05:43:07] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 05:43:07] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 05:43:07] "GET /static/img/glyphicons-halflings.png HTTP/1.1" 404 1692
+[22/Apr/2014 05:43:28] "GET /static/img/favicon.png HTTP/1.1" 404 1653
+[22/Apr/2014 05:44:53] "POST /check/ HTTP/1.1" 200 5350
+[22/Apr/2014 05:44:53] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 05:44:53] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 05:44:53] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 05:44:53] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 05:44:54] "GET /static/css/flat-ui.css HTTP/1.1" 200 68164
+[22/Apr/2014 05:44:54] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 05:44:54] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 05:44:58] "GET /static/img/glyphicons-halflings.png HTTP/1.1" 404 1692
+[22/Apr/2014 05:45:16] "GET /static/img/favicon.png HTTP/1.1" 404 1653
+[22/Apr/2014 05:46:05] "POST /check/ HTTP/1.1" 200 5354
+[22/Apr/2014 05:46:05] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 05:46:05] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 05:46:05] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 05:46:05] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 05:46:05] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 05:46:05] "GET /static/fonts/Flat-UI-Icons-16.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 05:46:05] "GET /static/fonts/Flat-UI-Icons-24.eot? HTTP/1.1" 404 1686
+[22/Apr/2014 05:46:06] "GET /static/img/glyphicons-halflings.png HTTP/1.1" 404 1692
+[22/Apr/2014 05:46:27] "GET /static/img/favicon.png HTTP/1.1" 404 1653
+[22/Apr/2014 05:46:35] "POST /check/ HTTP/1.1" 200 5354
+[22/Apr/2014 05:46:35] "GET /static/css/prettify.css HTTP/1.1" 200 817
+[22/Apr/2014 05:46:36] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22111
+[22/Apr/2014 05:46:36] "GET /static/css/docs.css HTTP/1.1" 200 24463
+[22/Apr/2014 05:46:36] "GET /static/css/flat-ui.css HTTP/1.1" 200 68164
+[22/Apr/2014 05:46:36] "GET /static/css/bootstrap.css HTTP/1.1" 200 127352
+[22/Apr/2014 05:46:44] "GET /check/index.html HTTP/1.1" 200 2493
+[22/Apr/2014 05:46:46] "POST /check/ HTTP/1.1" 200 5354
+[22/Apr/2014 05:46:47] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 05:52:04] "GET /check/login.html HTTP/1.1" 200 2493
+[22/Apr/2014 05:52:05] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 06:04:18] "POST /check/ HTTP/1.1" 200 5354
+[22/Apr/2014 06:04:18] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 06:04:18] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 06:04:18] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 06:04:18] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 06:04:18] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 06:13:06] "POST /check/ HTTP/1.1" 200 5780
+[22/Apr/2014 06:13:06] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 06:13:06] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 06:13:06] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 06:13:06] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 06:13:06] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 06:13:50] "POST /check/ HTTP/1.1" 200 5805
+[22/Apr/2014 06:13:50] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 06:13:50] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 06:13:50] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 06:13:50] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 06:13:50] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 06:25:11] "POST /check/ HTTP/1.1" 200 6015
+[22/Apr/2014 06:25:11] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 06:25:11] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 06:25:11] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 06:25:11] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 06:25:11] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 06:26:32] "POST /check/ HTTP/1.1" 200 6013
+[22/Apr/2014 06:26:32] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 06:26:32] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 06:26:32] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 06:26:32] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 06:26:32] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 06:26:47] "GET /check/login.html HTTP/1.1" 200 2493
+[22/Apr/2014 06:27:56] "POST /check/ HTTP/1.1" 200 6013
+[22/Apr/2014 06:27:56] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 06:27:56] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 06:27:56] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 06:27:56] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 06:27:56] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 06:31:13] "POST /check/ HTTP/1.1" 200 6013
+[22/Apr/2014 06:31:13] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 06:31:13] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 06:31:13] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 06:31:13] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 06:31:13] "GET /static/css/bootstrap.css HTTP/1.1" 200 127332
+[22/Apr/2014 06:33:33] "POST /check/ HTTP/1.1" 200 5973
+[22/Apr/2014 06:33:33] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 06:33:33] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 06:33:33] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 06:33:33] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 06:33:33] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 06:34:33] "POST /check/ HTTP/1.1" 200 5905
+[22/Apr/2014 06:34:33] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 06:34:33] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 06:34:33] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 06:34:33] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 06:34:33] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 06:39:01] "POST /check/ HTTP/1.1" 200 6016
+[22/Apr/2014 06:39:01] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 06:39:01] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 06:39:01] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 06:39:01] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 06:39:01] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 06:39:46] "POST /check/ HTTP/1.1" 200 6016
+[22/Apr/2014 06:39:46] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 06:39:47] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 06:39:47] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 06:39:47] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 06:39:47] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 06:50:36] "POST /check/ HTTP/1.1" 200 7572
+[22/Apr/2014 06:50:36] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 06:50:36] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 06:50:36] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 06:50:36] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 06:50:36] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 06:52:56] "POST /check/ HTTP/1.1" 200 7570
+[22/Apr/2014 06:52:57] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 06:52:57] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 06:52:57] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 06:52:57] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 06:52:57] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 06:59:18] "POST /check/ HTTP/1.1" 200 7650
+[22/Apr/2014 06:59:18] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 06:59:18] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 06:59:18] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 06:59:18] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 06:59:18] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 07:00:20] "POST /check/ HTTP/1.1" 200 7649
+[22/Apr/2014 07:00:20] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 07:00:20] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 07:00:20] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 07:00:20] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 07:00:20] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 07:01:00] "POST /check/ HTTP/1.1" 200 7658
+[22/Apr/2014 07:01:00] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 07:01:00] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 07:01:00] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 07:01:00] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 07:01:00] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 07:02:38] "POST /check/ HTTP/1.1" 200 7641
+[22/Apr/2014 07:02:38] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 07:02:38] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 07:02:38] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 07:02:38] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 07:02:38] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 07:20:42] "POST /check/ HTTP/1.1" 200 7746
+[22/Apr/2014 07:20:42] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 07:20:42] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 07:20:42] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 07:20:42] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 07:20:42] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 07:22:07] "POST /check/ HTTP/1.1" 200 7773
+[22/Apr/2014 07:22:07] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 07:22:07] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 07:22:07] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 07:22:07] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 07:22:07] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 07:22:52] "POST /check/ HTTP/1.1" 200 7774
+[22/Apr/2014 07:22:52] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 07:22:52] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 07:22:52] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 07:22:52] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 07:22:52] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 07:25:18] "POST /check/ HTTP/1.1" 200 7762
+[22/Apr/2014 07:25:18] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 07:25:18] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 07:25:18] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 07:25:18] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 07:25:18] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 07:26:15] "POST /check/ HTTP/1.1" 200 7741
+[22/Apr/2014 07:26:15] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 07:26:15] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 07:26:15] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 07:26:15] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 07:26:15] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 07:29:24] "POST /check/ HTTP/1.1" 200 7838
+[22/Apr/2014 07:29:24] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 07:29:24] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 07:29:24] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 07:29:24] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 07:29:24] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 08:18:30] "POST /check/ HTTP/1.1" 200 7755
+[22/Apr/2014 08:18:30] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 08:18:30] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 08:18:30] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 08:18:30] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 08:18:30] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 08:40:51] "POST /check/ HTTP/1.1" 200 7859
+[22/Apr/2014 08:40:51] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 08:40:51] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 08:40:51] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 08:40:51] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 08:40:51] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 08:41:03] "POST /check/ HTTP/1.1" 200 7859
+[22/Apr/2014 08:50:38] "POST /check/ HTTP/1.1" 200 7823
+[22/Apr/2014 08:50:38] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 08:50:38] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 08:50:38] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 08:50:38] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 08:50:38] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 08:51:04] "POST /check/ HTTP/1.1" 200 7825
+[22/Apr/2014 08:51:04] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 08:51:04] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 08:51:04] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 08:51:04] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 08:51:04] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 09:14:06] "GET /check/getting-started.html HTTP/1.1" 200 2493
+[22/Apr/2014 09:14:06] "GET /static/css/signin.css HTTP/1.1" 304 0
+[22/Apr/2014 09:14:06] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 09:14:06] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[22/Apr/2014 09:14:49] "POST /check/ HTTP/1.1" 200 7820
+[22/Apr/2014 09:14:49] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 09:14:49] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 09:14:49] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 09:14:49] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 09:14:49] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 09:14:52] "GET /login/ HTTP/1.1" 200 2493
+Validating models...
+
+0 errors found
+April 21, 2014 - 10:42:54
+Django version 1.6.2, using settings 'envision.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+/root/envision/erunner/views.py:5: DeprecationWarning: django.utils.simplejson is deprecated; use json instead.
+  from django.utils import simplejson
+
+[22/Apr/2014 09:21:12] "POST /check/ HTTP/1.1" 200 7797
+[22/Apr/2014 09:21:12] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 09:21:12] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 09:21:12] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 09:21:12] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 09:21:12] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 09:21:14] "GET /execute/ HTTP/1.1" 200 7818
+[22/Apr/2014 09:22:31] "POST /check/ HTTP/1.1" 200 7797
+[22/Apr/2014 09:22:34] "GET /execute/ HTTP/1.1" 200 7818
+[22/Apr/2014 09:22:50] "GET /login/ HTTP/1.1" 200 2493
+[22/Apr/2014 09:31:43] "POST /check/ HTTP/1.1" 200 7797
+[22/Apr/2014 09:31:43] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 09:31:43] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 09:31:43] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 09:31:43] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 09:31:43] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 09:33:37] "GET /execute/ HTTP/1.1" 200 7828
+[22/Apr/2014 09:33:37] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 09:33:37] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 09:33:37] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 09:33:37] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 09:33:37] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 09:40:50] "POST /check/ HTTP/1.1" 200 7867
+[22/Apr/2014 09:40:50] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 09:40:59] "GET /execute/ HTTP/1.1" 200 7828
+[22/Apr/2014 09:43:56] "GET /execute/index.html HTTP/1.1" 200 7828
+Validating models...
+
+0 errors found
+April 22, 2014 - 09:19:41
+Django version 1.6.2, using settings 'envision.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+/root/envision/erunner/views.py:5: DeprecationWarning: django.utils.simplejson is deprecated; use json instead.
+  from django.utils import simplejson
+
+[22/Apr/2014 09:59:14] "GET /execute/index.html HTTP/1.1" 200 7796
+[22/Apr/2014 09:59:14] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 09:59:14] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 09:59:14] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 09:59:27] "GET /login/ HTTP/1.1" 200 2493
+[22/Apr/2014 09:59:29] "POST /check/ HTTP/1.1" 200 7858
+[22/Apr/2014 09:59:29] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 09:59:35] "GET /execute/ HTTP/1.1" 200 7796
+[22/Apr/2014 09:59:39] "GET /report/ HTTP/1.1" 200 7858
+[22/Apr/2014 09:59:39] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 09:59:43] "GET /trend/ HTTP/1.1" 200 7858
+[22/Apr/2014 09:59:43] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:00:23] "GET /mainframe/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:00:24] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:00:37] "GET /execute/ HTTP/1.1" 200 7796
+[22/Apr/2014 10:00:39] "GET /report/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:00:39] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:00:41] "GET /execute/ HTTP/1.1" 200 7796
+[22/Apr/2014 10:00:52] "GET /report/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:00:53] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:00:55] "GET /trend/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:00:55] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:02:32] "GET /execute/ HTTP/1.1" 200 7796
+[22/Apr/2014 10:02:34] "GET /report/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:02:34] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:02:41] "GET /execute/ HTTP/1.1" 200 7796
+[22/Apr/2014 10:02:42] "GET /mainframe/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:02:42] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:02:48] "GET /trend/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:02:48] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:04:21] "GET /report/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:04:21] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+Validating models...
+
+0 errors found
+April 22, 2014 - 09:52:19
+Django version 1.6.2, using settings 'envision.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+/root/envision/erunner/views.py:5: DeprecationWarning: django.utils.simplejson is deprecated; use json instead.
+  from django.utils import simplejson
+
+[22/Apr/2014 10:05:45] "GET /report/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:05:45] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 10:05:45] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 10:05:45] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 10:05:45] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 10:05:45] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 10:05:45] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:05:49] "GET /trend/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:05:49] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:05:52] "GET /report/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:05:52] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:05:53] "GET /execute/ HTTP/1.1" 200 7796
+[22/Apr/2014 10:05:56] "GET /mainframe/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:05:56] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:06:01] "GET /trend/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:06:02] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:06:03] "GET /report/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:06:03] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:06:05] "GET /execute/ HTTP/1.1" 200 7796
+[22/Apr/2014 10:07:18] "GET /login/ HTTP/1.1" 200 2493
+[22/Apr/2014 10:07:18] "GET /static/css/signin.css HTTP/1.1" 304 0
+[22/Apr/2014 10:07:18] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[22/Apr/2014 10:07:18] "GET /static/css/flat-ui.css HTTP/1.1" 200 68164
+[22/Apr/2014 10:07:26] "POST /check/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:07:26] "GET /static/css/prettify.css HTTP/1.1" 200 817
+[22/Apr/2014 10:07:26] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:07:26] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22111
+[22/Apr/2014 10:07:26] "GET /static/css/docs.css HTTP/1.1" 200 24463
+[22/Apr/2014 10:07:27] "GET /static/css/bootstrap.css HTTP/1.1" 200 127332
+[22/Apr/2014 10:07:47] "GET /static/img/favicon.png HTTP/1.1" 404 1653
+[22/Apr/2014 10:07:52] "GET /execute/ HTTP/1.1" 200 7796
+[22/Apr/2014 10:07:58] "GET /execute/ HTTP/1.1" 200 7796
+[22/Apr/2014 10:07:59] "GET /report/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:07:59] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:08:00] "GET /trend/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:08:00] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:08:02] "GET /mainframe/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:08:02] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:08:04] "GET /execute/ HTTP/1.1" 200 7796
+[22/Apr/2014 10:08:05] "GET /report/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:08:05] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:08:05] "GET /trend/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:08:05] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:08:07] "GET /mainframe/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:08:07] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:11:33] "GET /trend/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:11:33] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:11:34] "GET /report/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:11:34] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:11:34] "GET /execute/ HTTP/1.1" 200 7796
+[22/Apr/2014 10:11:35] "GET /mainframe/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:11:35] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:11:36] "GET /trend/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:11:36] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:11:36] "GET /trend/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:11:36] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:19:20] "GET /mainframe/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:19:20] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:19:22] "GET /execute/ HTTP/1.1" 200 7796
+[22/Apr/2014 10:19:23] "GET /report/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:19:23] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:19:25] "GET /trend/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:19:25] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:19:30] "GET /login/ HTTP/1.1" 200 2493
+[22/Apr/2014 10:19:35] "POST /check/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:19:35] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:19:55] "GET /mainframe/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:19:56] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:20:32] "GET /execute/ HTTP/1.1" 200 7796
+[22/Apr/2014 10:20:34] "GET /report/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:20:34] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:20:36] "GET /trend/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:20:36] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:20:37] "GET /report/ HTTP/1.1" 200 7858
+[22/Apr/2014 10:20:37] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:21:33] "GET /report/ HTTP/1.1" 200 7861
+[22/Apr/2014 10:21:33] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 10:21:33] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 10:21:33] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 10:21:33] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 10:21:34] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:21:34] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 10:21:38] "GET /trend/ HTTP/1.1" 200 7861
+[22/Apr/2014 10:21:38] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:21:41] "GET /report/ HTTP/1.1" 200 7861
+[22/Apr/2014 10:21:41] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:21:42] "GET /execute/ HTTP/1.1" 200 7796
+[22/Apr/2014 10:21:44] "GET /report/ HTTP/1.1" 200 7861
+[22/Apr/2014 10:21:44] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:23:40] "GET /report/ HTTP/1.1" 200 7852
+[22/Apr/2014 10:23:40] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 10:23:40] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 10:23:40] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 10:23:40] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 10:23:40] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 10:23:40] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:23:43] "GET /trend/ HTTP/1.1" 200 7852
+[22/Apr/2014 10:23:43] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:23:46] "GET /report/ HTTP/1.1" 200 7852
+[22/Apr/2014 10:23:46] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:23:48] "GET /execute/ HTTP/1.1" 200 7796
+[22/Apr/2014 10:23:50] "GET /mainframe/ HTTP/1.1" 200 7861
+[22/Apr/2014 10:23:50] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:24:22] "GET /mainframe/ HTTP/1.1" 200 7852
+[22/Apr/2014 10:24:22] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 10:24:22] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 10:24:22] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 10:24:22] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 10:24:22] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 10:24:22] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:24:29] "GET /execute/ HTTP/1.1" 200 7796
+[22/Apr/2014 10:24:31] "GET /report/ HTTP/1.1" 200 7852
+[22/Apr/2014 10:24:31] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:24:32] "GET /trend/ HTTP/1.1" 200 7852
+[22/Apr/2014 10:24:32] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:24:35] "GET /login/ HTTP/1.1" 200 2493
+[22/Apr/2014 10:24:42] "POST /check/ HTTP/1.1" 200 7852
+[22/Apr/2014 10:24:42] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:24:44] "GET /execute/ HTTP/1.1" 200 7796
+[22/Apr/2014 10:25:02] "GET /report/ HTTP/1.1" 200 7852
+[22/Apr/2014 10:25:02] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:25:06] "GET /trend/ HTTP/1.1" 200 7852
+[22/Apr/2014 10:25:06] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:27:47] "GET /mainframe/ HTTP/1.1" 200 7852
+[22/Apr/2014 10:27:47] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:27:49] "GET /execute/ HTTP/1.1" 200 7796
+[22/Apr/2014 10:29:20] "GET /login/ HTTP/1.1" 200 2493
+[22/Apr/2014 10:29:22] "POST /check/ HTTP/1.1" 200 7852
+[22/Apr/2014 10:29:22] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 10:29:25] "GET /execute/ HTTP/1.1" 200 7796
+[22/Apr/2014 11:49:59] "GET /report/ HTTP/1.1" 200 7852
+[22/Apr/2014 11:49:59] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 11:49:59] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 11:49:59] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 11:49:59] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 11:50:04] "GET /mainframe/ HTTP/1.1" 200 7852
+[22/Apr/2014 11:50:04] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 11:50:12] "GET /login/ HTTP/1.1" 200 2493
+[22/Apr/2014 11:50:12] "GET /static/css/signin.css HTTP/1.1" 304 0
+[22/Apr/2014 11:50:12] "GET /static/css/buttons.css HTTP/1.1" 304 0
+[22/Apr/2014 12:57:04] "GET /login/ HTTP/1.1" 200 2493
+[22/Apr/2014 12:57:04] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 12:57:09] "POST /check/ HTTP/1.1" 200 7852
+[22/Apr/2014 12:57:09] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 12:57:09] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 12:57:09] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 12:57:09] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 12:57:09] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 12:57:12] "GET /execute/ HTTP/1.1" 200 7796
+[22/Apr/2014 12:57:14] "GET /report/ HTTP/1.1" 200 7852
+[22/Apr/2014 12:57:14] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 12:57:15] "GET /trend/ HTTP/1.1" 200 7852
+[22/Apr/2014 12:57:15] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 13:02:10] "GET /report/ HTTP/1.1" 200 7852
+[22/Apr/2014 13:02:10] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 13:02:15] "GET /report/ HTTP/1.1" 200 7852
+[22/Apr/2014 13:02:15] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 13:02:18] "GET /mainframe/ HTTP/1.1" 200 7852
+[22/Apr/2014 13:02:18] "GET /static/css/sticky-footer-narbar.css HTTP/1.1" 404 1692
+[22/Apr/2014 13:04:32] "GET /mainframe/ HTTP/1.1" 200 7849
+[22/Apr/2014 13:04:32] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 13:04:32] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 13:04:32] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 13:04:32] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 13:04:32] "GET /static/css/sticky-footer-navbar.css HTTP/1.1" 200 839
+[22/Apr/2014 13:04:32] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 13:06:11] "GET /mainframe/ HTTP/1.1" 200 7762
+[22/Apr/2014 13:06:11] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[22/Apr/2014 13:06:11] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[22/Apr/2014 13:06:11] "GET /static/css/docs.css HTTP/1.1" 304 0
+[22/Apr/2014 13:06:11] "GET /static/css/prettify.css HTTP/1.1" 304 0
+[22/Apr/2014 13:06:11] "GET /static/css/flat-ui.css HTTP/1.1" 304 0
+[22/Apr/2014 13:06:11] "GET /static/css/sticky-footer-navbar.css HTTP/1.1" 304 0
+[22/Apr/2014 13:06:25] "GET /mainframe/ HTTP/1.1" 200 7762
+[22/Apr/2014 13:07:32] "GET /execute/ HTTP/1.1" 200 7796

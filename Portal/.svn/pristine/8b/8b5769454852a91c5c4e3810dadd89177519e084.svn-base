@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/flat-ui.css">
+</head>
+<body>
+  <table class="table table-striped">
+
+    <div align="center" style="background-color: #bbbbbb"><h1>The Detailed Result of SCADA_APP</h1></div>
+        <tbody>
+          <tr>
+            <td style="text-align: center"><font size="5"><strong>TestCase Number</strong></font></td>
+            <td style="text-align: center"><font size="5"><strong>Test Result</strong></font></td>
+            <td style="text-align: center"><font size="5"><strong>Test Time</strong></font></td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31331</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:04</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31332</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:04</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31534</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:04</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31437</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:04</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31438</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:04</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31439</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:04</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31440</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:04</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31356</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:04</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31359</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:04</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31360</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:04</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31375</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:04</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31376</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:04</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31377</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:04</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31378</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:04</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31417</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:04</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31379</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:04</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31380</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:04</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31381</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:04</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31419</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:04</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31327</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:05</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31328</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:05</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31325</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:05</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31388</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:05</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31389</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:05</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31390</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:05</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31348</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:06</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31350</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:06</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31349</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:06</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31351</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:06</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31706</td>
+            <td style="text-align: center">Passed</td>
+            <td style="text-align: center">2014-03-31 16:13:06</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31347</td>
+            <td style="text-align: center"><font color="red"><strong>Failed</strong></font></td>
+            <td style="text-align: center">2014-03-31 16:13:06</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31394</td>
+            <td style="text-align: center"><font color="red"><strong>Failed</strong></font></td>
+            <td style="text-align: center">2014-03-31 16:13:06</td>
+          </tr>
+          <tr>
+            <td style="text-align: center">SCADA2.0-31416</td>
+            <td style="text-align: center"><font color="red"><strong>Failed</strong></font></td>
+            <td style="text-align: center">2014-03-31 16:13:06</td>
+          </tr>
+        </tbody>
+      </table>
+</body>
+</html>

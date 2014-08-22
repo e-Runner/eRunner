@@ -1,0 +1,422 @@
+from django.shortcuts import render_to_response
+from django.db import connection
+from django.views.decorators.csrf import csrf_exempt
+from apscheduler.scheduler import Scheduler
+
+from jobs import jobscheduler
+
+from erunner.models import Project
+from erunner.models import Job
+from erunner.models import Module
+from erunner.models import Version
+from erunner.models import Level
+from erunner.models import Product
+from erunner.models import Id
+from erunner.models import JobResult
+
+from django.http import HttpResponse
+from django.template import RequestContext
+
+from django.utils import simplejson
+
+import json
+import socket
+
+
+job = jobscheduler()
+
+@csrf_exempt
+# Create your views here.
+
+def login(request):
+    return render_to_response('login.html', {})
+
+
+def UpdateProjectandVersion(request):
+    PostData = simplejson.loads(request.body)
+
+    if request.method == "POST":
+
+        Project_Name = Project.objects.filter(ProductName=PostData['ProductName'])
+
+        Test_Version = Version.objects.filter(ProductName=PostData['ProductName'])
+
+        ProjectIndex = Project_Name.count()
+        VersionIndex = Test_Version.count()
+        UpdateTestVersion = []
+        UpdateProjectName = []
+
+        for i in range(0, ProjectIndex):
+            UpdateProjectName.append(Project_Name[i].ProjectName)
+
+        for j in range(0, VersionIndex):
+            UpdateTestVersion.append(Test_Version[j].TestVersion)
+
+    UpdateResult = json.dumps({'ProjectResult': UpdateProjectName, 'VersionResult': UpdateTestVersion})
+
+    return HttpResponse(UpdateResult)
+
+
+def UpdateModuleandLevel(request):
+
+    PostData = simplejson.loads(request.body)
+
+    if request.method == "POST":
+
+        Module_Name = Module.objects.filter(ProjectName=PostData['ProjectName'])
+
+        Test_Level = Level.objects.filter(ProjectName=PostData['ProjectName'])
+
+        ModuleIndex = Module_Name.count()
+        LevelIndex = Test_Level.count()
+
+        UpdateTestLevel = []
+        UpdateModuleName = []
+
+        for i in range(0, ModuleIndex):
+            UpdateModuleName.append(Module_Name[i].ModuleName)
+
+        for j in range(0, LevelIndex):
+            UpdateTestLevel.append(Test_Level[j].TestLevel)
+
+    UpdateResult = json.dumps({'ModuleResult': UpdateModuleName, 'LevelResult': UpdateTestLevel})
+
+    return HttpResponse(UpdateResult)
+
+
+def check(request):
+    cursor = connection.cursor()
+
+    sqlstate = """select name,passwd,mailAddr from erunner_user;"""
+
+    cursor.execute(sqlstate)
+
+    info = cursor.fetchall();
+
+    if request.method == "POST":
+
+
+        Username = request.POST['UserName']
+        Passwd = request.POST['Password']
+
+        for index in info:
+
+            if index[0] == Username and index[1] == Passwd:
+                return render_to_response('mainframe.html', {})
+
+    return render_to_response('login.html', {})
+
+def execute(request):
+    return render_to_response('execute.html', context_instance=RequestContext(request))
+
+def mainframe(request):
+    return render_to_response('mainframe.html', context_instance=RequestContext(request))
+
+def analysis(request):
+    return render_to_response('analysis.html', context_instance=RequestContext(request))
+
+def report(request):
+    return render_to_response('report.html', context_instance=RequestContext(request))
+
+def fileload(request):
+    return render_to_response('fileload.html', context_instance=RequestContext(request))
+
+def result(request):
+    return render_to_response('result.html', context_instance=RequestContext(request))
+
+def executetable(request):
+    return render_to_response('exetable.html', context_instance=RequestContext(request))
+
+
+def SearchResult(request):
+    PostData = simplejson.loads(request.body)
+
+    if request.method == "POST":
+
+        Cur = connection.cursor()
+
+        sql = """select Module,CaseNum,Result from erunner_result where ExecDataTime='%s'""" % (PostData['ExecTime'])
+
+        Cur.execute(sql)
+
+        TestInf = Cur.fetchall()
+
+        a = []
+
+        for item in TestInf:
+            d = obj2dict(item)
+
+            a.append(d)
+
+        resultData = json.loads(a)
+
+    return HttpResponse(resultData)
+
+
+def EditJob(request):
+    PostData = simplejson.loads(request.body)
+
+    if request.method == "POST":
+        EditJob1 = Product.objects.filter(JobName=PostData['EditJobName'])
+
+        EditJob = json.dumps({'JobName': EditJob1[0].JobName, 'ProductName': EditJob1[0].ProductName,
+                              'ProjectName': EditJob1[0].ProjectName,
+                              'ModuleName': EditJob1[0].ModuleName, 'TestVersion': EditJob1[0].TestVersion,
+                              'TestLevel': EditJob1[0].TestLevel,
+                              'TestTime': EditJob1[0].TestTime})
+
+    return HttpResponse(EditJob)
+
+
+def ChangedJobStatus(request):
+    PostData = simplejson.loads(request.body)
+
+    if request.method == "POST":
+
+        ChangedJob = Job.objects.get(JobName=PostData['JobName'])
+        ChangedJob.JobStatus = PostData['JobStatus']
+        ChangedJob.save()
+
+        ChangedProduct = Product.objects.get(JobName=PostData['JobName'])
+        ChangedProduct.TestStatus = PostData['JobStatus']
+        ChangedProduct.save()
+
+        if PostData['JobStatus'] == "YES":
+            job.add_job(PostData['JobName'])
+        else:
+            job.delete_job(PostData['JobName'])
+
+        ChangedResult = json.dumps({'ChangedResult': 'OK'})
+
+    return HttpResponse(ChangedResult)
+
+
+def RunJob(request):
+
+    PostData = simplejson.loads(request.body)
+
+    if request.method == "POST":
+
+        RunJob = Product.objects.get(JobName=PostData['JobName'])
+
+        ModuleName = RunJob.ProjectName
+
+        SocketMessage = Id.objects.get(Module=ModuleName)
+
+        SocketData = {
+            "TestModule": RunJob.ProjectName,
+            "TestSubModule": RunJob.ModuleName,
+            "TestVersion": RunJob.TestVersion,
+            "TestLevel": RunJob.TestLevel
+        }
+
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+        try:
+            sock.connect((SocketMessage.IP, SocketMessage.Port))
+        except:
+            print("Connect Error")
+            RunResult = json.dumps({'RunResult': 'NO'})
+        else:
+            print("Connect OK")
+            sock.send(simplejson.dumps(SocketData))
+
+            RecvMessage = sock.recv(1024)
+
+            RunResult = json.dumps({'RunResult': RecvMessage})
+
+    return HttpResponse(RunResult)
+
+
+def SearchProject(request):
+
+    PostData = simplejson.loads(request.body)
+
+    if request.method == "POST":
+
+        CurProject = connection.cursor()
+
+        sql = """select JobName,ProjectName,TestVersion,TestModule,TestLevel,StartTime,ProjectStatus from erunner_projectinformation where ProjectName='%s'""" % (
+            PostData['ProjectName'])
+
+        CurProject.execute(sql)
+
+        ProjectInfor = CurProject.fetchall()
+
+        projectItem = []
+
+        for item in ProjectInfor:
+            project = obj2project(item)
+
+            projectItem.append(project)
+
+        projectconfigure = json.dumps(projectItem)
+
+    return HttpResponse(projectconfigure)
+
+def ReportProductChanged(request):
+
+    PostData = simplejson.loads(request.body)
+
+    if request.method == "POST":
+
+        ModuleName = Project.objects.filter(ProductName=PostData['ProductName'])
+        ModuleNumber = ModuleName.count()
+
+        ModuleNameSort = []
+
+        for i in range(0, ModuleNumber):
+            ModuleNameSort.append(ModuleName[i].ProjectName)
+
+
+        ResultReport = json.dumps({'ModuleSortName' : ModuleNameSort})
+
+        return HttpResponse(ResultReport)
+
+def ReportModuleChanged(request):
+
+    PostData = simplejson.loads(request.body)
+
+    if request.method == "POST":
+        JobName = Product.objects.filter(ProjectName=PostData['ModuleName'])
+        JobNumber = JobName.count()
+
+        JobNameSort = []
+        for i in range(0, JobNumber):
+            JobNameSort.append(JobName[i].JobName)
+
+        ReportResult = json.dumps({'JobSortName' : JobNameSort})
+
+        return HttpResponse(ReportResult)
+
+def InsertProject(request):
+
+    PostData = simplejson.loads(request.body)
+
+    if request.method == "POST":
+        Product1 = Product(JobName=PostData['NameJob'], ProductName=PostData['NameProduct'],
+                           ProjectName=PostData['NameProject'], ModuleName=PostData['NameModule'],
+                           TestVersion=PostData['VersionTest'], TestLevel=PostData['LevelTest'],
+                           TestTime=PostData['TimeTest'], TestStatus="NO")
+
+        Job1 = Job(JobHealth="Perfect", JobName=PostData['NameJob'], LastResult="N/A", StartTime=PostData['TimeTest'],
+                   JobStatus="NO", ProductName=PostData['NameProduct'])
+
+        Product1.save()
+        Job1.save()
+
+    Result = json.dumps({'InsertResult': 'OK',
+                         'ProductName': PostData['NameProduct']})
+
+    return HttpResponse(Result)
+
+
+def UpdateJob(request):
+
+    PostData = simplejson.loads(request.body)
+
+    if request.method == "POST":
+        UpdateJob = Job.objects.get(JobName=PostData['NameJob'])
+        UpdateJob.StartTime = PostData['TimeTest']
+        JobStatus1 = UpdateJob.JobStatus
+        UpdateJob.save()
+
+        UpdateProduct = Product.objects.get(JobName=PostData['NameJob'])
+        UpdateProduct.ProductName = PostData['NameProduct']
+        UpdateProduct.ProjectName = PostData['NameProject']
+        UpdateProduct.ModuleName = PostData['NameModule']
+        UpdateProduct.TestVersion = PostData['VersionTest']
+        UpdateProduct.TestLevel = PostData['LevelTest']
+        UpdateProduct.TestTime = PostData['TimeTest']
+        UpdateProduct.save()
+
+    UpdateResult = json.dumps({'UpdateResult': 'OK', 'ProductName': PostData['NameProduct'], 'JobName': PostData['NameJob'], 'JobStatus': JobStatus1})
+
+    return HttpResponse(UpdateResult)
+
+
+def DeleteJob(request):
+    PostData = simplejson.loads(request.body)
+
+    if request.method == "POST":
+        DeleteJobName = Job.objects.filter(JobName=PostData['DeleteJobName'])
+        DeleteProductName = Product.objects.filter(JobName=PostData['DeleteJobName'])
+
+        DeleteJobName.delete()
+        DeleteProductName.delete()
+
+    deleteresult = json.dumps({'DeleteResult': 'OK'})
+
+    return HttpResponse(deleteresult)
+
+
+def FilterJob(request):
+    PostData = simplejson.loads(request.body)
+
+    if request.method == "POST":
+
+        filter_job = Job.objects.filter(ProductName=PostData['ProductName'])
+
+        projectItem = []
+
+        for item in filter_job:
+            project = obj2job(item)
+
+            projectItem.append(project)
+
+        CheckResult = json.dumps(projectItem)
+
+    return HttpResponse(CheckResult)
+
+
+def CheckJobName(request):
+    PostData = simplejson.loads(request.body)
+
+    if request.method == "POST":
+
+        JobCheck = Job.objects.filter(JobName=PostData['CheckJobName'])
+
+        JobNumber = JobCheck.count();
+
+        if (JobNumber == 0):
+            CheckResult = json.dumps({'CheckResult': 'YES'})
+        else:
+            CheckResult = json.dumps({'CheckResult': 'NO'})
+
+    return HttpResponse(CheckResult)
+
+
+def obj2dict(objectBody):
+
+    d = {}
+    d['TestModule'] = objectBody[0]
+    d['CaseNumber'] = objectBody[1]
+    d['TestResult'] = objectBody[2]
+
+    return d
+
+
+def obj2project(projectdate):
+    project = {}
+
+    project['JobName'] = projectdate[0]
+    project['ProductName'] = projectdate[1]
+    project['TestVersion'] = projectdate[2]
+    project['TestModule'] = projectdate[3]
+    project['TestLevel'] = projectdate[4]
+    project['StartTime'] = str(projectdate[5])
+    project['ProjectStatus'] = projectdate[6]
+    return project
+
+
+def obj2job(jobdate):
+    JobMessage = {}
+
+    JobMessage['JobName'] = jobdate.JobName
+    JobMessage['JobHealth'] = jobdate.JobHealth
+    JobMessage['LastResult'] = jobdate.LastResult
+    JobMessage['StartTime'] = jobdate.StartTime,
+    JobMessage['JobStatus'] = jobdate.JobStatus
+
+    return JobMessage
+

@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>eRunner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+ 
+    <!-- Le styles -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../static/css/docs.css" rel="stylesheet">
+    <link href="../static/css/prettify.css" rel="stylesheet">
+    <link href="../static/css/flat-ui.css" rel="stylesheet">
+    <link href="../static/css/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="../static/css/jquery-ui.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="../static/css/button.css" rel="stylesheet">
+    <link href="../static/css/datetimepicker.css" rel="stylesheet">
+    <link href="../static/css/bootstrapSwitch.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://getbootstrap.com/2.3.2/assets/js/html5shiv.js"></script>
+    <![endif]-->
+ 
+    <!-- Le fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="http://getbootstrap.com/2.3.2/assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../static/img/favicon.ico">
+ 
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-146052-10']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <style type="text/css">
+         #bottom {
+                position: fixed;
+                display: block;
+                margin: 0px 0px 0px 0px;
+                bottom: 0;
+                clear: both;
+                width: 100%;
+                color: #fff;
+                height: 20px;
+                right: 0;
+                background-color: #77787b;
+                text-align: center;
+                line-height: 26px;
+                font-size: 12px;
+                font-family: "Microsoft YaHei";
+                min-width: 1280px;
+            }
+
+            #divMainMenu{
+                position:absolute;
+                top: 0px;
+                width: 100%;
+                height: 6%;
+            }
+
+            p{
+                display: inline;
+                vertical-align: middle;
+            }
+
+            h2{
+                display: inline;
+                vertical-align: middle;
+            }
+
+            h4{
+                display: inline;
+                vertical-align: middle;
+                padding-right: 15px;
+            }
+            h5{
+                margin: 1px;
+            }
+            .MenuRight{
+                padding-right: 0px;
+                display: inline;
+            }
+
+            .Configure{
+                position: absolute;
+                top: 15%;
+                width: 96%;
+                padding-left: 2%;
+            }
+            h3{
+                display: inline;
+            }
+
+            td{
+                text-align: center;
+                font-size: 16px;
+            }
+
+            th{
+                font-size: 22px;
+            }
+
+           #result{
+                text-align: center;
+                padding-top: 10px;;
+                margin: auto;
+                width: 100%;
+
+                }
+
+            button{
+                background-color: rgb(62, 105, 195);
+            }
+    </style>
+  </head>
+ 
+<body class="container">
+    <div id="divMainMenu">
+        <img src="../static/img/envision.png"></img>
+        <p><h2>软件产品自动化测试框架和平台</h2></p>
+        <div class="MenuRight" style="margin-left: 400px">
+            <p><h4>{{ user.username }}</h4></p>
+            <a href="/login/"><h4>退出</h4></a>
+        </div>
+    </div>
+
+    <div class="navbar navbar-inverse navbar-fixed-top container" style="top: 7%">
+      <div class="navbar-inner" style="position:absolute; height: 46px; top: 7%; background-color: rgb(69, 144, 219)">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="/mainframe/"><h5>趋势展示</h5></a>
+              </li>
+              <li class="active">
+                <a href="/execute/"><h5>配置调度</h5></a>
+              </li>
+              <li class="">
+                <a href="/report/"><h5>报告查看</h5></a>
+              </li>
+              <li class="">
+                <a href="/analysis/"><h5>分析优化</h5></a>
+              </li>
+              <li class="">
+                <a href="/fileload/"><h5>工具下载</h5></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div>
+    <div class="Configure" style="height: 80%">
+        <label style="display: inline; margin-right: 10px"><h3>产品名称</h3></label>
+        <select id="productselect" style="visibility: visible">
+            <option value="0">Wind OS</option>
+            <option value="1">BAO</option>
+            <option value="2">MAP</option>
+            <option value="3">EAI</option>
+        </select>
+        <div style="display: inline" class="demo-row">
+        <div class="col-xs-3" style="float: right">
+        <button class="btn btn-large btn-primary" id="delete" style="margin-left: 10px; background-color: rgb(62, 105, 195)">删除任务</button>
+        </div>
+        <div class="col-xs-3" style="float: right;">
+        <a data-toggle="modal" href="#insert" class="btn btn-large btn-primary" id="add" style="margin-left: 10px; background-color: rgb(62, 105, 195)">添加任务</a>
+        </div>
+      </div>
+
+     <table id="result">
+         <thead>
+            <tr>
+                <th></th>
+                <th>Robustness</th>
+                <th>JobName</th>
+                <th>LastResult</th>
+                <th>StartTime</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+         </thead>
+         <tbody>
+
+         </tbody>
+     </table>
+
+    <!--
+     <iframe src="/executetable/" id="result" name="executetable">
+
+     </iframe>
+    -->
+
+    </div>
+
+    <div id="insert" class="modal hide fade" style="display: none;">
+            <div class="modal-header">
+              <a class="close" data-dismiss="modal">×</a>
+              <h3>eRunner</h3>
+            </div>
+            <div class="modal-footer" style="text-align: center">
+            <div id="center1" class="text-center">
+               <table class="table table-hover" style="margin-bottom: 0px">
+                <thead>
+                  <tr>
+                    <th>
+                       <a href="#" class="btn btn-large btn-block disabled">任务名称</a>
+                    </th>
+
+                    <th>
+                        <input id="JobName" type="text" value placeholder="Job Name" style="width: 208px" onchange="TextCheck()"/>
+                    </th>
+                  </tr>
+                </thead>
+               </table>
+
+               <table class="table table-hover" style="margin-bottom: 0px">
+                 <thead>
+                   <tr>
+                    <th>
+                       <a href="#" class="btn btn-large btn-block disabled">测试产品</a>
+                    </th>
+
+                    <th>
+                       <select id="InsertProductName">
+                        <option value="0">N/A</option>
+                        <option value="1">Wind OS</option>
+                        <option value="2">BAO</option>
+                        <option value="3">MAP</option>
+                        <option value="4">EAI</option>
+                       </select>
+                     </th>
+                </tr>
+                </thead>
+               </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+            <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试项目</a>
+                </th>
+
+                <th>
+                   <select id="InsertProjectName">
+                   </select>
+                </th>
+            </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试模块</a>
+                </th>
+                <th>
+                   <select id="InsertModuleName">
+                   </select>
+                </th>
+              </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试版本</a>
+                </th>
+
+                <th>
+                   <select id="InsertTestVersion">
+                   </select>
+                </th>
+              </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试级别</a>
+                </th>
+
+                <th>
+                   <select id="InsertTestLevel">
+                   </select>
+                </th>
+              </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">启动时间</a>
+                </th>
+
+                <th>
+                    <div >
+                        <input id="StartTime" onclick="TimeEditor(this)" size="14" type="text" value="" readonly style="background-color: rgb(129, 138, 136);width: 210px;">
+                    </div>
+                </th>
+
+              </tr>
+            </thead>
+           </table>
+
+
+           </div>
+           <button id="InsertOK" class="btn" data-dismiss="modal" style="height: 36px; width: 72px; margin-right: 40px;  background-color: rgb(62, 105, 195)">OK</button>
+           <button class="btn" data-dismiss="modal" style="height: 36px; width: 72px; margin-right: 40px;  background-color: rgb(62, 105, 195)">Cancel</button>
+          </div>
+   </div>
+
+    <div id="edit" class="modal hide fade" style="display: none;">
+            <div class="modal-header">
+              <a class="close" data-dismiss="modal">×</a>
+              <h3>eRunnerEditor</h3>
+            </div>
+            <div class="modal-footer" style="text-align: center">
+            <div id="center1" class="text-center">
+               <table class="table table-hover" style="margin-bottom: 0px">
+                <thead>
+                  <tr>
+                    <th>
+                       <a href="#" class="btn btn-large btn-block disabled">任务名称</a>
+                    </th>
+
+                    <th>
+                        <input id="Edit_JobName" type="text" value placeholder="Job Name" style="width: 208px" disabled/>
+                    </th>
+                  </tr>
+                </thead>
+               </table>
+
+               <table class="table table-hover" style="margin-bottom: 0px">
+                 <thead>
+                   <tr>
+                    <th>
+                       <a href="#" class="btn btn-large btn-block disabled">测试产品</a>
+                    </th>
+
+                    <th>
+                       <select id="EditProductName" disabled>
+                        <option value="0">Wind OS</option>
+                        <option value="1">BAO</option>
+                        <option value="2">MAP</option>
+                        <option value="3">EAI</option>
+                       </select>
+                     </th>
+                </tr>
+                </thead>
+               </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+            <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试项目</a>
+                </th>
+
+                <th>
+                   <select id="EditProjectName">
+                   </select>
+                </th>
+            </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试模块</a>
+                </th>
+                <th>
+                   <select id="EditModuleName">
+                   </select>
+                </th>
+              </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试版本</a>
+                </th>
+
+                <th>
+                   <select id="EditTestVersion">
+                   </select>
+                </th>
+              </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">测试级别</a>
+                </th>
+
+                <th>
+                   <select id="EditTestLevel">
+                   </select>
+                </th>
+              </tr>
+            </thead>
+           </table>
+
+           <table class="table table-hover" style="margin-bottom: 0px">
+            <thead>
+              <tr>
+                <th>
+                   <a href="#" class="btn btn-large btn-block disabled">启动时间</a>
+                </th>
+
+                <th>
+                    <div >
+                        <input id="EditStartTime" onclick="TimeEditor(this)" size="14" type="text" value="" readonly style="background-color: rgb(129, 138, 136);width: 210px;">
+                    </div>
+                </th>
+
+              </tr>
+            </thead>
+           </table>
+           </div>
+           <button id="EditOK" class="btn" data-dismiss="modal" style="height: 36px; width: 72px; margin-right: 40px;  background-color: rgb(62, 105, 195)">OK</button>
+           <button class="btn" data-dismiss="modal" style="height: 36px; width: 72px; margin-right: 40px;  background-color: rgb(62, 105, 195)">Cancel</button>
+          </div>
+   </div>
+
+     <div id="TimeEdit" class="modal hide fade" style="display: none;">
+            <div class="modal-header">
+              <a class="close" data-dismiss="modal">×</a>
+              <h3>TimeEdit</h3>
+            </div>
+            <div class="modal-footer" style="text-align: center">
+            <div id="center1" class="text-center">
+              <table class="table table-hover" style="margin-bottom: 0px">
+                <thead>
+                  <tr>
+                    <th>
+                       <a href="#" class="btn btn-large btn-block disabled">周</a>
+                    </th>
+                    <th>
+                       <select id="Week">
+                           <option>EveryDay</option>
+                           <option>Monday</option>
+                           <option>Tuesday</option>
+                           <option>Wednesday</option>
+                           <option>Thursday</option>
+                           <option>Friday</option>
+                           <option>Saturday</option>
+                           <option>Sunday</option>
+                       </select>
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+              <table class="table table-hover" style="margin-bottom: 0px">
+                <thead>
+                  <tr>
+                    <th>
+                       <a href="#" class="btn btn-large btn-block disabled">时</a>
+                    </th>
+                    <th>
+                       <select id="Hour">
+                           <option>0</option>
+                           <option>1</option>
+                           <option>2</option>
+                           <option>3</option>
+                           <option>4</option>
+                           <option>5</option>
+                           <option>6</option>
+                           <option>7</option>
+                           <option>8</option>
+                           <option>9</option>
+                           <option>10</option>
+                           <option>11</option>
+                           <option>12</option>
+                           <option>13</option>
+                           <option>14</option>
+                           <option>15</option>
+                           <option>16</option>
+                           <option>17</option>
+                           <option>18</option>
+                           <option>19</option>
+                           <option>20</option>
+                           <option>21</option>
+                           <option>22</option>
+                           <option>23</option>
+                       </select>
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+              <table class="table table-hover" style="margin-bottom: 0px">
+                <thead>
+                  <tr>
+                    <th>
+                       <a href="#" class="btn btn-large btn-block disabled">分</a>
+                    </th>
+                    <th>
+                       <select id="Minute">
+                           <option>0</option>
+                           <option>5</option>
+                           <option>10</option>
+                           <option>15</option>
+                           <option>20</option>
+                           <option>25</option>
+                           <option>30</option>
+                           <option>35</option>
+                           <option>40</option>
+                           <option>45</option>
+                           <option>50</option>
+                           <option>55</option>
+                       </select>
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+           <button id="TimeOK" class="btn" data-dismiss="modal" style="height: 36px; width: 72px; margin-right: 40px;  background-color: rgb(62, 105, 195)">OK</button>
+           <button class="btn" data-dismiss="modal" style="height: 36px; width: 72px; margin-right: 40px;  background-color: rgb(62, 105, 195)">Cancel</button>
+          </div>
+   </div>
+   </div>
+
+    <!-- Footer
+    ================================================== -->
+   <div id="bottom">
+            <p>Copyright©2014 Envision Energy Limited. All Rights Reserved</p>
+   </div>
+ 
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/jquery.dropkick-1.0.0.js"></script>
+    <script src="../static/js/custom_radio.js"></script>
+    <script src="../static/js/holder.js"></script>
+    <script src="../static/js/jquery-ui.js"></script>
+    <script src="../static/js/application.js"></script>
+    <script src="../static/js/Chart.js"></script>
+    <script src="../static/js/jquery.tagsinput.js"></script>
+    <script src="../static/js/jquery.placeholder.min.js"></script>
+    <script src="../static/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../static/js/bootstrapSwitch.js"></script>
+
+
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-transition.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-alert.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-modal.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-dropdown.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-tab.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-tooltip.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-popover.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-button.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-collapse.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-carousel.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-typeahead.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-affix.js"></script>
+
+    <script src="http://getbootstrap.com/2.3.2/assets/js/holder/holder.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/google-code-prettify/prettify.js"></script>
+
+    <script src="http://getbootstrap.com/2.3.2/assets/js/application.js"></script>
+
+    <script src="../static/js/execute.js"></script>
+ 
+ 
+    <!-- Analytics
+    ================================================== -->
+
+    <script type="text/javascript">
+
+        function edit(object){
+
+            var str = object.text;
+
+            edit_job(str, edit_ok);
+        }
+
+        function ChangeClass(object)
+        {
+            if($(object).attr("class") == "switch-off switch-animate")
+            {
+              $(object).removeClass("switch-off switch-animate").addClass("switch-on switch-animate");
+              var StatusJobName = object.id;
+              var Status = "YES";
+              var str = {'JobName':StatusJobName,'JobStatus':Status};
+
+              status_changed_job(str, changed_ok);
+
+            }
+            else
+            {
+               $(object).removeClass("switch-on switch-animate").addClass("switch-off switch-animate");
+               var StatusJobName = object.id;
+               var Status = "NO";
+               var str = {'JobName':StatusJobName,'JobStatus':Status};
+               status_changed_job(str, changed_ok);
+            }
+
+        }
+
+        function changed_ok()
+        {
+
+        }
+
+        function RunJob(object)
+        {
+            alert("The Job is Running, Please check the result in report page!");
+
+            var str = object.id;
+
+            run_job(str, run_ok);
+
+        }
+
+        function run_ok(data)
+        {
+
+        }
+
+        function TimeEditor(object)
+        {
+            $("#TimeEdit").modal('show');
+        }
+
+        function edit_ok(data)
+        {
+            $("#Edit_JobName").val(data['JobName']);
+            $("#EditStartTime").val(data['TestTime']);
+
+            $("#edit").modal("show");
+
+            $("#EditProductName").each(function(){
+                $(this).children("option").each(function(){
+                   if($(this).text() == data['ProductName']){
+                     ProductIndex = $(this).val();
+                   };
+                });
+            });
+
+
+
+            $("#EditProductName").val(ProductIndex);
+
+            var ProductName = $("#EditProductName option:selected").text();
+
+            updateproduct(ProductName, updateeditprojectandversion);
+
+            $("#EditProjectName").each(function(){
+                $(this).children("option").each(function(){
+                    if($(this).text() == data['ProjectName']){
+                     ProjectIndex = $(this).val();
+                    };
+                });
+            });
+
+            $("#EditProjectName").val(ProjectIndex);
+
+            $("#EditTestVersion").each(function(){
+                $(this).children("option").each(function(){
+                   if($(this).text() == data['TestVersion']){
+                     VersionIndex = $(this).val();
+                   };
+                });
+            });
+
+             $("#EditTestVersion").val(VersionIndex);
+
+            var ProjectName = $("#EditProjectName option:selected").text();
+            updateproject(ProjectName, updateeditmoduleandlevel);
+
+            $("#EditModuleName").each(function(){
+                $(this).children("option").each(function(){
+                    if($(this).text() == data['ModuleName']){
+                     ModuleIndex = $(this).val();
+                    };
+                });
+            });
+
+            $("#EditModuleName").val(ModuleIndex);
+
+            $("#EditTestLevel").each(function(){
+                $(this).children("option").each(function(){
+                    if($(this).text() == data['TestLevel']){
+                       LevelIndex = $(this).val();
+                    };
+                });
+            });
+
+            $("#EditTestLevel").val(LevelIndex);
+
+        }
+
+        $("#EditProductName").change(function(){
+
+            var ProductName = $("#EditProductName option:selected").text();
+
+            updateproduct(ProductName, updateeditprojectandversion);
+
+        });
+
+        $("#EditProjectName").change(function(){
+
+            var ProjectName = $("#EditProjectName option:selected").text();
+            updateproject(ProjectName, updateeditmoduleandlevel);
+        });
+
+        function updateeditmoduleandlevel(data)
+        {
+            document.getElementById("EditModuleName").options.length = 0;
+
+            for(i=0; i<data['ModuleResult'].length;i++)
+            {
+               document.getElementById("EditModuleName").options.add(new Option(data['ModuleResult'][i]));
+            }
+
+            document.getElementById("EditTestLevel").options.length = 0;
+
+            for(j=0; j<data['LevelResult'].length;j++)
+            {
+               document.getElementById("EditTestLevel").options.add(new Option(data['LevelResult'][j]));
+            }
+        }
+
+        function updateeditprojectandversion(data)
+        {
+            document.getElementById("EditProjectName").options.length = 0;
+
+            for(i=0; i<data['ProjectResult'].length;i++)
+            {
+               document.getElementById("EditProjectName").options.add(new Option(data['ProjectResult'][i]));
+            }
+
+            document.getElementById("EditTestVersion").options.length = 0;
+
+            for(j=0; j<data['VersionResult'].length;j++)
+            {
+               document.getElementById("EditTestVersion").options.add(new Option(data['VersionResult'][j]));
+            }
+
+            var ProjectName = $("#EditProjectName option:selected").text();
+            updateproject(ProjectName, updateeditmoduleandlevel);
+        }
+
+
+        function TextCheck()
+        {
+            var CheckName = document.getElementById("JobName").value;
+
+            check_job(CheckName, check_ok);
+        }
+
+        function check_ok(data)
+        {
+
+            if(data['CheckResult'] == "NO")
+            {
+                alert("Your Input Job Name is Unavailable!");
+                $("#JobName").val("");
+            }
+        }
+
+        function updatetable(data)
+        {
+            $("#result tbody").html("");
+
+            lengthjson = data.length;
+
+            for (i=0; i<lengthjson; i++)
+            {
+                var Check_Box = "<tr><td>"+'<input type="checkbox" name="box"';
+                Check_Box += "id='" + data[i]['JobName']+"'></td>";
+
+                var Health_Job = "<td>"+data[i]['JobHealth']+"</td>";
+                var Job_Name = '<td><a onclick="edit(this)">'+data[i]['JobName']+"</a></td>";
+                var Last_Result = "<td>"+data[i]['LastResult']+"</td>";
+                var Start_Time = "<td>"+data[i]['StartTime']+"</td>";
+
+                if(data[i]['JobStatus'] == "YES")
+                {
+                    var Job_Status = '<td><div class="switch has-switch">'+ '<div class="switch-on switch-animate" onclick="ChangeClass(this)" id='+data[i]['JobName']+'>'+'<input type="checkbox" checked="">';
+                    Job_Status += '<span class="switch-left">ON</span><label>&nbsp;</label><span class="switch-right">OFF</span>'+"</div></div></td>";
+                }
+                else
+                {
+                    var Job_Status = '<td><div class="switch has-switch">'+ '<div class="switch-off switch-animate" onclick="ChangeClass(this)" id='+data[i]['JobName']+'>'+'<input type="checkbox" checked="">';
+                    Job_Status += '<span class="switch-left">ON</span><label>&nbsp;</label><span class="switch-right">OFF</span>'+"</div></div></td>";
+                }
+
+                var Job_Action = "<td>"+'<button class="btn btn-primary" style="height: 30px;width:80px;background-color: rgb(62, 105, 195)" onclick="RunJob(this)" id='+data[i]['JobName']+'>Run</button>'+"</td></tr>";
+
+                var NewRow =  Check_Box+Health_Job+Job_Name+Last_Result+Start_Time+Job_Status+Job_Action;
+
+                $("#result").append(NewRow);
+            }
+        }
+
+    </script>
+
+    <script type="text/javascript">
+	
+	$(document).ready(function(){
+
+
+        var checked_product = $("#productselect option:selected").text();
+
+        filter_job(checked_product, updatetable);
+
+        $("#productselect").change(function(){
+
+            var checked_product = $("#productselect option:selected").text();
+
+            filter_job(checked_product, updatetable);
+
+        });
+
+        $("#TimeOK").click(function(){
+
+            var EditWeek = $("#Week option:selected").text();
+            var EditHour = $("#Hour option:selected").text();
+            var EditMinute = $("#Minute option:selected").text();
+
+            var EditTime = EditWeek+" "+EditHour+":"+EditMinute;
+
+            $("#StartTime").val(EditTime);
+            $("#EditStartTime").val(EditTime);
+
+        });
+
+
+        $("#InsertProductName").change(function(){
+
+            var ProductName = $("#InsertProductName option:selected").text();
+
+            updateproduct(ProductName, updateprojectandversion);
+
+        });
+
+        $("#InsertProjectName").change(function(){
+
+            var ProjectName = $("#InsertProjectName option:selected").text();
+            updateproject(ProjectName, updatemoduleandlevel);
+        });
+
+        function updatemoduleandlevel(data)
+        {
+            document.getElementById("InsertModuleName").options.length = 0;
+
+            for(i=0; i<data['ModuleResult'].length;i++)
+            {
+               document.getElementById("InsertModuleName").options.add(new Option(data['ModuleResult'][i]));
+            }
+
+            document.getElementById("InsertTestLevel").options.length = 0;
+
+            for(j=0; j<data['LevelResult'].length;j++)
+            {
+               document.getElementById("InsertTestLevel").options.add(new Option(data['LevelResult'][j]));
+            }
+        }
+
+        function updateprojectandversion(data)
+        {
+
+            document.getElementById("InsertProjectName").options.length = 0;
+
+            for(i=0; i<data['ProjectResult'].length;i++)
+            {
+               document.getElementById("InsertProjectName").options.add(new Option(data['ProjectResult'][i]));
+            }
+
+            document.getElementById("InsertTestVersion").options.length = 0;
+
+            for(j=0; j<data['VersionResult'].length;j++)
+            {
+               document.getElementById("InsertTestVersion").options.add(new Option(data['VersionResult'][j]));
+            }
+
+            var ProjectName = $("#InsertProjectName option:selected").text();
+            updateproject(ProjectName, updatemoduleandlevel);
+
+        }
+
+        $("#delete").click(function(){
+
+            var str = document.getElementsByName("box");
+
+            delete_job(str, delete_ok, delete_error);
+
+        });
+
+        function delete_ok(data)
+        {
+            var checked_product = $("#productselect option:selected").text();
+
+            filter_job(checked_product, updatetable);
+        }
+
+        function delete_error()
+        {
+            alert("Delete Error!");
+        }
+
+        $("#EditOK").click(function(){
+            var Job_Name = document.getElementById("Edit_JobName").value;
+            var Product_Name = $("#EditProductName option:selected").text();
+            var Project_Name = $("#EditProjectName option:selected").text();
+            var Module_Name = $("#EditModuleName option:selected").text();
+            var Test_Version = $("#EditTestVersion option:selected").text();
+            var Test_Level = $("#EditTestLevel option:selected").text();
+            var Test_Time = document.getElementById("EditStartTime").value;
+
+            var Configure_json = {
+                NameJob: Job_Name,
+                NameProduct: Product_Name,
+                NameProject: Project_Name,
+                NameModule: Module_Name,
+                VersionTest: Test_Version,
+                LevelTest: Test_Level,
+                TimeTest: Test_Time
+            };
+
+            update_job(Configure_json, updatejob_ok);
+
+        })
+
+        function updatejob_ok(data)
+        {
+            var checked_product = $("#EditProductName option:selected").text();
+
+            filter_job(checked_product, updatetable);
+
+            $("#productselect").each(function(){
+                $(this).children("option").each(function(){
+                    if($(this).text() == checked_product){
+                       SelectIndex = $(this).val();
+                    };
+                });
+            });
+            $("#productselect").val(SelectIndex);
+
+        }
+
+        $("#InsertOK").click(function(){
+
+            var Job_Name = document.getElementById("JobName").value;
+            var Product_Name = $("#InsertProductName option:selected").text();
+            var Project_Name = $("#InsertProjectName option:selected").text();
+            var Module_Name = $("#InsertModuleName option:selected").text();
+            var Test_Version = $("#InsertTestVersion option:selected").text();
+            var Test_Level = $("#InsertTestLevel option:selected").text();
+            var Test_Time = document.getElementById("StartTime").value;
+
+            var Configure_json = {
+                NameJob: Job_Name,
+                NameProduct: Product_Name,
+                NameProject: Project_Name,
+                NameModule: Module_Name,
+                VersionTest: Test_Version,
+                LevelTest: Test_Level,
+                TimeTest: Test_Time
+            };
+
+            insert_job(Configure_json, insert_ok);
+
+        });
+
+        function insert_ok(data)
+        {
+
+            var checked_product = $("#InsertProductName option:selected").text();
+
+            filter_job(checked_product, updatetable);
+
+            $("#productselect").each(function(){
+                $(this).children("option").each(function(){
+                    if($(this).text() == checked_product){
+                       SelectIndex = $(this).val();
+                    };
+                });
+            });
+            $("#productselect").val(SelectIndex);
+
+        };
+
+		});
+    </script>
+  </body>
+</html>
+
+

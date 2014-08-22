@@ -1,0 +1,80 @@
+/**
+ * Created by honglei.yu on 14-6-6.
+ */
+
+function filter_job()
+{
+
+}
+
+function insert_job(obj,callback_ok, callbcak_error)
+{
+    var json_str = JSON.stringify(obj);
+
+    $.ajax({
+        type: "post",
+        url: "/InsertProject/",
+        dataType: "json",
+        data: json_str,
+
+        success: callback_ok,
+        error: callbcak_error
+    });
+}
+
+function delete_job(obj, callback_ok, callback_error)
+{
+    var objarray = obj.length;
+
+    for(i=0; i<objarray;i++)
+    {
+        if(obj[i].checked == true)
+        {
+            var delete_json = {
+                DeleteJobName: obj[i].id
+            }
+
+            var json_str = JSON.stringify(delete_json);
+
+            $.ajax({
+                type: "post",
+                url: "/DeleteProject/",
+                dataType: "json",
+                data: json_str,
+                success: callback_ok,
+
+                error: callback_error
+
+            });
+        }
+    }
+}
+
+function edit_job()
+{
+
+}
+
+function execute_job()
+{
+
+}
+
+function check_job(obj, callback_ok, callback_error)
+{
+    var check_json = {
+
+        CheckJobName: obj
+    }
+
+    var json_str = JSON.stringify(check_json);
+
+    $.ajax({
+        type: "post",
+        url: "/CheckJobName/",
+        dataType: "json",
+        data: json_str,
+        success: callback_ok,
+        error: callback_error
+    });
+}

@@ -1,0 +1,33 @@
+from django.conf.urls import patterns, include, url
+
+from django.contrib import admin
+admin.autodiscover()
+
+urlpatterns = patterns('',
+    url(r'^$', 'erunner.views_auth.mylogin', name='login'),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^login/', 'erunner.views_auth.mylogin'),
+    url(r'^execute/','erunner.views.execute'),
+    url(r'^mainframe/','erunner.views.mainframe'),
+    url(r'^report/','erunner.views.report'),
+    url(r'^trend/','erunner.views.trend'),
+    url(r'^result/','erunner.views.result'),
+    url(r'^analysis/', 'erunner.views.analysis'),
+    url(r'^fileload/', 'erunner.views.fileload'),
+    url(r'executetable/','erunner.views.executetable'),
+    url(r'SearchProject/', 'erunner.views.SearchProject'),
+    url(r'InsertProject/', 'erunner.views.InsertProject'),
+    url(r'DeleteJob/', 'erunner.views.DeleteJob'),
+    url(r'CheckJobName/', 'erunner.views.CheckJobName'),
+    url(r'FilterJob/', 'erunner.views.FilterJob'),
+    url(r'EditJob/', 'erunner.views.EditJob'),
+    url(r'UpdateProjectandVersion/', 'erunner.views.UpdateProjectandVersion'),
+    url(r'UpdateModuleandLevel/', 'erunner.views.UpdateModuleandLevel'),
+    url(r'ChangeJobStatus/', 'erunner.views.ChangedJobStatus'),
+    url(r'RunJob/', 'erunner.views.RunJob'),
+    url(r'UpdateJob/', 'erunner.views.UpdateJob'),
+    url(r'ReportProductChanged/', 'erunner.views.ReportProductChanged'),
+    url(r'ReportModuleChanged/', 'erunner.views.ReportModuleChanged'),
+
+
+)

@@ -1,0 +1,190 @@
+__author__ = 'honglei.yu'
+
+import json
+import os
+
+from django.shortcuts import render_to_response
+from django.http import HttpResponse
+import xlrd
+
+from erunner.models_fact import ResultJob
+from erunner.models_fact import ResultCase
+from erunner.models_dimension import TestCase
+from erunner.models_dimension import ResultDesc
+from erunner.models_fact import Jobs
+from format_log import LoggerFormat
+from SourceCodeFormater.Formater import Formater
+
+
+def result(request, JobID):
+    JobIndex = request.GET.get('JobID')
+    ResultJobStat = ResultJob.objects.get(id=JobIndex)
+    JobStartTime = ResultJobStat.start_time
+    JobName = Jobs.objects.get(id=ResultJobStat.job_id)
+    if ResultJobStat.fail_num == 0:
+        TestIndexShow="OK"
+        TestIndex = "Passed"
+    else:
+        TestIndexShow=""
+        TestIndex = "Failed"
+    TotalTestNumber = ResultJobStat.fail_num+ResultJobStat.pass_num
+    ratio = "%.4f"%(float(ResultJobStat.pass_num)/TotalTestNumber)
+    ratio = "%.2f"%(100*(float(ratio)))
+    return render_to_response('result.html', {"JobRatio":ratio,"JobName":JobName.name, "JobStartTime":JobStartTime.strftime("%Y-%m-%d %H:%M:%S"),"JobIndex":JobIndex,"TestIndexShow":TestIndexShow, "TestIndex":TestIndex, "TestCaseNumber":TotalTestNumber, "PassedNumber": ResultJobStat.pass_num, "FailedNumber":ResultJobStat.fail_num})
+
+def SearchResult(request):
+    PostData = json.loads(request.body)
+    if request.method == "POST":
+        Case_Result = ResultCase.objects.filter(result_job_id=int(PostData['JobIndex']))
+        CaseResultList=[]
+        for index in Case_Result:
+            CaseResult_Index = {}
+            CaseName= TestCase.objects.get(id=index.test_case_id)
+            CaseResult_Index['CaseName'] = CaseName.name
+            ResultName = ResultDesc.objects.get(id=index.result_desc_id)
+            CaseResult_Index['CaseResult'] = ResultName.name
+            CaseResult_Index['Reserver'] = index.id
+            CaseResultList.append(CaseResult_Index)
+        resultData = json.dumps(CaseResultList)
+
+        return HttpResponse(resultData)
+
+def SearchFailedResult(request):
+    PostData = json.loads(request.body)
+    if request.method == "POST":
+        Case_Result = ResultCase.objects.filter(result_job_id=int(PostData['JobIndex']), result_desc_id=2)
+        CaseResultList=[]
+        for index in Case_Result:
+            CaseResult_Index = {}
+            CaseName= TestCase.objects.get(id=index.test_case_id)
+            CaseResult_Index['CaseName'] = CaseName.name
+            ResultName = ResultDesc.objects.get(id=index.result_desc_id)
+            CaseResult_Index['CaseResult'] = ResultName.name
+            CaseResult_Index['Reserver'] = index.id
+            CaseResultList.append(CaseResult_Index)
+
+        resultData = json.dumps(CaseResultList)
+
+    return HttpResponse(resultData)
+
+def SearchPassedResult(request):
+    PostData = json.loads(request.body)
+    if request.method == "POST":
+        Case_Result = ResultCase.objects.filter(result_job_id=int(PostData['JobIndex']), result_desc_id=1)
+        CaseResultList=[]
+        for index in Case_Result:
+            CaseResult_Index = {}
+            CaseName= TestCase.objects.get(id=index.test_case_id)
+            CaseResult_Index['CaseName'] = CaseName.name
+            ResultName = ResultDesc.objects.get(id=index.result_desc_id)
+            CaseResult_Index['CaseResult'] = ResultName.name
+            CaseResult_Index['Reserver'] = index.id
+            CaseResultList.append(CaseResult_Index)
+        resultData = json.dumps(CaseResultList)
+
+    return HttpResponse(resultData)
+
+
+def LoadDetailResult(request):
+    PostData = json.loads(request.body)
+    if request.method == "POST":
+        Case_Result = ResultCase.objects.get(id=int(PostData['CaseIndex']))
+        BasePath = '/home/erunner/eRunner'
+        logurl = Case_Result.log_url.split('|')
+        log_path = BasePath+'/'+logurl[0]+'/'+logurl[1]+'/'+logurl[2]+'/'
+        if logurl[1] == "HDB":
+            ResultName = log_path+'Total.xls'
+            Case_Number = logurl[3].split('-')
+            try:
+                work_book = xlrd.open_workbook(ResultName)
+                result_table = work_book.sheet_by_name('total')
+                for i in range(result_table.nrows):
+                    if(result_table.cell(i,0).value==Case_Number[1]):
+                        Log_result = result_table.cell(i,2).value
+            except:
+                pass
+            resultData = json.dumps({'CasePath':Log_result})
+            response = HttpResponse(resultData)
+        elif logurl[1] == "MAP":
+            all_logs = {}
+            walk_dir(log_path, all_logs)
+            for log_name, log_path in all_logs.items():
+                if log_name.split('.')[0] == logurl[3].split('.')[0]:
+                    f = open(log_path, 'r')
+                    data=f.readlines()
+                    f.close()
+                    fmt = LoggerFormat("eRunner", data)
+                    htmls = fmt.format()
+                    f = open("/opt/portal/Portal/templates/log.html", 'w')
+                    f.write(htmls)
+                    f.close()
+                    resultData = json.dumps({'CasePath':'OK'})
+                    response=HttpResponse(resultData)
+    return response
+
+
+def LoadDetailCode(request):
+    PostData = json.loads(request.body)
+    if request.method == "POST":
+        Case_Result = ResultCase.objects.get(id=int(PostData['CaseIndex']))
+        BasePath = '/home/erunner/eRunner'
+        logurl = Case_Result.log_url.split('|')
+        log_path = BasePath+'/'+logurl[0]+'/'+logurl[1]+'/'+logurl[2]+'/'+'BAO'
+        if logurl[1] == "HDB":
+            ResultName = log_path+'Total.xls'
+            Case_Number = logurl[3].split('-')
+            try:
+                work_book = xlrd.open_workbook(ResultName)
+                result_table = work_book.sheet_by_name('total')
+                for i in range(result_table.nrows):
+                    if(result_table.cell(i,0).value==Case_Number[1]):
+                        Log_result = result_table.cell(i,2).value
+            except:
+                pass
+            resultData = json.dumps({'CasePath':Log_result})
+            response = HttpResponse(resultData)
+        elif logurl[1] == "MAP":
+            #all_logs1 = {}
+            #walk_dir_code(log_path, all_logs1)
+            #for log_name1, log_path in all_logs1.items():
+            #    if log_name1.split('.')[0] == logurl[3].split('.')[0]:
+            log_path = os.path.join(log_path, logurl[3])
+            f = open(log_path, 'r')
+            data=f.read()
+            f.close()
+            fmt = Formater("eRunner")
+            fmt.addCode("perl", log_path, data)
+            htmls = fmt.render()
+            f = open("/opt/portal/Portal/templates/code.html", 'w')
+            f.write(htmls)
+            f.close()
+            resultData = json.dumps({'CasePath':'OK'})
+            response=HttpResponse(resultData)
+    return response
+
+
+def walk_dir(cur_dir, log_dict):
+    file_entries = os.listdir(cur_dir)
+    dir_entries = []
+    for f in file_entries:
+        full_path = os.path.join(cur_dir, f)
+        if f.endswith(".log") and not os.path.isdir(full_path):
+            log_dict[f] = full_path;
+        elif os.path.isdir(full_path):
+            dir_entries.append(full_path)
+    for dir_path in dir_entries:
+        walk_dir(dir_path, log_dict)
+
+def walk_dir_code(cur_dir, log_dict):
+    file_entries = os.listdir(cur_dir)
+    dir_entries = []
+    for f in file_entries:
+        full_path = os.path.join(cur_dir, f)
+        if f.endswith(".pl") and not os.path.isdir(full_path):
+            log_dict[f] = full_path
+        elif os.path.isdir(full_path):
+            dir_entries.append(full_path)
+    for dir_path in dir_entries:
+        walk_dir(dir_path, log_dict)
+
+
